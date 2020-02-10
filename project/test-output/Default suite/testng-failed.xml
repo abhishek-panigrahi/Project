@@ -7,7 +7,9 @@
         <methods>
           <include name="beforeSuite"/>
           <include name="beforeTest"/>
-          <include name="navigateToSauceLab"/>
+          <include name="navigateToSauceDemo"/>
+          <include name="loginToSauceDemo"/>
+          <include name="logoutOfSauceDemo"/>
           <include name="getResult"/>
         </methods>
       </class> <!-- testCases.BaseClass -->

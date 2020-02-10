@@ -4,25 +4,56 @@ import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.NoSuchElementException;
+import java.util.concurrent.TimeUnit;
 
 import org.apache.commons.io.FileUtils;
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Wait;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 
-public class FunctionLibrary {
+public class FunctionLibrary extends BaseClass{
 
 
-		/**
-		 * 
-		 * 
-		 * 	
-		 * @param driver
-		 * @param screenShotName
-		 * @return
-		 * @throws IOException
-		 */
-		public  static String captureScreenshot(WebDriver driver, String screenShotName) throws IOException {
+	/**
+	 * 
+	 * This method is used to remove all files
+	 * from the given directory
+	 * 
+	 * 
+	 * @param indexResultFilename
+	 */ 
+	public static void removeAllFiles(String indexResultFilename)
+	{
+		String currentDir = indexResultFilename.substring(0, indexResultFilename.lastIndexOf(File.separator));
+
+		// Clear Test Report folder
+		File directory = new File(currentDir);
+		File[] allFiles = directory.listFiles();
+		for (int count = 0; count < allFiles.length; count++) {
+			allFiles[count].delete();
+		}
+	}
+
+	/**
+	 * This method is used to take screenshot
+	 * and return it's path.
+	 * 
+	 * 	
+	 * @param driver
+	 * @param screenShotName
+	 * @return
+	 * @throws IOException
+	 */
+	public  static String captureScreenshot(WebDriver driver, String screenShotName) throws IOException {
 		String dest = null;
 		try {
 			SimpleDateFormat dateFormat = new SimpleDateFormat("dd-mm-yyyy h-m-s");
@@ -33,11 +64,365 @@ public class FunctionLibrary {
 			+ ".png";
 			File destination = new File(dest);
 			FileUtils.copyFile(source, destination);
-		} catch (Exception e) {
-			e.getMessage();
-			System.out.println(e.getMessage());
+		} catch (Exception exception) {
+			exception.getMessage();
+			System.out.println(exception.getMessage());
 		}
 		return dest;
 	}
 
+	/**
+	 * 
+	 * highlight the element on which action will be performed
+	 * 
+	 * @param driver
+	 * @param Locator
+	 */
+	public static void highlightElement(WebDriver driver, By Locator) {
+
+		int count = 0;
+
+		try {
+
+			for (count = 0; count < 3; count++) {
+				JavascriptExecutor js = (JavascriptExecutor) driver;
+				js.executeScript("arguments[0].setAttribute('style', arguments[1]);", driver.findElement(Locator),
+						"color: red; border: 2px solid red;");
+
+			}
+
+		}
+
+		catch (Throwable t) {
+			if(count==2)
+				logger.warning("Error came while highlighting element: " + 
+						t.getMessage().substring(0, Math.min(t.getMessage().length(), indexForWarning))+"...");
+		}
+	}
+
+	/**
+	 *  public static void waitForElementToLoad(By locator) method specification:
+	 * 
+	 * 1) Waits for the web element to appear on the page 2) new
+	 * WebDriverWait(driver, 60) -> Waits for 60 seconds 3)
+	 * wait.until((ExpectedCondition<Boolean>) -> Wait until expected condition
+	 * (All documents present on the page get ready) met
+	 * 
+	 * @param : no parameters passed
+	 * 
+	 * 
+	 * @param locator
+	 * @param elementName
+	 * @param timePeriod
+	 */
+	public static void waitForElementToLoad(final By locator, String elementName, int timePeriod) {
+
+		logger.info("Waiting for web element: "+elementName+" to load on the page");
+
+		try {
+
+			// Waits for 60 seconds
+			Wait<WebDriver> wait = new WebDriverWait(driver, timePeriod);
+
+			wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+
+			// Log result
+			logger.info("Waiting ends ... Web element loaded on the page");
+
+		}
+
+		catch (Throwable waitForElementException) {
+
+			// Log error
+			logger.warning("Error came while waiting for element: "+elementName+" to appear: " 
+					+ waitForElementException.getMessage().substring(0, Math.min(waitForElementException.getMessage().length(), indexForWarning))
+					+"...");
+
+		}
+
+	}
+
+	/**
+	 * Waits for element to appear on the page. Once appeared, highlight the
+	 * element and clicks on it. Returns Pass if able to click on the element.
+	 * Returns Fail if any exception occurs in between.
+	 * 
+	 * @param locator
+	 *            Element locator
+	 * @param elemName
+	 *            Element name
+	 * 
+	 * @return Pass/Fail
+	 */
+
+	public static void clickLink(By locator, String elemName) {
+
+		logger.info("Clicking on : " + elemName);
+
+		try {
+
+			// Wait for link to appear on the page
+			waitForElementToLoad(locator,elemName, 10);
+
+			// Highlight link
+			FunctionLibrary.highlightElement(driver, locator);
+
+			// Click on the link
+			driver.findElement(locator).click();
+
+			// Log result
+			logger.pass("Clicked on : " + elemName);
+
+		}
+
+		catch (Throwable clickLinkException) {
+
+			// Log error
+			Assert.fail("Error while clicking on: " + elemName + " : " + clickLinkException.getMessage());
+
+		}
+
+	}
+
+
+	/**
+	 * Waits for input box to appear on the page. Once appeared, highlight and
+	 * clears the box. Returns Pass if Input box got cleared successfully.
+	 * Returns Fail if input box didn't clear or any exception occurs in
+	 * between.
+	 * 
+	 * @param locator
+	 *            Element locator
+	 * @param elemName
+	 *            Element name
+	 * 
+	 * @return Pass/Fail
+	 */
+
+	public static void clearField(By locator, String elemName) {
+
+		logger.info("Clearing field : " + elemName);
+
+		try {
+
+			// Wait for the input-box to load on the page
+			waitForElementToLoad(locator,elemName, 10);
+
+			// Highlight the input-box
+			FunctionLibrary.highlightElement(driver, locator);
+
+			// Clear the input-box
+			driver.findElement(locator).clear();
+
+			// Check whether input-box has been cleared or not
+			if (!driver.findElement(locator).getAttribute("value").isEmpty())
+				driver.findElement(locator).clear();
+
+			// Log result
+			logger.info("Cleared : " + elemName);
+
+		}
+
+		catch (Throwable clearFieldException) {
+
+			// Log error
+			logger.warning("Error while clearing field: " + elemName + " : " + clearFieldException.getMessage()
+			.substring(0, Math.min(clearFieldException.getMessage().length(), indexForWarning))+"...");
+		}
+
+	}
+
+
+	/**
+	 * 
+	 * public static String clearAndInput(By locator,String elemName,String
+	 * Value) method specification :-
+	 * 
+	 * 1) Clear and then Inputs/sends value 2) locator -> identify the web
+	 * element by id,x-path,name,etc. 3) elemName -> the name of the web element
+	 * where we intend to input/send values 4) Value -> the string value which
+	 * we intend to input/send 5) waitForElementToLoad(locator) -> waits for web
+	 * element to load 6) FunctionLibrary.clearField(locator, elemName); ->
+	 * clears the input field 7) driver.findElement(locator).sendKeys(Value) ->
+	 * inputs/sends the value to the intended web element
+	 * 
+	 * @param : Locator for the input-box, name of the web element, value to be
+	 * inputted
+	 * 
+	 * @param elemName
+	 * @param Value
+	 */
+	public static void clearAndInput(By locator, String elemName, String Value) {
+
+		try {
+
+			// Wait for the input box to appear on the page
+			waitForElementToLoad(locator,elemName, 10);
+
+			// Highlight the input box
+			FunctionLibrary.highlightElement(driver, locator);
+
+			// Clear the input field before sending values
+			FunctionLibrary.clearField(locator, elemName);
+
+			// Send values to the input box
+			logger.info("Sending Values in : " + elemName);
+
+			driver.findElement(locator).sendKeys(Value);
+
+			// Log result
+			logger.info("Inputted '" + Value + "' text into : '" + elemName + "'");
+
+		}
+
+		catch (Throwable inputException) {
+
+			// Log error
+			logger.warning("Error while inputting text into: '" + elemName + "' : " + inputException.getMessage()
+			.substring(0, Math.min(inputException.getMessage().length(), indexForWarning))+"...");
+
+		}
+
+	}
+
+
+	/**
+	 * 
+	 * public static void waitForPageToLoad() method specification :-
+	 * 
+	 * 1) Waits for a new page to load completely 2) new WebDriverWait(driver,
+	 * 60) -> Waits for 60 seconds 3) wait.until((ExpectedCondition<Boolean>) ->
+	 * Wait until expected condition (All documents present on the page get
+	 * ready) met
+	 * 
+	 * @param : no parameters passed
+	 * 
+	 * @return : void
+	 * 
+	 * @throws InterruptedException
+	 */
+
+	public static void waitForPageToLoad() throws InterruptedException {
+
+		try {
+
+			// Waits for 60 seconds
+			WebDriverWait wait = new WebDriverWait(driver, 60);
+
+			// Wait until expected condition (All documents present on the page
+			// get ready) met
+			wait.until((ExpectedCondition<Boolean>) new ExpectedCondition<Boolean>() {
+
+				public Boolean apply(WebDriver d) {
+
+					if (!(d instanceof JavascriptExecutor))
+						return true;
+
+					Object result = ((JavascriptExecutor) d)
+							.executeScript("return document['readyState'] ? 'complete' == document.readyState : true");
+
+					if (result != null && result instanceof Boolean && (Boolean) result)
+						return true;
+
+					return false;
+
+				}
+
+			});
+
+		}
+
+		catch (Throwable waitForPageToLoadException) {
+			logger.warning("Error came while waiting for page to load : " + waitForPageToLoadException.getMessage()
+			.substring(0, Math.min(waitForPageToLoadException.getMessage().length(), indexForWarning))+"...");
+		}
+
+	}
+
+	/**
+	 * 
+	 * public static Boolean isElementPresent(By locator, String elemName)
+	 * method specification
+	 * 
+	 * driver.findElement(locator) : Checking whether element present or not
+	 * 
+	 * @param locator
+	 * @param elemName
+	 * @return true / false
+	 */
+	public static boolean isElementPresent(By locator, String elemName) {
+
+		logger.info("Checking whether " + elemName + " is present on the page or not ...");
+
+		try {
+
+			// Check whether web element is displayed or not
+			driver.findElement(locator);
+
+			logger.info(elemName + " is present on the page");
+			return true;
+
+		}
+
+		catch (NoSuchElementException elementPresentError) {
+
+			logger.info(elemName + " not present on the page");
+			return false;
+
+		}
+
+	}
+
+	/**
+	 * This method is used to navigate to the application
+	 * 
+	 * 
+	 * @param url
+	 * @param testSiteName
+	 */
+
+	public static void navigateToSite(String url, String testSiteName)
+	{
+		logger.info("Navigating to test site: "+testSiteName);
+
+		try
+		{
+
+			driver = new ChromeDriver();	
+
+			// Implicitly wait for 30 seconds for browser to open
+			driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+
+			// Delete all browser cookies
+			driver.manage().deleteAllCookies();
+
+			driver.navigate().to(url);
+
+			driver.manage().window().maximize();
+		}
+		catch(Exception exception)
+		{
+			Assert.fail("Unable to visit website due to exception: "+exception.getMessage());
+		}
+	}
+
+
+
+	/**
+	 * 
+	 * This method is used to make assertions
+	 * for text and log them
+	 * 
+	 * @param actualText
+	 * @param expectedText
+	 * @param element
+	 */
+	public static void assertText(String actualText, String expectedText, String element)
+	{
+		logger.info("Asserting text for: "+element);
+		Assert.assertEquals(actualText, expectedText);
+		logger.pass("Pass: Succesfully asserted "+element);
+	}
+	
+	
 }

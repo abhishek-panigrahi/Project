@@ -24,7 +24,7 @@
     <div class="top-banner-root">
       <span class="top-banner-title-font">Test results</span>
       <br/>
-      <span class="top-banner-font-1">1 suite</span>
+      <span class="top-banner-font-1">1 suite, 1 failed test</span>
     </div> <!-- top-banner-root -->
     <div class="navigator-root">
       <div class="navigator-suite-header">
@@ -38,7 +38,7 @@
         <div class="rounded-window">
           <div class="suite-header light-rounded-window-top">
             <a href="#" panel-name="suite-Default_suite" class="navigator-link">
-              <span class="suite-name border-passed">Default suite</span>
+              <span class="suite-name border-failed">Default suite</span>
             </a> <!-- navigator-link -->
           </div> <!-- suite-header light-rounded-window-top -->
           <div class="navigator-suite-content">
@@ -49,7 +49,7 @@
               <ul>
                 <li>
                   <a href="#" panel-name="test-xml-Default_suite" class="navigator-link ">
-                    <span>C:\Users\abhishekp\AppData\Local\Temp\testng-eclipse--234114618\testng-customsuite.xml</span>
+                    <span>C:\Users\abhishekp\AppData\Local\Temp\testng-eclipse-1898420043\testng-customsuite.xml</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
@@ -91,7 +91,21 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">3 methods,   3 passed</span>
+                    <span class="method-stats">3 methods, 1 failed,   2 passed</span>
+                  </li>
+                  <li>
+                    <span class="method-list-title failed">Failed methods</span>
+                    <span class="show-or-hide-methods failed">
+                      <a href="#" panel-name="suite-Default_suite" class="hide-methods failed suite-Default_suite"> (hide)</a> <!-- hide-methods failed suite-Default_suite -->
+                      <a href="#" panel-name="suite-Default_suite" class="show-methods failed suite-Default_suite"> (show)</a> <!-- show-methods failed suite-Default_suite -->
+                    </span>
+                    <div class="method-list-content failed suite-Default_suite">
+                      <span>
+                        <img src="failed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Default_suite" title="testCases.BaseClass" class="method navigator-link" hash-for-method="logoutOfSauceDemo">logoutOfSauceDemo</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                    </div> <!-- method-list-content failed suite-Default_suite -->
                   </li>
                   <li>
                     <span class="method-list-title passed">Passed methods</span>
@@ -103,11 +117,6 @@
                       <span>
                         <img src="passed.png" width="3%"/>
                         <a href="#" panel-name="suite-Default_suite" title="testCases.BaseClass" class="method navigator-link" hash-for-method="loginToSauceDemo">loginToSauceDemo</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                      <span>
-                        <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="testCases.BaseClass" class="method navigator-link" hash-for-method="logoutOfSauceLab">logoutOfSauceLab</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
@@ -127,6 +136,63 @@
     <div class="wrapper">
       <div class="main-panel-root">
         <div panel-name="suite-Default_suite" class="panel Default_suite">
+          <div class="suite-Default_suite-class-failed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="failed.png"/>
+              <span class="class-name">testCases.BaseClass</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="logoutOfSauceDemo">
+                  </a> <!-- logoutOfSauceDemo -->
+                  <span class="method-name">logoutOfSauceDemo</span>
+                  <div class="stack-trace">java.lang.AssertionError: Error while clicking on: Side menu icon : unknown error: Element &lt;span style=&quot;color: red; border: 2px solid red;&quot;&gt;...&lt;/span&gt; is not clickable at point (42, 30). Other element would receive the click: &lt;button style=&quot;position: absolute; left: 0px; top: 0px; width: 100%; height: 100%; margin: 0px; padding: 0px; border: none; opacity: 0; font-size: 8px; cursor: pointer;&quot;&gt;...&lt;/button&gt;
+  (Session info: chrome=80.0.3987.87)
+  (Driver info: chromedriver=2.35.528161 (5b82f2d2aae0ca24b877009200ced9065a772e73),platform=Windows NT 6.1.7601 SP1 x86_64) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 38 milliseconds
+Build info: version: &apos;2.53.1&apos;, revision: &apos;a36b8b1cd5757287168e54b817830adce9b0158d&apos;, time: &apos;2016-06-30 19:26:09&apos;
+System info: host: &apos;abhishekp-PC&apos;, ip: &apos;192.168.0.102&apos;, os.name: &apos;Windows 7&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;6.1&apos;, java.version: &apos;11.0.2&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, networkConnectionEnabled=false, chrome={chromedriverVersion=2.35.528161 (5b82f2d2aae0ca24b877009200ced9065a772e73), userDataDir=C:\Users\ABHISH~1\AppData\Local\Temp\scoped_dir5024_10163}, takesHeapSnapshot=true, pageLoadStrategy=normal, databaseEnabled=false, handlesAlerts=true, hasTouchScreen=false, version=80.0.3987.87, platform=XP, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=false, acceptInsecureCerts=false, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true, setWindowRect=true, unexpectedAlertBehaviour=}]
+Session ID: 4c8223b7a73e76c8c37e30977641fde8
+	at org.testng.Assert.fail(Assert.java:97)
+	at testCases.FunctionLibrary.clickLink(FunctionLibrary.java:181)
+	at testCases.BaseClass.logoutOfSauceDemo(BaseClass.java:81)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:566)
+	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:133)
+	at org.testng.internal.TestInvoker.invokeMethod(TestInvoker.java:584)
+	at org.testng.internal.TestInvoker.invokeTestMethod(TestInvoker.java:172)
+	at org.testng.internal.MethodRunner.runInSequence(MethodRunner.java:46)
+	at org.testng.internal.TestInvoker$MethodInvocationAgent.invoke(TestInvoker.java:804)
+	at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:145)
+	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1540)
+	at org.testng.TestRunner.privateRun(TestRunner.java:770)
+	at org.testng.TestRunner.run(TestRunner.java:591)
+	at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
+	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
+	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
+	at org.testng.SuiteRunner.run(SuiteRunner.java:304)
+	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
+	at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
+	at org.testng.TestNG.runSuites(TestNG.java:1032)
+	at org.testng.TestNG.run(TestNG.java:1000)
+	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Default_suite-class-failed -->
           <div class="suite-Default_suite-class-passed">
             <div class="main-panel-header rounded-window-top">
               <img src="passed.png"/>
@@ -142,13 +208,6 @@
               </div> <!-- method -->
               <div class="method">
                 <div class="method-content">
-                  <a name="logoutOfSauceLab">
-                  </a> <!-- logoutOfSauceLab -->
-                  <span class="method-name">logoutOfSauceLab</span>
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-              <div class="method">
-                <div class="method-content">
                   <a name="navigateToSauceDemo">
                   </a> <!-- navigateToSauceDemo -->
                   <span class="method-name">navigateToSauceDemo</span>
@@ -159,7 +218,7 @@
         </div> <!-- panel Default_suite -->
         <div panel-name="test-xml-Default_suite" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">C:\Users\abhishekp\AppData\Local\Temp\testng-eclipse--234114618\testng-customsuite.xml</span>
+            <span class="header-content">C:\Users\abhishekp\AppData\Local\Temp\testng-eclipse-1898420043\testng-customsuite.xml</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <pre>
@@ -212,20 +271,20 @@ data.addRows(3);
 data.setCell(0, 0, 0)
 data.setCell(0, 1, 'navigateToSauceDemo')
 data.setCell(0, 2, 'testCases.BaseClass')
-data.setCell(0, 3, 5792);
+data.setCell(0, 3, 6643);
 data.setCell(1, 0, 1)
 data.setCell(1, 1, 'loginToSauceDemo')
 data.setCell(1, 2, 'testCases.BaseClass')
-data.setCell(1, 3, 4644);
+data.setCell(1, 3, 4640);
 data.setCell(2, 0, 2)
-data.setCell(2, 1, 'logoutOfSauceLab')
+data.setCell(2, 1, 'logoutOfSauceDemo')
 data.setCell(2, 2, 'testCases.BaseClass')
-data.setCell(2, 3, 2487);
+data.setCell(2, 3, 144);
 window.suiteTableData['Default_suite']= { tableData: data, tableDiv: 'times-div-Default_suite'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 12 seconds</span>
+              <span class="suite-total-time">Total running time: 11 seconds</span>
               <div id="times-div-Default_suite">
               </div> <!-- times-div-Default_suite -->
             </div> <!-- times-div -->
@@ -258,31 +317,33 @@ return data;
               </div> <!-- configuration-suite before -->
               <div class="configuration-test before">
                 <span class="method-name">beforeTest</span>
-                <span class="method-start">224 ms</span>
+                <span class="method-start">222 ms</span>
               </div> <!-- configuration-test before -->
               <div class="test-method">
                 <span class="method-name">navigateToSauceDemo</span>
-                <span class="method-start">252 ms</span>
+                <span class="method-start">246 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">getResult([TestResult name=navigateToSauceDemo status=SUCCESS method=BaseClass.navigateToSauceDemo()[pri:1, in...)</span>
-                <span class="method-start">6048 ms</span>
+                <span class="method-start">6894 ms</span>
               </div> <!-- configuration-method after -->
               <div class="test-method">
                 <span class="method-name">loginToSauceDemo</span>
-                <span class="method-start">6549 ms</span>
+                <span class="method-start">7359 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
                 <span class="method-name">getResult([TestResult name=loginToSauceDemo status=SUCCESS method=BaseClass.loginToSauceDemo()[pri:2, instance...)</span>
-                <span class="method-start">11195 ms</span>
+                <span class="method-start">12002 ms</span>
               </div> <!-- configuration-method after -->
               <div class="test-method">
-                <span class="method-name">logoutOfSauceLab</span>
-                <span class="method-start">11307 ms</span>
+                <img src="failed.png">
+                </img>
+                <span class="method-name">logoutOfSauceDemo</span>
+                <span class="method-start">12097 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
-                <span class="method-name">getResult([TestResult name=logoutOfSauceLab status=SUCCESS method=BaseClass.logoutOfSauceLab()[pri:3, instance...)</span>
-                <span class="method-start">13796 ms</span>
+                <span class="method-name">getResult([TestResult name=logoutOfSauceDemo status=FAILURE method=BaseClass.logoutOfSauceDemo()[pri:3, instan...)</span>
+                <span class="method-start">12245 ms</span>
               </div> <!-- configuration-method after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
