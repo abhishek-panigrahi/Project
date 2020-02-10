@@ -65,7 +65,8 @@ public class BaseClass {
 
 		FunctionLibrary.clearAndInput(By.id("user-name"),"User name", "standard_user");
 		FunctionLibrary.clearAndInput(By.id("password"),"Password", "secret_sauce");
-		FunctionLibrary.clickLink(By.className("btn_action"), "login button");
+		FunctionLibrary.waitForElementToLoad(By.className("btn_action"),"Login button", 10);
+		FunctionLibrary.clickLink(By.className("btn_action"), "Login button");
 		FunctionLibrary.waitForPageToLoad();
 		FunctionLibrary.assertText(driver.getTitle(), "Swag Labs","Page title");
 	}
@@ -78,7 +79,8 @@ public class BaseClass {
 		logger.assignCategory("Smoke\tfor\tsaucedemo.com");
 		logger.info("Logging out of saucedemo.com");
 		
-		FunctionLibrary.clickLink(By.xpath("//*[@class='bm-burger-button']//span"), "Side menu icon");
+		FunctionLibrary.clickLink(By.xpath("//*[@class='bm-burger-button']//button"), "Side menu icon");
+		FunctionLibrary.waitForElementToLoad(By.id("logout_sidebar_link"),"Log out option", 10);
 		FunctionLibrary.clickLink(By.id("logout_sidebar_link"), "Log out option");
 		FunctionLibrary.waitForPageToLoad();
 		FunctionLibrary.assertText(driver.getTitle(), "Swag Labs","Page title");

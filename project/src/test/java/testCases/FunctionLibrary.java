@@ -162,7 +162,7 @@ public class FunctionLibrary extends BaseClass{
 		try {
 
 			// Wait for link to appear on the page
-			waitForElementToLoad(locator,elemName, 10);
+			//waitForElementToLoad(locator,elemName, 10);
 
 			// Highlight link
 			FunctionLibrary.highlightElement(driver, locator);
@@ -266,19 +266,19 @@ public class FunctionLibrary extends BaseClass{
 			FunctionLibrary.clearField(locator, elemName);
 
 			// Send values to the input box
-			logger.info("Sending Values in : " + elemName);
+			logger.info("Sending values to : " + elemName);
 
 			driver.findElement(locator).sendKeys(Value);
 
 			// Log result
-			logger.info("Inputted '" + Value + "' text into : '" + elemName + "'");
+			logger.pass("Inputted '" + Value + "' text into : '" + elemName + "'");
 
 		}
 
 		catch (Throwable inputException) {
 
 			// Log error
-			logger.warning("Error while inputting text into: '" + elemName + "' : " + inputException.getMessage()
+			logger.fail("Error while inputting text into: '" + elemName + "' : " + inputException.getMessage()
 			.substring(0, Math.min(inputException.getMessage().length(), indexForWarning))+"...");
 
 		}
