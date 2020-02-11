@@ -6,6 +6,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.testng.ITestResult;
 import org.testng.annotations.AfterMethod;
+import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
@@ -21,7 +22,7 @@ public class BaseClass {
 	public static WebDriver driver;
 	public static ExtentReports report;
 	public static ExtentTest logger;
-	public static int indexForWarning = 50; 
+	public static int indexForWarning = 200; 
 
 	@BeforeSuite
 	public void beforeSuite() {
@@ -45,13 +46,14 @@ public class BaseClass {
 
 
 	@Test(priority = 1)
-	public void navigateToSauceDemo()
+	public void navigateToSauceDemo() throws InterruptedException
 	{
 		logger = report.createTest("Navigate to saucedemo.com");
 		logger.assignAuthor("Abhishek\tPanigrahi");
 		logger.assignCategory("Smoke\tfor\tsaucedemo.com");
 
 		FunctionLibrary.navigateToSite("https://www.saucedemo.com/", "SauceDemo.com");
+		FunctionLibrary.waitForPageToLoad();
 		FunctionLibrary.assertText(driver.getTitle(), "Swag Labs","Page title");
 	}
 
@@ -80,6 +82,7 @@ public class BaseClass {
 		logger.info("Logging out of saucedemo.com");
 		
 		FunctionLibrary.clickLink(By.xpath("//*[@class='bm-burger-button']//button"), "Side menu icon");
+		System.out.println(driver.getTitle());
 		FunctionLibrary.waitForElementToLoad(By.id("logout_sidebar_link"),"Log out option", 10);
 		FunctionLibrary.clickLink(By.id("logout_sidebar_link"), "Log out option");
 		FunctionLibrary.waitForPageToLoad();
@@ -103,7 +106,13 @@ public class BaseClass {
 			logger.pass("Test Case Passed: " + result.getName());
 		}
 	
-		report.flush();		
+		report.flush();
+	}
+	
+	@AfterSuite
+	public static void afterSuite()
+	{
+	driver.close();
 	}
 
 }

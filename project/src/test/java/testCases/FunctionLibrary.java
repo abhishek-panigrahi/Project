@@ -119,11 +119,12 @@ public class FunctionLibrary extends BaseClass{
 
 		logger.info("Waiting for web element: "+elementName+" to load on the page");
 
+		
 		try {
 
 			// Waits for 60 seconds
 			Wait<WebDriver> wait = new WebDriverWait(driver, timePeriod);
-
+			
 			wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
 
 			// Log result
@@ -134,7 +135,7 @@ public class FunctionLibrary extends BaseClass{
 		catch (Throwable waitForElementException) {
 
 			// Log error
-			logger.warning("Error came while waiting for element: "+elementName+" to appear: " 
+			logger.error("Error came while waiting for element: "+elementName+" to appear: " 
 					+ waitForElementException.getMessage().substring(0, Math.min(waitForElementException.getMessage().length(), indexForWarning))
 					+"...");
 
@@ -226,7 +227,7 @@ public class FunctionLibrary extends BaseClass{
 		catch (Throwable clearFieldException) {
 
 			// Log error
-			logger.warning("Error while clearing field: " + elemName + " : " + clearFieldException.getMessage()
+			logger.error("Error while clearing field: " + elemName + " : " + clearFieldException.getMessage()
 			.substring(0, Math.min(clearFieldException.getMessage().length(), indexForWarning))+"...");
 		}
 
@@ -278,7 +279,7 @@ public class FunctionLibrary extends BaseClass{
 		catch (Throwable inputException) {
 
 			// Log error
-			logger.fail("Error while inputting text into: '" + elemName + "' : " + inputException.getMessage()
+			Assert.fail("Error while inputting text into: '" + elemName + "' : " + inputException.getMessage()
 			.substring(0, Math.min(inputException.getMessage().length(), indexForWarning))+"...");
 
 		}
@@ -333,7 +334,7 @@ public class FunctionLibrary extends BaseClass{
 		}
 
 		catch (Throwable waitForPageToLoadException) {
-			logger.warning("Error came while waiting for page to load : " + waitForPageToLoadException.getMessage()
+			logger.error("Error came while waiting for page to load : " + waitForPageToLoadException.getMessage()
 			.substring(0, Math.min(waitForPageToLoadException.getMessage().length(), indexForWarning))+"...");
 		}
 

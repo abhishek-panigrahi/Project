@@ -3,16 +3,17 @@
 <suite name="Failed suite [Default suite]" guice-stage="DEVELOPMENT">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="testCases.FunctionLibrary">
+      <class name="testCases.BaseClass">
         <methods>
           <include name="beforeSuite"/>
+          <include name="afterSuite"/>
           <include name="beforeTest"/>
           <include name="navigateToSauceDemo"/>
           <include name="loginToSauceDemo"/>
           <include name="logoutOfSauceDemo"/>
           <include name="getResult"/>
         </methods>
-      </class> <!-- testCases.FunctionLibrary -->
+      </class> <!-- testCases.BaseClass -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->
