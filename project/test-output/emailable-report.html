@@ -8,13 +8,26 @@
 <body>
 <table>
 <tr><th>Test</th><th># Passed</th><th># Skipped</th><th># Retried</th><th># Failed</th><th>Time (ms)</th><th>Included Groups</th><th>Excluded Groups</th></tr>
-<tr><th colspan="7">Default suite</th></tr>
-<tr><td><a href="#t0">Default test</a></td><td class="num">3</td><td class="num">0</td><td class="num">0</td><td class="num">0</td><td class="num">16,467</td><td></td><td></td></tr>
+<tr><th colspan="7">Smoke</th></tr>
+<tr><td><a href="#t0">Smoke</a></td><td class="num">1</td><td class="num">0</td><td class="num">0</td><td class="num attn">1</td><td class="num">9,070</td><td></td><td></td></tr>
 </table>
-<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">Default suite</th></tr></tbody><tbody id="t0"><tr><th colspan="4">Default test &#8212; passed</th></tr><tr class="passedeven"><td rowspan="3">testCases.BaseClass</td><td><a href="#m0">loginToSauceDemo</a></td><td rowspan="1">1581370420116</td><td rowspan="1">7071</td></tr><tr class="passedeven"><td><a href="#m1">logoutOfSauceDemo</a></td><td rowspan="1">1581370427281</td><td rowspan="1">1411</td></tr><tr class="passedeven"><td><a href="#m2">navigateToSauceDemo</a></td><td rowspan="1">1581370412353</td><td rowspan="1">7393</td></tr></tbody>
+<table id='summary'><thead><tr><th>Class</th><th>Method</th><th>Start</th><th>Time (ms)</th></tr></thead><tbody><tr><th colspan="4">Smoke</th></tr></tbody><tbody id="t0"><tr><th colspan="4">Smoke &#8212; failed (configuration methods)</th></tr><tr class="failedeven"><td rowspan="1">com.project.Testcases.BaseClass</td><td><a href="#m0">getResult</a></td><td rowspan="1">1581542041997</td><td rowspan="1">5</td></tr><tr><th colspan="4">Smoke &#8212; failed</th></tr><tr class="failedeven"><td rowspan="1">com.project.Testcases.BaseClass</td><td><a href="#m1">loginToSauceDemo</a></td><td rowspan="1">1581542041928</td><td rowspan="1">57</td></tr><tr><th colspan="4">Smoke &#8212; skipped (configuration methods)</th></tr><tr class="skippedeven"><td rowspan="1">com.project.Testcases.BaseClass</td><td><a href="#m2">afterSuite</a></td><td rowspan="1">1581542042097</td><td rowspan="1">-1581542042097</td></tr><tr><th colspan="4">Smoke &#8212; passed</th></tr><tr class="passedeven"><td rowspan="1">com.project.Testcases.BaseClass</td><td><a href="#m3">navigateToSauceDemo</a></td><td rowspan="1">1581542032971</td><td rowspan="1">8565</td></tr></tbody>
 </table>
-<h2>Default test</h2><h3 id="m0">testCases.BaseClass#loginToSauceDemo</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m1">testCases.BaseClass#logoutOfSauceDemo</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
-<h3 id="m2">testCases.BaseClass#navigateToSauceDemo</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h2>Smoke</h2><h3 id="m0">com.project.Testcases.BaseClass#getResult</h3><table class="result"><tr class="param"><th>Parameter #1</th></tr><tr class="param stripe"><td>[TestResult name=loginToSauceDemo status=FAILURE method=BaseClass.loginToSauceDemo(java.lang.String, java.lang.String)[pri:2, instance:com.project.Testcases.BaseClass@2805d709] output={null}]</td></tr><tr><th>Exception</th></tr><tr><td><div class="stacktrace">java.io.IOException: ScreenCapture path cannot be null or empty.
+	at com.aventstack.extentreports.MediaEntityBuilder.createScreenCaptureFromPath(MediaEntityBuilder.java:31)
+	at com.aventstack.extentreports.MediaEntityBuilder.createScreenCaptureFromPath(MediaEntityBuilder.java:37)
+	at com.project.Testcases.BaseClass.getResult(BaseClass.java:125)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1540)
+... Removed 32 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m1">com.project.Testcases.BaseClass#loginToSauceDemo</h3><table class="result"><tr class="param"><th>Parameter #1</th><th>Parameter #2</th></tr><tr class="param stripe"><td>standard_user</td><td>secret_sauce</td></tr><tr><th colspan="2">Exception</th></tr><tr><td colspan="2"><div class="stacktrace">java.lang.NullPointerException
+	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:69)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
+	at com.sun.proxy.$Proxy14.sendKeys(Unknown Source)
+	at com.project.Page.LoginPage.loginToSauceDemo(LoginPage.java:35)
+	at com.project.Testcases.BaseClass.loginToSauceDemo(BaseClass.java:95)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1540)
+... Removed 27 stack frames</div></td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m2">com.project.Testcases.BaseClass#afterSuite</h3><table class="result"><tr><th class="invisible"/></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
+<h3 id="m3">com.project.Testcases.BaseClass#navigateToSauceDemo</h3><table class="result"><tr class="param"><th>Parameter #1</th><th>Parameter #2</th><th>Parameter #3</th></tr><tr class="param stripe"><td>https://www.saucedemo.com/</td><td>SauceDemo.com</td><td>chrome</td></tr></table><p class="totop"><a href="#summary">back to summary</a></p>
 </body>
 </html>

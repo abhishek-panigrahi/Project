@@ -1,4 +1,4 @@
-package testCases;
+package com.project.Utility;
 
 import java.io.File;
 import java.io.IOException;
@@ -13,6 +13,7 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -20,7 +21,11 @@ import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
-public class FunctionLibrary extends BaseClass{
+import com.project.Testcases.BaseClass;
+
+
+
+public class MethodLibrary extends BaseClass{
 
 
 	/**
@@ -76,9 +81,9 @@ public class FunctionLibrary extends BaseClass{
 	 * highlight the element on which action will be performed
 	 * 
 	 * @param driver
-	 * @param Locator
+	 * @param loginButton
 	 */
-	public static void highlightElement(WebDriver driver, By Locator) {
+	public static void highlightElement(WebDriver driver, WebElement loginButton) {
 
 		int count = 0;
 
@@ -86,7 +91,7 @@ public class FunctionLibrary extends BaseClass{
 
 			for (count = 0; count < 3; count++) {
 				JavascriptExecutor js = (JavascriptExecutor) driver;
-				js.executeScript("arguments[0].setAttribute('style', arguments[1]);", driver.findElement(Locator),
+				js.executeScript("arguments[0].setAttribute('style', arguments[1]);", loginButton,
 						"color: red; border: 2px solid red;");
 
 			}
@@ -148,7 +153,7 @@ public class FunctionLibrary extends BaseClass{
 	 * element and clicks on it. Returns Pass if able to click on the element.
 	 * Returns Fail if any exception occurs in between.
 	 * 
-	 * @param locator
+	 * @param loginButton
 	 *            Element locator
 	 * @param elemName
 	 *            Element name
@@ -156,7 +161,7 @@ public class FunctionLibrary extends BaseClass{
 	 * @return Pass/Fail
 	 */
 
-	public static void clickLink(By locator, String elemName) {
+	public static void clickLink(WebElement loginButton, String elemName) {
 
 		logger.info("Clicking on : " + elemName);
 
@@ -166,10 +171,10 @@ public class FunctionLibrary extends BaseClass{
 			//waitForElementToLoad(locator,elemName, 10);
 
 			// Highlight link
-			FunctionLibrary.highlightElement(driver, locator);
+			MethodLibrary.highlightElement(driver, loginButton);
 
 			// Click on the link
-			driver.findElement(locator).click();
+			loginButton.click();
 
 			// Log result
 			logger.pass("Clicked on : " + elemName);
@@ -210,10 +215,10 @@ public class FunctionLibrary extends BaseClass{
 			waitForElementToLoad(locator,elemName, 10);
 
 			// Highlight the input-box
-			FunctionLibrary.highlightElement(driver, locator);
+			MethodLibrary.highlightElement(driver, driver.findElement(locator));
 
 			// Clear the input-box
-			driver.findElement(locator).clear();
+			driver.findElement(locator).clear(); 
 
 			// Check whether input-box has been cleared or not
 			if (!driver.findElement(locator).getAttribute("value").isEmpty())
@@ -261,10 +266,10 @@ public class FunctionLibrary extends BaseClass{
 			waitForElementToLoad(locator,elemName, 10);
 
 			// Highlight the input box
-			FunctionLibrary.highlightElement(driver, locator);
+			MethodLibrary.highlightElement(driver, driver.findElement(locator));
 
 			// Clear the input field before sending values
-			FunctionLibrary.clearField(locator, elemName);
+			MethodLibrary.clearField(locator, elemName);
 
 			// Send values to the input box
 			logger.info("Sending values to : " + elemName);

@@ -24,7 +24,7 @@
     <div class="top-banner-root">
       <span class="top-banner-title-font">Test results</span>
       <br/>
-      <span class="top-banner-font-1">1 suite</span>
+      <span class="top-banner-font-1">1 suite, 1 failed test</span>
     </div> <!-- top-banner-root -->
     <div class="navigator-root">
       <div class="navigator-suite-header">
@@ -37,8 +37,8 @@
       <div class="suite">
         <div class="rounded-window">
           <div class="suite-header light-rounded-window-top">
-            <a href="#" panel-name="suite-Default_suite" class="navigator-link">
-              <span class="suite-name border-passed">Default suite</span>
+            <a href="#" panel-name="suite-Smoke" class="navigator-link">
+              <span class="suite-name border-failed">Smoke</span>
             </a> <!-- navigator-link -->
           </div> <!-- suite-header light-rounded-window-top -->
           <div class="navigator-suite-content">
@@ -48,37 +48,37 @@
             <div class="suite-section-content">
               <ul>
                 <li>
-                  <a href="#" panel-name="test-xml-Default_suite" class="navigator-link ">
-                    <span>C:\Users\abhishekp\AppData\Local\Temp\testng-eclipse-56290164\testng-customsuite.xml</span>
+                  <a href="#" panel-name="test-xml-Smoke" class="navigator-link ">
+                    <span>E:\Project\project\testng.xml</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
-                  <a href="#" panel-name="testlist-Default_suite" class="navigator-link ">
+                  <a href="#" panel-name="testlist-Smoke" class="navigator-link ">
                     <span class="test-stats">1 test</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
-                  <a href="#" panel-name="group-Default_suite" class="navigator-link ">
+                  <a href="#" panel-name="group-Smoke" class="navigator-link ">
                     <span>0 groups</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
-                  <a href="#" panel-name="times-Default_suite" class="navigator-link ">
+                  <a href="#" panel-name="times-Smoke" class="navigator-link ">
                     <span>Times</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
-                  <a href="#" panel-name="reporter-Default_suite" class="navigator-link ">
+                  <a href="#" panel-name="reporter-Smoke" class="navigator-link ">
                     <span>Reporter output</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
-                  <a href="#" panel-name="ignored-methods-Default_suite" class="navigator-link ">
+                  <a href="#" panel-name="ignored-methods-Smoke" class="navigator-link ">
                     <span>Ignored methods</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
-                  <a href="#" panel-name="chronological-Default_suite" class="navigator-link ">
+                  <a href="#" panel-name="chronological-Smoke" class="navigator-link ">
                     <span>Chronological view</span>
                   </a> <!-- navigator-link  -->
                 </li>
@@ -91,31 +91,35 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">3 methods,   3 passed</span>
+                    <span class="method-stats">2 methods, 1 failed,   1 passed</span>
+                  </li>
+                  <li>
+                    <span class="method-list-title failed">Failed methods</span>
+                    <span class="show-or-hide-methods failed">
+                      <a href="#" panel-name="suite-Smoke" class="hide-methods failed suite-Smoke"> (hide)</a> <!-- hide-methods failed suite-Smoke -->
+                      <a href="#" panel-name="suite-Smoke" class="show-methods failed suite-Smoke"> (show)</a> <!-- show-methods failed suite-Smoke -->
+                    </span>
+                    <div class="method-list-content failed suite-Smoke">
+                      <span>
+                        <img src="failed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Smoke" title="com.project.Testcases.BaseClass" class="method navigator-link" hash-for-method="loginToSauceDemo(standard_user, secret_sauce)">loginToSauceDemo(standard_user, secret_sauce)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                    </div> <!-- method-list-content failed suite-Smoke -->
                   </li>
                   <li>
                     <span class="method-list-title passed">Passed methods</span>
                     <span class="show-or-hide-methods passed">
-                      <a href="#" panel-name="suite-Default_suite" class="hide-methods passed suite-Default_suite"> (hide)</a> <!-- hide-methods passed suite-Default_suite -->
-                      <a href="#" panel-name="suite-Default_suite" class="show-methods passed suite-Default_suite"> (show)</a> <!-- show-methods passed suite-Default_suite -->
+                      <a href="#" panel-name="suite-Smoke" class="hide-methods passed suite-Smoke"> (hide)</a> <!-- hide-methods passed suite-Smoke -->
+                      <a href="#" panel-name="suite-Smoke" class="show-methods passed suite-Smoke"> (show)</a> <!-- show-methods passed suite-Smoke -->
                     </span>
-                    <div class="method-list-content passed suite-Default_suite">
+                    <div class="method-list-content passed suite-Smoke">
                       <span>
                         <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="testCases.BaseClass" class="method navigator-link" hash-for-method="loginToSauceDemo">loginToSauceDemo</a> <!-- method navigator-link -->
+                        <a href="#" panel-name="suite-Smoke" title="com.project.Testcases.BaseClass" class="method navigator-link" hash-for-method="navigateToSauceDemo(https://www.saucedemo.com/, SauceDemo.com, chrome)">navigateToSauceDemo(https://www.saucedemo.com/, SauceDemo.com, chrome)</a> <!-- method navigator-link -->
                       </span>
                       <br/>
-                      <span>
-                        <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="testCases.BaseClass" class="method navigator-link" hash-for-method="logoutOfSauceDemo">logoutOfSauceDemo</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                      <span>
-                        <img src="passed.png" width="3%"/>
-                        <a href="#" panel-name="suite-Default_suite" title="testCases.BaseClass" class="method navigator-link" hash-for-method="navigateToSauceDemo">navigateToSauceDemo</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                    </div> <!-- method-list-content passed suite-Default_suite -->
+                    </div> <!-- method-list-content passed suite-Smoke -->
                   </li>
                 </ul>
               </div> <!-- suite-section-content -->
@@ -126,167 +130,183 @@
     </div> <!-- navigator-root -->
     <div class="wrapper">
       <div class="main-panel-root">
-        <div panel-name="suite-Default_suite" class="panel Default_suite">
-          <div class="suite-Default_suite-class-passed">
+        <div panel-name="suite-Smoke" class="panel Smoke">
+          <div class="suite-Smoke-class-failed">
             <div class="main-panel-header rounded-window-top">
-              <img src="passed.png"/>
-              <span class="class-name">testCases.BaseClass</span>
+              <img src="failed.png"/>
+              <span class="class-name">com.project.Testcases.BaseClass</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
                 <div class="method-content">
-                  <a name="loginToSauceDemo">
-                  </a> <!-- loginToSauceDemo -->
+                  <a name="loginToSauceDemo(standard_user, secret_sauce)">
+                  </a> <!-- loginToSauceDemo(standard_user, secret_sauce) -->
                   <span class="method-name">loginToSauceDemo</span>
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-              <div class="method">
-                <div class="method-content">
-                  <a name="logoutOfSauceDemo">
-                  </a> <!-- logoutOfSauceDemo -->
-                  <span class="method-name">logoutOfSauceDemo</span>
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-              <div class="method">
-                <div class="method-content">
-                  <a name="navigateToSauceDemo">
-                  </a> <!-- navigateToSauceDemo -->
-                  <span class="method-name">navigateToSauceDemo</span>
+                  <span class="parameters">(standard_user, secret_sauce)</span>
+                  <div class="stack-trace">java.lang.NullPointerException
+	at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:69)
+	at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
+	at com.sun.proxy.$Proxy14.sendKeys(Unknown Source)
+	at com.project.Page.LoginPage.loginToSauceDemo(LoginPage.java:35)
+	at com.project.Testcases.BaseClass.loginToSauceDemo(BaseClass.java:95)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1540)
+... Removed 27 stack frames
+</div> <!-- stack-trace -->
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
-          </div> <!-- suite-Default_suite-class-passed -->
-        </div> <!-- panel Default_suite -->
-        <div panel-name="test-xml-Default_suite" class="panel">
+          </div> <!-- suite-Smoke-class-failed -->
+          <div class="suite-Smoke-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">com.project.Testcases.BaseClass</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="navigateToSauceDemo(https://www.saucedemo.com/, SauceDemo.com, chrome)">
+                  </a> <!-- navigateToSauceDemo(https://www.saucedemo.com/, SauceDemo.com, chrome) -->
+                  <span class="method-name">navigateToSauceDemo</span>
+                  <span class="parameters">(https://www.saucedemo.com/, SauceDemo.com, chrome)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Smoke-class-passed -->
+        </div> <!-- panel Smoke -->
+        <div panel-name="test-xml-Smoke" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">C:\Users\abhishekp\AppData\Local\Temp\testng-eclipse-56290164\testng-customsuite.xml</span>
+            <span class="header-content">E:\Project\project\testng.xml</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <pre>
 &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
 &lt;!DOCTYPE suite SYSTEM &quot;https://testng.org/testng-1.0.dtd&quot;&gt;
-&lt;suite name=&quot;Default suite&quot; guice-stage=&quot;DEVELOPMENT&quot;&gt;
-  &lt;test thread-count=&quot;5&quot; name=&quot;Default test&quot; verbose=&quot;2&quot;&gt;
+&lt;suite name=&quot;Smoke&quot; guice-stage=&quot;DEVELOPMENT&quot;&gt;
+  &lt;test thread-count=&quot;5&quot; name=&quot;Smoke&quot;&gt;
+    &lt;parameter name=&quot;password&quot; value=&quot;secret_sauce&quot;/&gt;
+    &lt;parameter name=&quot;test site URL&quot; value=&quot;https://www.saucedemo.com/&quot;/&gt;
+    &lt;parameter name=&quot;test site name&quot; value=&quot;SauceDemo.com&quot;/&gt;
+    &lt;parameter name=&quot;Browser&quot; value=&quot;chrome&quot;/&gt;
+    &lt;parameter name=&quot;username&quot; value=&quot;standard_user&quot;/&gt;
     &lt;classes&gt;
-      &lt;class name=&quot;testCases.BaseClass&quot;/&gt;
+      &lt;class name=&quot;com.project.Testcases.BaseClass&quot;/&gt;
     &lt;/classes&gt;
-  &lt;/test&gt; &lt;!-- Default test --&gt;
-&lt;/suite&gt; &lt;!-- Default suite --&gt;
+  &lt;/test&gt; &lt;!-- Smoke --&gt;
+&lt;/suite&gt; &lt;!-- Smoke --&gt;
             </pre>
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
-        <div panel-name="testlist-Default_suite" class="panel">
+        <div panel-name="testlist-Smoke" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">Tests for Default suite</span>
+            <span class="header-content">Tests for Smoke</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <ul>
               <li>
-                <span class="test-name">Default test (1 class)</span>
+                <span class="test-name">Smoke (1 class)</span>
               </li>
             </ul>
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
-        <div panel-name="group-Default_suite" class="panel">
+        <div panel-name="group-Smoke" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">Groups for Default suite</span>
+            <span class="header-content">Groups for Smoke</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
-        <div panel-name="times-Default_suite" class="panel">
+        <div panel-name="times-Smoke" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">Times for Default suite</span>
+            <span class="header-content">Times for Smoke</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="times-div">
               <script type="text/javascript">
-suiteTableInitFunctions.push('tableData_Default_suite');
-function tableData_Default_suite() {
+suiteTableInitFunctions.push('tableData_Smoke');
+function tableData_Smoke() {
 var data = new google.visualization.DataTable();
 data.addColumn('number', 'Number');
 data.addColumn('string', 'Method');
 data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
-data.addRows(3);
+data.addRows(2);
 data.setCell(0, 0, 0)
 data.setCell(0, 1, 'navigateToSauceDemo')
-data.setCell(0, 2, 'testCases.BaseClass')
-data.setCell(0, 3, 7393);
+data.setCell(0, 2, 'com.project.Testcases.BaseClass')
+data.setCell(0, 3, 8565);
 data.setCell(1, 0, 1)
 data.setCell(1, 1, 'loginToSauceDemo')
-data.setCell(1, 2, 'testCases.BaseClass')
-data.setCell(1, 3, 7071);
-data.setCell(2, 0, 2)
-data.setCell(2, 1, 'logoutOfSauceDemo')
-data.setCell(2, 2, 'testCases.BaseClass')
-data.setCell(2, 3, 1411);
-window.suiteTableData['Default_suite']= { tableData: data, tableDiv: 'times-div-Default_suite'}
+data.setCell(1, 2, 'com.project.Testcases.BaseClass')
+data.setCell(1, 3, 57);
+window.suiteTableData['Smoke']= { tableData: data, tableDiv: 'times-div-Smoke'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 15 seconds</span>
-              <div id="times-div-Default_suite">
-              </div> <!-- times-div-Default_suite -->
+              <span class="suite-total-time">Total running time: 8 seconds</span>
+              <div id="times-div-Smoke">
+              </div> <!-- times-div-Smoke -->
             </div> <!-- times-div -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
-        <div panel-name="reporter-Default_suite" class="panel">
+        <div panel-name="reporter-Smoke" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">Reporter output for Default suite</span>
+            <span class="header-content">Reporter output for Smoke</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
-        <div panel-name="ignored-methods-Default_suite" class="panel">
+        <div panel-name="ignored-methods-Smoke" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">0 ignored methods</span>
+            <span class="header-content">1 ignored method</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
+            <div class="ignored-class-div">
+              <span class="ignored-class-name">com.project.Testcases.BaseClass</span>
+              <div class="ignored-methods-div">
+                <span class="ignored-method-name">logoutOfSauceDemo</span>
+                <br/>
+              </div> <!-- ignored-methods-div -->
+            </div> <!-- ignored-class-div -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
-        <div panel-name="chronological-Default_suite" class="panel">
+        <div panel-name="chronological-Smoke" class="panel">
           <div class="main-panel-header rounded-window-top">
             <span class="header-content">Methods in chronological order</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="chronological-class">
-              <div class="chronological-class-name">testCases.BaseClass</div> <!-- chronological-class-name -->
+              <div class="chronological-class-name">com.project.Testcases.BaseClass</div> <!-- chronological-class-name -->
               <div class="configuration-suite before">
                 <span class="method-name">beforeSuite</span>
                 <span class="method-start">0 ms</span>
               </div> <!-- configuration-suite before -->
               <div class="configuration-test before">
                 <span class="method-name">beforeTest</span>
-                <span class="method-start">258 ms</span>
+                <span class="method-start">237 ms</span>
               </div> <!-- configuration-test before -->
               <div class="test-method">
-                <span class="method-name">navigateToSauceDemo</span>
-                <span class="method-start">284 ms</span>
+                <span class="method-name">navigateToSauceDemo(https://www.saucedemo.com/, SauceDemo.com, chrome)</span>
+                <span class="method-start">263 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
-                <span class="method-name">getResult([TestResult name=navigateToSauceDemo status=SUCCESS method=BaseClass.navigateToSauceDemo()[pri:1, in...)</span>
-                <span class="method-start">7680 ms</span>
+                <span class="method-name">getResult([TestResult name=navigateToSauceDemo status=SUCCESS method=BaseClass.navigateToSauceDemo(java.lang.S...)</span>
+                <span class="method-start">8832 ms</span>
               </div> <!-- configuration-method after -->
               <div class="test-method">
-                <span class="method-name">loginToSauceDemo</span>
-                <span class="method-start">8047 ms</span>
+                <img src="failed.png">
+                </img>
+                <span class="method-name">loginToSauceDemo(standard_user, secret_sauce)</span>
+                <span class="method-start">9220 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
-                <span class="method-name">getResult([TestResult name=loginToSauceDemo status=SUCCESS method=BaseClass.loginToSauceDemo()[pri:2, instance...)</span>
-                <span class="method-start">15121 ms</span>
-              </div> <!-- configuration-method after -->
-              <div class="test-method">
-                <span class="method-name">logoutOfSauceDemo</span>
-                <span class="method-start">15212 ms</span>
-              </div> <!-- test-method -->
-              <div class="configuration-method after">
-                <span class="method-name">getResult([TestResult name=logoutOfSauceDemo status=SUCCESS method=BaseClass.logoutOfSauceDemo()[pri:3, instan...)</span>
-                <span class="method-start">16625 ms</span>
+                <img src="failed.png">
+                </img>
+                <span class="method-name">getResult([TestResult name=loginToSauceDemo status=FAILURE method=BaseClass.loginToSauceDemo(java.lang.String,...)</span>
+                <span class="method-start">9289 ms</span>
               </div> <!-- configuration-method after -->
               <div class="configuration-suite after">
                 <span class="method-name">afterSuite</span>
-                <span class="method-start">16767 ms</span>
+                <span class="method-start">9389 ms</span>
               </div> <!-- configuration-suite after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
