@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="1" total="3" passed="1" failed="1" skipped="0">
+<testng-results ignored="1" total="3" passed="0" failed="1" skipped="1">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2020-02-13T02:43:52 IST" name="Smoke" finished-at="2020-02-13T02:44:02 IST" duration-ms="9070">
+  <suite started-at="2020-02-16T00:26:45 IST" name="Smoke" finished-at="2020-02-16T00:27:17 IST" duration-ms="31338">
     <groups>
     </groups>
-    <test started-at="2020-02-13T02:43:52 IST" name="Smoke" finished-at="2020-02-13T02:44:02 IST" duration-ms="9070">
+    <test started-at="2020-02-16T00:26:45 IST" name="Smoke" finished-at="2020-02-16T00:27:17 IST" duration-ms="31338">
       <class name="com.project.Testcases.BaseClass">
-        <test-method is-config="true" signature="beforeSuite()[pri:0, instance:com.project.Testcases.BaseClass@2805d709]" started-at="2020-02-13T02:43:52 IST" name="beforeSuite" finished-at="2020-02-13T02:43:52 IST" duration-ms="234" status="PASS">
+        <test-method is-config="true" signature="beforeSuite()[pri:0, instance:com.project.Testcases.BaseClass@2805d709]" started-at="2020-02-16T00:26:45 IST" name="beforeSuite" finished-at="2020-02-16T00:26:45 IST" duration-ms="241" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeSuite -->
-        <test-method is-config="true" signature="beforeTest()[pri:0, instance:com.project.Testcases.BaseClass@2805d709]" started-at="2020-02-13T02:43:52 IST" name="beforeTest" finished-at="2020-02-13T02:43:52 IST" duration-ms="1" status="PASS">
+        <test-method is-config="true" signature="beforeTest()[pri:0, instance:com.project.Testcases.BaseClass@2805d709]" started-at="2020-02-16T00:26:45 IST" name="beforeTest" finished-at="2020-02-16T00:26:45 IST" duration-ms="0" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeTest -->
-        <test-method signature="navigateToSauceDemo(java.lang.String, java.lang.String, java.lang.String)[pri:1, instance:com.project.Testcases.BaseClass@2805d709]" started-at="2020-02-13T02:43:52 IST" name="navigateToSauceDemo" finished-at="2020-02-13T02:44:01 IST" duration-ms="8565" status="PASS">
+        <test-method signature="navigateToSauceDemo(java.lang.String, java.lang.String, java.lang.String)[pri:1, instance:com.project.Testcases.BaseClass@2805d709]" started-at="2020-02-16T00:26:45 IST" name="navigateToSauceDemo" finished-at="2020-02-16T00:27:17 IST" duration-ms="31272" status="FAIL">
           <params>
             <param index="0">
               <value>
@@ -33,41 +33,11 @@
               </value>
             </param>
           </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- navigateToSauceDemo -->
-        <test-method is-config="true" signature="getResult(org.testng.ITestResult)[pri:0, instance:com.project.Testcases.BaseClass@2805d709]" started-at="2020-02-13T02:44:01 IST" name="getResult" finished-at="2020-02-13T02:44:01 IST" duration-ms="384" status="PASS">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[[TestResult name=navigateToSauceDemo status=SUCCESS method=BaseClass.navigateToSauceDemo(java.lang.String, java.lang.String, java.lang.String)[pri:1, instance:com.project.Testcases.BaseClass@2805d709] output={null}]]]>
-              </value>
-            </param>
-          </params>
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- getResult -->
-        <test-method signature="loginToSauceDemo(java.lang.String, java.lang.String)[pri:2, instance:com.project.Testcases.BaseClass@2805d709]" started-at="2020-02-13T02:44:01 IST" name="loginToSauceDemo" finished-at="2020-02-13T02:44:01 IST" depends-on-methods="com.project.Testcases.BaseClass.navigateToSauceDemo" duration-ms="57" status="FAIL">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[standard_user]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[secret_sauce]]>
-              </value>
-            </param>
-          </params>
           <exception class="java.lang.NullPointerException">
             <full-stacktrace>
               <![CDATA[java.lang.NullPointerException
-at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:69)
-at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
-at com.sun.proxy.$Proxy14.sendKeys(Unknown Source)
-at com.project.Page.LoginPage.loginToSauceDemo(LoginPage.java:35)
-at com.project.Testcases.BaseClass.loginToSauceDemo(BaseClass.java:95)
+at com.project.Utility.MethodLibrary.waitForPageToLoad(MethodLibrary.java:345)
+at com.project.Testcases.BaseClass.navigateToSauceDemo(BaseClass.java:64)
 at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -101,12 +71,12 @@ at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
           </exception> <!-- java.lang.NullPointerException -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- loginToSauceDemo -->
-        <test-method is-config="true" signature="getResult(org.testng.ITestResult)[pri:0, instance:com.project.Testcases.BaseClass@2805d709]" started-at="2020-02-13T02:44:01 IST" name="getResult" finished-at="2020-02-13T02:44:02 IST" duration-ms="5" status="FAIL">
+        </test-method> <!-- navigateToSauceDemo -->
+        <test-method is-config="true" signature="getResult(org.testng.ITestResult)[pri:0, instance:com.project.Testcases.BaseClass@2805d709]" started-at="2020-02-16T00:27:17 IST" name="getResult" finished-at="2020-02-16T00:27:17 IST" duration-ms="5" status="FAIL">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=loginToSauceDemo status=FAILURE method=BaseClass.loginToSauceDemo(java.lang.String, java.lang.String)[pri:2, instance:com.project.Testcases.BaseClass@2805d709] output={null}]]]>
+                <![CDATA[[TestResult name=navigateToSauceDemo status=FAILURE method=BaseClass.navigateToSauceDemo(java.lang.String, java.lang.String, java.lang.String)[pri:1, instance:com.project.Testcases.BaseClass@2805d709] output={null}]]]>
               </value>
             </param>
           </params>
@@ -118,7 +88,7 @@ at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
               <![CDATA[java.io.IOException: ScreenCapture path cannot be null or empty.
 at com.aventstack.extentreports.MediaEntityBuilder.createScreenCaptureFromPath(MediaEntityBuilder.java:31)
 at com.aventstack.extentreports.MediaEntityBuilder.createScreenCaptureFromPath(MediaEntityBuilder.java:37)
-at com.project.Testcases.BaseClass.getResult(BaseClass.java:125)
+at com.project.Testcases.BaseClass.getResult(BaseClass.java:120)
 at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
 at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
 at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
@@ -158,7 +128,39 @@ at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
           <reporter-output>
           </reporter-output>
         </test-method> <!-- getResult -->
-        <test-method is-config="true" signature="afterSuite()[pri:0, instance:com.project.Testcases.BaseClass@2805d709]" started-at="2020-02-13T02:44:02 IST" name="afterSuite" finished-at="1970-01-01T05:30:00 IST" duration-ms="-1581542042097" status="SKIP">
+        <test-method signature="loginToSauceDemo(java.lang.String, java.lang.String)[pri:2, instance:com.project.Testcases.BaseClass@2805d709]" started-at="2020-02-16T00:27:17 IST" name="loginToSauceDemo" finished-at="2020-02-16T00:27:17 IST" depends-on-methods="com.project.Testcases.BaseClass.navigateToSauceDemo" duration-ms="0" status="SKIP">
+          <exception class="java.lang.Throwable">
+            <message>
+              <![CDATA[Method BaseClass.loginToSauceDemo(java.lang.String, java.lang.String)[pri:2, instance:com.project.Testcases.BaseClass@2805d709] depends on not successfully finished methods]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.Throwable: Method BaseClass.loginToSauceDemo(java.lang.String, java.lang.String)[pri:2, instance:com.project.Testcases.BaseClass@2805d709] depends on not successfully finished methods
+at org.testng.internal.TestInvoker.invokeTestMethods(TestInvoker.java:99)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:146)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:128)
+at java.base/java.util.ArrayList.forEach(ArrayList.java:1540)
+at org.testng.TestRunner.privateRun(TestRunner.java:770)
+at org.testng.TestRunner.run(TestRunner.java:591)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:402)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:396)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:355)
+at org.testng.SuiteRunner.run(SuiteRunner.java:304)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:53)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:96)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1180)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1102)
+at org.testng.TestNG.runSuites(TestNG.java:1032)
+at org.testng.TestNG.run(TestNG.java:1000)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:115)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.Throwable -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- loginToSauceDemo -->
+        <test-method is-config="true" signature="afterSuite()[pri:0, instance:com.project.Testcases.BaseClass@2805d709]" started-at="2020-02-16T00:27:17 IST" name="afterSuite" finished-at="1970-01-01T05:30:00 IST" duration-ms="-1581793037264" status="SKIP">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterSuite -->

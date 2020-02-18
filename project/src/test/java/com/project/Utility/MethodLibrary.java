@@ -310,6 +310,8 @@ public class MethodLibrary extends BaseClass{
 
 	public static void waitForPageToLoad() throws InterruptedException {
 
+		System.out.println("test1");
+		
 		try {
 
 			// Waits for 60 seconds

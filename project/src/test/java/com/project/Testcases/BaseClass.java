@@ -54,22 +54,17 @@ public class BaseClass {
 	@Test(priority = 1)
 	public void navigateToSauceDemo(String url, String testSiteName, String browser) throws InterruptedException
 	{
-    	System.out.println("test1");
     	
 		logger = report.createTest("Navigate to "+testSiteName);
 		logger.assignAuthor("Abhishek\tPanigrahi");
 		logger.assignCategory("Smoke\tfor\tsaucedemo.com");
-
-		System.out.println("test2");
 		
 		WebDriver driver = BrowserFactory.navigateToTestSite(url, testSiteName, browser);
 
-		//MethodLibrary.navigateToSite(url, "SauceDemo.com");
-		
-		
 		MethodLibrary.waitForPageToLoad();
 		
-		System.out.println("test4");
+		System.out.println("test2");
+		
 		MethodLibrary.assertText(driver.getTitle(), "Swag Labs","Page title");
 		
 	}
