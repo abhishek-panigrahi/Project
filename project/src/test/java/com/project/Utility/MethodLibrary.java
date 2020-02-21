@@ -38,6 +38,8 @@ public class MethodLibrary extends BaseClass{
 	 */ 
 	public static void removeAllFiles(String indexResultFilename)
 	{
+		try
+		{
 		String currentDir = indexResultFilename.substring(0, indexResultFilename.lastIndexOf(File.separator));
 
 		// Clear Test Report folder
@@ -45,6 +47,11 @@ public class MethodLibrary extends BaseClass{
 		File[] allFiles = directory.listFiles();
 		for (int count = 0; count < allFiles.length; count++) {
 			allFiles[count].delete();
+		}
+		}
+		catch(Exception exception)
+		{
+			System.out.println("Error came: "+exception);
 		}
 	}
 
@@ -309,14 +316,12 @@ public class MethodLibrary extends BaseClass{
 	 */
 
 	public static void waitForPageToLoad() throws InterruptedException {
-
-		System.out.println("test1");
 		
 		try {
-
+			
 			// Waits for 60 seconds
 			WebDriverWait wait = new WebDriverWait(driver, 60);
-
+			
 			// Wait until expected condition (All documents present on the page
 			// get ready) met
 			wait.until((ExpectedCondition<Boolean>) new ExpectedCondition<Boolean>() {
@@ -340,8 +345,9 @@ public class MethodLibrary extends BaseClass{
 
 		}
 
-		catch (Throwable waitForPageToLoadException) {
-			logger.error("Error came while waiting for page to load : " + waitForPageToLoadException.getMessage()
+		catch (Exception waitForPageToLoadException) {
+			
+			logger.warning("Error came while waiting for page to load : " + waitForPageToLoadException.getMessage()
 			.substring(0, Math.min(waitForPageToLoadException.getMessage().length(), indexForWarning))+"...");
 		}
 
@@ -430,6 +436,39 @@ public class MethodLibrary extends BaseClass{
 		logger.info("Asserting text for: "+element);
 		Assert.assertEquals(actualText, expectedText);
 		logger.pass("Pass: Succesfully asserted "+element);
+	}
+	
+	
+	/**
+	 * This method is used to convert web element
+	 * to type By
+	 * 
+	 * 
+	 * @param webelment
+	 * @return by
+	 */
+	public static By convertToBy(WebElement webelment) {
+	    String[] data = webelment.toString().split(" -> ")[1].replace("]", "").split(": ");
+	    String locator = data[0];
+	    String term = data[1];
+
+	    switch (locator) {
+	    case "xpath":
+	        return By.xpath(term);
+	    case "css selector":
+	        return By.cssSelector(term);
+	    case "id":
+	        return By.id(term);
+	    case "tag name":
+	        return By.tagName(term);
+	    case "name":
+	        return By.name(term);
+	    case "link text":
+	        return By.linkText(term);
+	    case "class name":
+	        return By.className(term);
+	    }
+	    return (By) webelment;
 	}
 	
 	

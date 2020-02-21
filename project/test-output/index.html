@@ -24,7 +24,7 @@
     <div class="top-banner-root">
       <span class="top-banner-title-font">Test results</span>
       <br/>
-      <span class="top-banner-font-1">1 suite, 1 failed test</span>
+      <span class="top-banner-font-1">1 suite</span>
     </div> <!-- top-banner-root -->
     <div class="navigator-root">
       <div class="navigator-suite-header">
@@ -38,7 +38,7 @@
         <div class="rounded-window">
           <div class="suite-header light-rounded-window-top">
             <a href="#" panel-name="suite-Smoke" class="navigator-link">
-              <span class="suite-name border-failed">Smoke</span>
+              <span class="suite-name border-passed">Smoke</span>
             </a> <!-- navigator-link -->
           </div> <!-- suite-header light-rounded-window-top -->
           <div class="navigator-suite-content">
@@ -91,35 +91,31 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">2 methods, 1 failed,  1 skipped,  </span>
+                    <span class="method-stats">3 methods,   3 passed</span>
                   </li>
                   <li>
-                    <span class="method-list-title failed">Failed methods</span>
-                    <span class="show-or-hide-methods failed">
-                      <a href="#" panel-name="suite-Smoke" class="hide-methods failed suite-Smoke"> (hide)</a> <!-- hide-methods failed suite-Smoke -->
-                      <a href="#" panel-name="suite-Smoke" class="show-methods failed suite-Smoke"> (show)</a> <!-- show-methods failed suite-Smoke -->
+                    <span class="method-list-title passed">Passed methods</span>
+                    <span class="show-or-hide-methods passed">
+                      <a href="#" panel-name="suite-Smoke" class="hide-methods passed suite-Smoke"> (hide)</a> <!-- hide-methods passed suite-Smoke -->
+                      <a href="#" panel-name="suite-Smoke" class="show-methods passed suite-Smoke"> (show)</a> <!-- show-methods passed suite-Smoke -->
                     </span>
-                    <div class="method-list-content failed suite-Smoke">
+                    <div class="method-list-content passed suite-Smoke">
                       <span>
-                        <img src="failed.png" width="3%"/>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Smoke" title="com.project.Testcases.BaseClass" class="method navigator-link" hash-for-method="loginToSauceDemo(standard_user, secret_sauce)">loginToSauceDemo(standard_user, secret_sauce)</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
+                        <a href="#" panel-name="suite-Smoke" title="com.project.Testcases.BaseClass" class="method navigator-link" hash-for-method="logoutOfSauceDemo">logoutOfSauceDemo</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                      <span>
+                        <img src="passed.png" width="3%"/>
                         <a href="#" panel-name="suite-Smoke" title="com.project.Testcases.BaseClass" class="method navigator-link" hash-for-method="navigateToSauceDemo(https://www.saucedemo.com/, SauceDemo.com, chrome)">navigateToSauceDemo(https://www.saucedemo.com/, SauceDemo.com, chrome)</a> <!-- method navigator-link -->
                       </span>
                       <br/>
-                    </div> <!-- method-list-content failed suite-Smoke -->
-                  </li>
-                  <li>
-                    <span class="method-list-title skipped">Skipped methods</span>
-                    <span class="show-or-hide-methods skipped">
-                      <a href="#" panel-name="suite-Smoke" class="hide-methods skipped suite-Smoke"> (hide)</a> <!-- hide-methods skipped suite-Smoke -->
-                      <a href="#" panel-name="suite-Smoke" class="show-methods skipped suite-Smoke"> (show)</a> <!-- show-methods skipped suite-Smoke -->
-                    </span>
-                    <div class="method-list-content skipped suite-Smoke">
-                      <span>
-                        <img src="skipped.png" width="3%"/>
-                        <a href="#" panel-name="suite-Smoke" title="com.project.Testcases.BaseClass" class="method navigator-link" hash-for-method="loginToSauceDemo">loginToSauceDemo</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                    </div> <!-- method-list-content skipped suite-Smoke -->
+                    </div> <!-- method-list-content passed suite-Smoke -->
                   </li>
                 </ul>
               </div> <!-- suite-section-content -->
@@ -131,47 +127,37 @@
     <div class="wrapper">
       <div class="main-panel-root">
         <div panel-name="suite-Smoke" class="panel Smoke">
-          <div class="suite-Smoke-class-failed">
+          <div class="suite-Smoke-class-passed">
             <div class="main-panel-header rounded-window-top">
-              <img src="failed.png"/>
+              <img src="passed.png"/>
               <span class="class-name">com.project.Testcases.BaseClass</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="loginToSauceDemo(standard_user, secret_sauce)">
+                  </a> <!-- loginToSauceDemo(standard_user, secret_sauce) -->
+                  <span class="method-name">loginToSauceDemo</span>
+                  <span class="parameters">(standard_user, secret_sauce)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+              <div class="method">
+                <div class="method-content">
+                  <a name="logoutOfSauceDemo">
+                  </a> <!-- logoutOfSauceDemo -->
+                  <span class="method-name">logoutOfSauceDemo</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
               <div class="method">
                 <div class="method-content">
                   <a name="navigateToSauceDemo(https://www.saucedemo.com/, SauceDemo.com, chrome)">
                   </a> <!-- navigateToSauceDemo(https://www.saucedemo.com/, SauceDemo.com, chrome) -->
                   <span class="method-name">navigateToSauceDemo</span>
                   <span class="parameters">(https://www.saucedemo.com/, SauceDemo.com, chrome)</span>
-                  <div class="stack-trace">java.lang.NullPointerException
-	at com.project.Utility.MethodLibrary.waitForPageToLoad(MethodLibrary.java:345)
-	at com.project.Testcases.BaseClass.navigateToSauceDemo(BaseClass.java:64)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1540)
-... Removed 27 stack frames
-</div> <!-- stack-trace -->
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
-          </div> <!-- suite-Smoke-class-failed -->
-          <div class="suite-Smoke-class-skipped">
-            <div class="main-panel-header rounded-window-top">
-              <img src="skipped.png"/>
-              <span class="class-name">com.project.Testcases.BaseClass</span>
-            </div> <!-- main-panel-header rounded-window-top -->
-            <div class="main-panel-content rounded-window-bottom">
-              <div class="method">
-                <div class="method-content">
-                  <a name="loginToSauceDemo">
-                  </a> <!-- loginToSauceDemo -->
-                  <span class="method-name">loginToSauceDemo</span>
-                  <div class="stack-trace">java.lang.Throwable: Method BaseClass.loginToSauceDemo(java.lang.String, java.lang.String)[pri:2, instance:com.project.Testcases.BaseClass@2805d709] depends on not successfully finished methods
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1540)
-... Removed 18 stack frames
-</div> <!-- stack-trace -->
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-            </div> <!-- main-panel-content rounded-window-bottom -->
-          </div> <!-- suite-Smoke-class-skipped -->
+          </div> <!-- suite-Smoke-class-passed -->
         </div> <!-- panel Smoke -->
         <div panel-name="test-xml-Smoke" class="panel">
           <div class="main-panel-header rounded-window-top">
@@ -229,20 +215,24 @@ data.addColumn('number', 'Number');
 data.addColumn('string', 'Method');
 data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
-data.addRows(2);
+data.addRows(3);
 data.setCell(0, 0, 0)
 data.setCell(0, 1, 'navigateToSauceDemo')
 data.setCell(0, 2, 'com.project.Testcases.BaseClass')
-data.setCell(0, 3, 31272);
+data.setCell(0, 3, 7873);
 data.setCell(1, 0, 1)
 data.setCell(1, 1, 'loginToSauceDemo')
 data.setCell(1, 2, 'com.project.Testcases.BaseClass')
-data.setCell(1, 3, 0);
+data.setCell(1, 3, 7299);
+data.setCell(2, 0, 2)
+data.setCell(2, 1, 'logoutOfSauceDemo')
+data.setCell(2, 2, 'com.project.Testcases.BaseClass')
+data.setCell(2, 3, 1126);
 window.suiteTableData['Smoke']= { tableData: data, tableDiv: 'times-div-Smoke'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 31 seconds</span>
+              <span class="suite-total-time">Total running time: 16 seconds</span>
               <div id="times-div-Smoke">
               </div> <!-- times-div-Smoke -->
             </div> <!-- times-div -->
@@ -257,16 +247,9 @@ return data;
         </div> <!-- panel -->
         <div panel-name="ignored-methods-Smoke" class="panel">
           <div class="main-panel-header rounded-window-top">
-            <span class="header-content">1 ignored method</span>
+            <span class="header-content">0 ignored methods</span>
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
-            <div class="ignored-class-div">
-              <span class="ignored-class-name">com.project.Testcases.BaseClass</span>
-              <div class="ignored-methods-div">
-                <span class="ignored-method-name">logoutOfSauceDemo</span>
-                <br/>
-              </div> <!-- ignored-methods-div -->
-            </div> <!-- ignored-class-div -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
         <div panel-name="chronological-Smoke" class="panel">
@@ -282,27 +265,35 @@ return data;
               </div> <!-- configuration-suite before -->
               <div class="configuration-test before">
                 <span class="method-name">beforeTest</span>
-                <span class="method-start">244 ms</span>
+                <span class="method-start">233 ms</span>
               </div> <!-- configuration-test before -->
               <div class="test-method">
-                <img src="failed.png">
-                </img>
                 <span class="method-name">navigateToSauceDemo(https://www.saucedemo.com/, SauceDemo.com, chrome)</span>
-                <span class="method-start">271 ms</span>
+                <span class="method-start">258 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method after">
-                <img src="failed.png">
-                </img>
-                <span class="method-name">getResult([TestResult name=navigateToSauceDemo status=FAILURE method=BaseClass.navigateToSauceDemo(java.lang.S...)</span>
-                <span class="method-start">31550 ms</span>
+                <span class="method-name">getResult([TestResult name=navigateToSauceDemo status=SUCCESS method=BaseClass.navigateToSauceDemo(java.lang.S...)</span>
+                <span class="method-start">8136 ms</span>
               </div> <!-- configuration-method after -->
               <div class="test-method">
-                <span class="method-name">loginToSauceDemo</span>
-                <span class="method-start">31564 ms</span>
+                <span class="method-name">loginToSauceDemo(standard_user, secret_sauce)</span>
+                <span class="method-start">8580 ms</span>
               </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">getResult([TestResult name=loginToSauceDemo status=SUCCESS method=BaseClass.loginToSauceDemo(java.lang.String,...)</span>
+                <span class="method-start">15881 ms</span>
+              </div> <!-- configuration-method after -->
+              <div class="test-method">
+                <span class="method-name">logoutOfSauceDemo</span>
+                <span class="method-start">15989 ms</span>
+              </div> <!-- test-method -->
+              <div class="configuration-method after">
+                <span class="method-name">getResult([TestResult name=logoutOfSauceDemo status=SUCCESS method=BaseClass.logoutOfSauceDemo()[pri:3, instan...)</span>
+                <span class="method-start">17118 ms</span>
+              </div> <!-- configuration-method after -->
               <div class="configuration-suite after">
                 <span class="method-name">afterSuite</span>
-                <span class="method-start">31651 ms</span>
+                <span class="method-start">17256 ms</span>
               </div> <!-- configuration-suite after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->

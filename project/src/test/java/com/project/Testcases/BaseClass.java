@@ -2,7 +2,6 @@ package com.project.Testcases;
 
 import java.io.File;
 import java.io.IOException;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 import org.testng.ITestResult;
@@ -31,7 +30,7 @@ public class BaseClass {
 
 	@BeforeSuite
 	public void beforeSuite() {
-
+		
 		ExtentHtmlReporter extent = new ExtentHtmlReporter(new File(System.getProperty("user.dir")+"/Reports/saucedemo.html"));
 		extent.config().setTheme(Theme.DARK);
 		extent.config().setReportName("Automated tests for saucedemo");
@@ -59,12 +58,9 @@ public class BaseClass {
 		logger.assignAuthor("Abhishek\tPanigrahi");
 		logger.assignCategory("Smoke\tfor\tsaucedemo.com");
 		
-		WebDriver driver = BrowserFactory.navigateToTestSite(url, testSiteName, browser);
+		driver = BrowserFactory.navigateToTestSite(url, testSiteName, browser);
 
 		MethodLibrary.waitForPageToLoad();
-		
-		System.out.println("test2");
-		
 		MethodLibrary.assertText(driver.getTitle(), "Swag Labs","Page title");
 		
 	}
@@ -78,13 +74,6 @@ public class BaseClass {
 		logger.assignAuthor("Abhishek\tPanigrahi");
 		logger.assignCategory("Smoke\tfor\tsaucedemo.com");
 		logger.info("Logging in to saucedemo.com");
-
-		/*
-		MethodLibrary.clearAndInput(By.id("user-name"),"User name", username);
-		MethodLibrary.clearAndInput(By.id("password"),"Password", password);
-		MethodLibrary.waitForElementToLoad(By.className("btn_action"),"Login button", 10);
-		MethodLibrary.clickLink(By.className("btn_action"), "Login button");
-		*/
 		
 		LoginPage loginPageObject = PageFactory.initElements(driver, LoginPage.class);
 		loginPageObject.loginToSauceDemo(username, password);
@@ -92,22 +81,17 @@ public class BaseClass {
 		MethodLibrary.assertText(driver.getTitle(), "Swag Labs","Page title");
 	}
 	
-	@Test(priority = 3, dependsOnMethods = "loginToSauceDemo", enabled = false)
+	@Test(priority = 3, dependsOnMethods = "loginToSauceDemo")
 	public void logoutOfSauceDemo() throws InterruptedException {
 		
 		logger = report.createTest("Logout");
 		logger.assignAuthor("Abhishek\tPanigrahi");
 		logger.assignCategory("Smoke\tfor\tsaucedemo.com");
 		logger.info("Logging out of saucedemo.com");
-		
-		/*
-		MethodLibrary.clickLink(By.xpath("//*[@class='bm-burger-button']//button"), "Side menu icon");
-		MethodLibrary.waitForElementToLoad(By.id("logout_sidebar_link"),"Log out option", 10);
-		MethodLibrary.clickLink(By.id("logout_sidebar_link"), "Log out option");
+		LoginPage loginPageObject = PageFactory.initElements(driver, LoginPage.class);
+		loginPageObject.logoutOfSauceDemo();
 		MethodLibrary.waitForPageToLoad();
 		MethodLibrary.assertText(driver.getTitle(), "Swag Labs","Page title");
-		*/
-		
 	}
 
 
@@ -117,7 +101,7 @@ public class BaseClass {
 		
 		if (result.getStatus() == ITestResult.FAILURE) {
 			logger.fail("Test failed. Detailed error: "+result.getThrowable().getMessage(), MediaEntityBuilder.
-					createScreenCaptureFromPath(MethodLibrary.captureScreenshot(driver, result.getName())).build());
+			createScreenCaptureFromPath(MethodLibrary.captureScreenshot(driver, result.getName())).build());
 		}
 
 		if (result.getStatus() == ITestResult.SKIP) {
@@ -133,7 +117,7 @@ public class BaseClass {
 	@AfterSuite
 	public static void afterSuite()
 	{
-	driver.close();
+	//driver.close();
 	}
 
 }

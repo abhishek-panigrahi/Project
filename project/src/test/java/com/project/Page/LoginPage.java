@@ -1,5 +1,4 @@
 package com.project.Page;
-import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.CacheLookup;
@@ -30,12 +29,29 @@ public class LoginPage {
 	@CacheLookup
 	WebElement loginButton;
 	
+	@FindBy(how = How.XPATH ,using = "//div[@class='bm-burger-button']//button")
+	@CacheLookup
+	WebElement sideMenuButton;
+	
+	@FindBy(how = How.ID ,using = "logout_sidebar_link")
+	@CacheLookup
+	WebElement logoutButton;
+	
+
 	public void loginToSauceDemo(String userName, String passWord)
 	{
-		username.sendKeys(userName);
-		password.sendKeys(passWord);
+		MethodLibrary.clearAndInput(MethodLibrary.convertToBy(username), "Username field", userName);
+		MethodLibrary.clearAndInput(MethodLibrary.convertToBy(password), "Password field", passWord);
 		MethodLibrary.clickLink(loginButton, "Login button");
 	}
+	
+	public void logoutOfSauceDemo() throws InterruptedException
+	{
+		MethodLibrary.clickLink(sideMenuButton, "side menu button");
+		MethodLibrary.waitForElementToLoad(MethodLibrary.convertToBy(logoutButton), "logout button", 10);
+		MethodLibrary.clickLink(logoutButton, "logout button");
+	}
+	
 	
 }
 

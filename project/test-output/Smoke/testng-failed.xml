@@ -10,8 +10,9 @@
     <classes>
       <class name="com.project.Testcases.BaseClass">
         <methods>
+          <include name="logoutOfSauceDemo"/>
           <include name="getResult"/>
-          <include name="navigateToSauceDemo" invocation-numbers="0"/>
+          <include name="navigateToSauceDemo"/>
           <include name="loginToSauceDemo"/>
           <include name="beforeTest"/>
           <include name="afterSuite"/>

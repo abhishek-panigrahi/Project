@@ -25,6 +25,7 @@ public class BrowserFactory extends BaseClass{
 			if(browserName.equalsIgnoreCase("firefox"))
 			{
 				driver = new FirefoxDriver();
+				
 			}
 			else if(browserName.equalsIgnoreCase("chrome"))
 			{
