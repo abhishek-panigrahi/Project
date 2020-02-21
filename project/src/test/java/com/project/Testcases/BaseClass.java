@@ -117,7 +117,7 @@ public class BaseClass {
 	@AfterSuite
 	public static void afterSuite()
 	{
-	//driver.close();
+	driver.close();
 	}
 
 }
