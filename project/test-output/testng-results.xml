@@ -2,20 +2,20 @@
 <testng-results ignored="0" total="3" passed="3" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2020-02-21T15:59:56 IST" name="Smoke" finished-at="2020-02-21T16:00:13 IST" duration-ms="16993">
+  <suite started-at="2020-02-22T14:31:09 IST" name="Smoke" finished-at="2020-02-22T14:31:39 IST" duration-ms="30905">
     <groups>
     </groups>
-    <test started-at="2020-02-21T15:59:56 IST" name="Smoke" finished-at="2020-02-21T16:00:13 IST" duration-ms="16993">
+    <test started-at="2020-02-22T14:31:09 IST" name="Smoke" finished-at="2020-02-22T14:31:39 IST" duration-ms="30905">
       <class name="com.project.Testcases.BaseClass">
-        <test-method is-config="true" signature="beforeSuite()[pri:0, instance:com.project.Testcases.BaseClass@2805d709]" started-at="2020-02-21T15:59:56 IST" name="beforeSuite" finished-at="2020-02-21T15:59:56 IST" duration-ms="230" status="PASS">
+        <test-method is-config="true" signature="beforeSuite()[pri:0, instance:com.project.Testcases.BaseClass@3ee37e5a]" started-at="2020-02-22T14:31:08 IST" name="beforeSuite" finished-at="2020-02-22T14:31:09 IST" duration-ms="241" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeSuite -->
-        <test-method is-config="true" signature="beforeTest()[pri:0, instance:com.project.Testcases.BaseClass@2805d709]" started-at="2020-02-21T15:59:56 IST" name="beforeTest" finished-at="2020-02-21T15:59:56 IST" duration-ms="0" status="PASS">
+        <test-method is-config="true" signature="beforeTest()[pri:0, instance:com.project.Testcases.BaseClass@3ee37e5a]" started-at="2020-02-22T14:31:09 IST" name="beforeTest" finished-at="2020-02-22T14:31:09 IST" duration-ms="0" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeTest -->
-        <test-method signature="navigateToSauceDemo(java.lang.String, java.lang.String, java.lang.String)[pri:1, instance:com.project.Testcases.BaseClass@2805d709]" started-at="2020-02-21T15:59:56 IST" name="navigateToSauceDemo" finished-at="2020-02-21T16:00:04 IST" duration-ms="7873" status="PASS">
+        <test-method signature="navigateToSauceDemo(java.lang.String, java.lang.String, java.lang.String)[pri:1, instance:com.project.Testcases.BaseClass@3ee37e5a]" started-at="2020-02-22T14:31:09 IST" name="navigateToSauceDemo" finished-at="2020-02-22T14:31:18 IST" duration-ms="9514" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -36,18 +36,18 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- navigateToSauceDemo -->
-        <test-method is-config="true" signature="getResult(org.testng.ITestResult)[pri:0, instance:com.project.Testcases.BaseClass@2805d709]" started-at="2020-02-21T16:00:04 IST" name="getResult" finished-at="2020-02-21T16:00:04 IST" duration-ms="439" status="PASS">
+        <test-method is-config="true" signature="getResult(org.testng.ITestResult)[pri:0, instance:com.project.Testcases.BaseClass@3ee37e5a]" started-at="2020-02-22T14:31:18 IST" name="getResult" finished-at="2020-02-22T14:31:19 IST" duration-ms="461" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=navigateToSauceDemo status=SUCCESS method=BaseClass.navigateToSauceDemo(java.lang.String, java.lang.String, java.lang.String)[pri:1, instance:com.project.Testcases.BaseClass@2805d709] output={null}]]]>
+                <![CDATA[[TestResult name=navigateToSauceDemo status=SUCCESS method=BaseClass.navigateToSauceDemo(java.lang.String, java.lang.String, java.lang.String)[pri:1, instance:com.project.Testcases.BaseClass@3ee37e5a] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- getResult -->
-        <test-method signature="loginToSauceDemo(java.lang.String, java.lang.String)[pri:2, instance:com.project.Testcases.BaseClass@2805d709]" started-at="2020-02-21T16:00:04 IST" name="loginToSauceDemo" finished-at="2020-02-21T16:00:12 IST" depends-on-methods="com.project.Testcases.BaseClass.navigateToSauceDemo" duration-ms="7299" status="PASS">
+        <test-method signature="loginToSauceDemo(java.lang.String, java.lang.String)[pri:2, instance:com.project.Testcases.BaseClass@3ee37e5a]" started-at="2020-02-22T14:31:19 IST" name="loginToSauceDemo" finished-at="2020-02-22T14:31:38 IST" depends-on-methods="com.project.Testcases.BaseClass.navigateToSauceDemo" duration-ms="19484" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -63,33 +63,33 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- loginToSauceDemo -->
-        <test-method is-config="true" signature="getResult(org.testng.ITestResult)[pri:0, instance:com.project.Testcases.BaseClass@2805d709]" started-at="2020-02-21T16:00:12 IST" name="getResult" finished-at="2020-02-21T16:00:12 IST" duration-ms="107" status="PASS">
+        <test-method is-config="true" signature="getResult(org.testng.ITestResult)[pri:0, instance:com.project.Testcases.BaseClass@3ee37e5a]" started-at="2020-02-22T14:31:38 IST" name="getResult" finished-at="2020-02-22T14:31:38 IST" duration-ms="100" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=loginToSauceDemo status=SUCCESS method=BaseClass.loginToSauceDemo(java.lang.String, java.lang.String)[pri:2, instance:com.project.Testcases.BaseClass@2805d709] output={null}]]]>
+                <![CDATA[[TestResult name=loginToSauceDemo status=SUCCESS method=BaseClass.loginToSauceDemo(java.lang.String, java.lang.String)[pri:2, instance:com.project.Testcases.BaseClass@3ee37e5a] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- getResult -->
-        <test-method signature="logoutOfSauceDemo()[pri:3, instance:com.project.Testcases.BaseClass@2805d709]" started-at="2020-02-21T16:00:12 IST" name="logoutOfSauceDemo" finished-at="2020-02-21T16:00:13 IST" depends-on-methods="com.project.Testcases.BaseClass.loginToSauceDemo" duration-ms="1126" status="PASS">
+        <test-method signature="logoutOfSauceDemo()[pri:3, instance:com.project.Testcases.BaseClass@3ee37e5a]" started-at="2020-02-22T14:31:38 IST" name="logoutOfSauceDemo" finished-at="2020-02-22T14:31:39 IST" depends-on-methods="com.project.Testcases.BaseClass.loginToSauceDemo" duration-ms="1215" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- logoutOfSauceDemo -->
-        <test-method is-config="true" signature="getResult(org.testng.ITestResult)[pri:0, instance:com.project.Testcases.BaseClass@2805d709]" started-at="2020-02-21T16:00:13 IST" name="getResult" finished-at="2020-02-21T16:00:13 IST" duration-ms="105" status="PASS">
+        <test-method is-config="true" signature="getResult(org.testng.ITestResult)[pri:0, instance:com.project.Testcases.BaseClass@3ee37e5a]" started-at="2020-02-22T14:31:39 IST" name="getResult" finished-at="2020-02-22T14:31:39 IST" duration-ms="76" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[[TestResult name=logoutOfSauceDemo status=SUCCESS method=BaseClass.logoutOfSauceDemo()[pri:3, instance:com.project.Testcases.BaseClass@2805d709] output={null}]]]>
+                <![CDATA[[TestResult name=logoutOfSauceDemo status=SUCCESS method=BaseClass.logoutOfSauceDemo()[pri:3, instance:com.project.Testcases.BaseClass@3ee37e5a] output={null}]]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- getResult -->
-        <test-method is-config="true" signature="afterSuite()[pri:0, instance:com.project.Testcases.BaseClass@2805d709]" started-at="2020-02-21T16:00:13 IST" name="afterSuite" finished-at="2020-02-21T16:00:13 IST" duration-ms="0" status="PASS">
+        <test-method is-config="true" signature="afterSuite()[pri:0, instance:com.project.Testcases.BaseClass@3ee37e5a]" started-at="2020-02-22T14:31:40 IST" name="afterSuite" finished-at="2020-02-22T14:31:40 IST" duration-ms="82" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterSuite -->

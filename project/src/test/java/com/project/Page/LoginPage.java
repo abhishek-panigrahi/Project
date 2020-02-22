@@ -40,15 +40,15 @@ public class LoginPage {
 
 	public void loginToSauceDemo(String userName, String passWord)
 	{
-		MethodLibrary.clearAndInput(MethodLibrary.convertToBy(username), "Username field", userName);
-		MethodLibrary.clearAndInput(MethodLibrary.convertToBy(password), "Password field", passWord);
+		MethodLibrary.clearAndInput(username, "Username field", userName);
+		MethodLibrary.clearAndInput(password, "Password field", passWord);
 		MethodLibrary.clickLink(loginButton, "Login button");
 	}
 	
 	public void logoutOfSauceDemo() throws InterruptedException
 	{
 		MethodLibrary.clickLink(sideMenuButton, "side menu button");
-		MethodLibrary.waitForElementToLoad(MethodLibrary.convertToBy(logoutButton), "logout button", 10);
+		MethodLibrary.waitForElementToLoad(logoutButton, "logout button", 10);
 		MethodLibrary.clickLink(logoutButton, "logout button");
 	}
 	

@@ -113,7 +113,7 @@ public class MethodLibrary extends BaseClass{
 	}
 
 	/**
-	 *  public static void waitForElementToLoad(By locator) method specification:
+	 *  public static void waitForElementToLoad(By WebElement, String elementName, int timeperiod) method specification:
 	 * 
 	 * 1) Waits for the web element to appear on the page 2) new
 	 * WebDriverWait(driver, 60) -> Waits for 60 seconds 3)
@@ -123,11 +123,12 @@ public class MethodLibrary extends BaseClass{
 	 * @param : no parameters passed
 	 * 
 	 * 
-	 * @param locator
+	 * @param logoutButton
 	 * @param elementName
 	 * @param timePeriod
 	 */
-	public static void waitForElementToLoad(final By locator, String elementName, int timePeriod) {
+	public static
+	void waitForElementToLoad(final WebElement logoutButton, String elementName, int timePeriod) {
 
 		logger.info("Waiting for web element: "+elementName+" to load on the page");
 
@@ -137,7 +138,7 @@ public class MethodLibrary extends BaseClass{
 			// Waits for 60 seconds
 			Wait<WebDriver> wait = new WebDriverWait(driver, timePeriod);
 			
-			wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+			wait.until(ExpectedConditions.visibilityOfElementLocated(convertToBy(logoutButton)));
 
 			// Log result
 			logger.info("Waiting ends ... Web element loaded on the page");
@@ -212,7 +213,7 @@ public class MethodLibrary extends BaseClass{
 	 * @return Pass/Fail
 	 */
 
-	public static void clearField(By locator, String elemName) {
+	public static void clearField(WebElement locator, String elemName) {
 
 		logger.info("Clearing field : " + elemName);
 
@@ -222,14 +223,14 @@ public class MethodLibrary extends BaseClass{
 			waitForElementToLoad(locator,elemName, 10);
 
 			// Highlight the input-box
-			MethodLibrary.highlightElement(driver, driver.findElement(locator));
+			MethodLibrary.highlightElement(driver, driver.findElement(convertToBy(locator)));
 
 			// Clear the input-box
-			driver.findElement(locator).clear(); 
+			driver.findElement(convertToBy(locator)).clear(); 
 
 			// Check whether input-box has been cleared or not
-			if (!driver.findElement(locator).getAttribute("value").isEmpty())
-				driver.findElement(locator).clear();
+			if (!driver.findElement(convertToBy(locator)).getAttribute("value").isEmpty())
+				driver.findElement(convertToBy(locator)).clear();
 
 			// Log result
 			logger.info("Cleared : " + elemName);
@@ -265,23 +266,23 @@ public class MethodLibrary extends BaseClass{
 	 * @param elemName
 	 * @param Value
 	 */
-	public static void clearAndInput(By locator, String elemName, String Value) {
+	public static void clearAndInput(WebElement username, String elemName, String Value) {
 
 		try {
 
 			// Wait for the input box to appear on the page
-			waitForElementToLoad(locator,elemName, 10);
+			waitForElementToLoad(username,elemName, 10);
 
 			// Highlight the input box
-			MethodLibrary.highlightElement(driver, driver.findElement(locator));
+			MethodLibrary.highlightElement(driver, driver.findElement(convertToBy(username)));
 
 			// Clear the input field before sending values
-			MethodLibrary.clearField(locator, elemName);
+			MethodLibrary.clearField(username, elemName);
 
 			// Send values to the input box
 			logger.info("Sending values to : " + elemName);
 
-			driver.findElement(locator).sendKeys(Value);
+			driver.findElement(convertToBy(username)).sendKeys(Value);
 
 			// Log result
 			logger.pass("Inputted '" + Value + "' text into : '" + elemName + "'");
@@ -470,6 +471,8 @@ public class MethodLibrary extends BaseClass{
 	    }
 	    return (By) webelment;
 	}
+
+	
 	
 	
 }
