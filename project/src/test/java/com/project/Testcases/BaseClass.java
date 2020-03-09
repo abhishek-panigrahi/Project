@@ -18,6 +18,7 @@ import com.aventstack.extentreports.MediaEntityBuilder;
 import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
 import com.aventstack.extentreports.reporter.configuration.Theme;
 import com.project.Page.LoginPage;
+import com.project.Page.MainMenuPage;
 import com.project.Utility.BrowserFactory;
 import com.project.Utility.MethodLibrary;
 
@@ -88,8 +89,8 @@ public class BaseClass {
 		logger.assignAuthor("Abhishek\tPanigrahi");
 		logger.assignCategory("Smoke\tfor\tsaucedemo.com");
 		logger.info("Logging out of saucedemo.com");
-		LoginPage loginPageObject = PageFactory.initElements(driver, LoginPage.class);
-		loginPageObject.logoutOfSauceDemo();
+		MainMenuPage mainMenuPage = PageFactory.initElements(driver, MainMenuPage.class);
+		mainMenuPage.logoutOfSauceDemo();
 		MethodLibrary.waitForPageToLoad();
 		MethodLibrary.assertText(driver.getTitle(), "Swag Labs","Page title");
 	}
