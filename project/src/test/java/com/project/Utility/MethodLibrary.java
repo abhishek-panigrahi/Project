@@ -21,11 +21,45 @@ import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
-import com.project.Testcases.BaseClass;
+import com.aventstack.extentreports.ExtentReports;
+import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
+import com.aventstack.extentreports.reporter.configuration.Theme;
 
+public class MethodLibrary extends Listener{
 
+	public static void extentReportSetter(String testSiteURL, String testSiteName)
+	{
+		String reportFileName = null;
+		
+		reportFileName = testSiteName.replaceAll("\\s", "");
+		
+		ExtentHtmlReporter extent = new ExtentHtmlReporter(new File(System.getProperty("user.dir")+"/Reports/"+reportFileName+".html"));
+		extent.config().setTheme(Theme.DARK);
+		extent.config().setReportName("Automated tests for "+testSiteName);
 
-public class MethodLibrary extends BaseClass{
+		report = new ExtentReports();
+		report.setSystemInfo("URL", "<a href='"+testSiteURL+"'>link</a>");
+		report.setSystemInfo("Browser", "Chrome");
+		report.attachReporter(extent);
+		
+		removeAllFiles(System.getProperty("user.dir") + File.separator+"Reports"+File.separator+reportFileName+".html");
+	}
+
+	
+	public static void logSetter(String testName, String author, String category)
+	{
+		logger = report.createTest(testName);
+		logger.assignAuthor(author);
+		logger.assignCategory(category);
+
+	}
+	
+
+	public static void baseUtility()
+	{
+		System.setProperty("webdriver.chrome.driver", "E:\\chromedriver.exe");	
+	}
+
 
 
 	/**
@@ -40,14 +74,14 @@ public class MethodLibrary extends BaseClass{
 	{
 		try
 		{
-		String currentDir = indexResultFilename.substring(0, indexResultFilename.lastIndexOf(File.separator));
+			String currentDir = indexResultFilename.substring(0, indexResultFilename.lastIndexOf(File.separator));
 
-		// Clear Test Report folder
-		File directory = new File(currentDir);
-		File[] allFiles = directory.listFiles();
-		for (int count = 0; count < allFiles.length; count++) {
-			allFiles[count].delete();
-		}
+			// Clear Test Report folder
+			File directory = new File(currentDir);
+			File[] allFiles = directory.listFiles();
+			for (int count = 0; count < allFiles.length; count++) {
+				allFiles[count].delete();
+			}
 		}
 		catch(Exception exception)
 		{
@@ -132,12 +166,12 @@ public class MethodLibrary extends BaseClass{
 
 		logger.info("Waiting for web element: "+elementName+" to load on the page");
 
-		
+
 		try {
 
 			// Waits for 60 seconds
 			Wait<WebDriver> wait = new WebDriverWait(driver, timePeriod);
-			
+
 			wait.until(ExpectedConditions.visibilityOfElementLocated(convertToBy(logoutButton)));
 
 			// Log result
@@ -317,12 +351,12 @@ public class MethodLibrary extends BaseClass{
 	 */
 
 	public static void waitForPageToLoad() throws InterruptedException {
-		
+
 		try {
-			
+
 			// Waits for 60 seconds
 			WebDriverWait wait = new WebDriverWait(driver, 60);
-			
+
 			// Wait until expected condition (All documents present on the page
 			// get ready) met
 			wait.until((ExpectedCondition<Boolean>) new ExpectedCondition<Boolean>() {
@@ -347,7 +381,7 @@ public class MethodLibrary extends BaseClass{
 		}
 
 		catch (Exception waitForPageToLoadException) {
-			
+
 			logger.warning("Error came while waiting for page to load : " + waitForPageToLoadException.getMessage()
 			.substring(0, Math.min(waitForPageToLoadException.getMessage().length(), indexForWarning))+"...");
 		}
@@ -438,8 +472,8 @@ public class MethodLibrary extends BaseClass{
 		Assert.assertEquals(actualText, expectedText);
 		logger.pass("Pass: Succesfully asserted "+element);
 	}
-	
-	
+
+
 	/**
 	 * This method is used to convert web element
 	 * to type By
@@ -449,30 +483,30 @@ public class MethodLibrary extends BaseClass{
 	 * @return by
 	 */
 	public static By convertToBy(WebElement webelment) {
-	    String[] data = webelment.toString().split(" -> ")[1].replace("]", "").split(": ");
-	    String locator = data[0];
-	    String term = data[1];
+		String[] data = webelment.toString().split(" -> ")[1].replace("]", "").split(": ");
+		String locator = data[0];
+		String term = data[1];
 
-	    switch (locator) {
-	    case "xpath":
-	        return By.xpath(term);
-	    case "css selector":
-	        return By.cssSelector(term);
-	    case "id":
-	        return By.id(term);
-	    case "tag name":
-	        return By.tagName(term);
-	    case "name":
-	        return By.name(term);
-	    case "link text":
-	        return By.linkText(term);
-	    case "class name":
-	        return By.className(term);
-	    }
-	    return (By) webelment;
+		switch (locator) {
+		case "xpath":
+			return By.xpath(term);
+		case "css selector":
+			return By.cssSelector(term);
+		case "id":
+			return By.id(term);
+		case "tag name":
+			return By.tagName(term);
+		case "name":
+			return By.name(term);
+		case "link text":
+			return By.linkText(term);
+		case "class name":
+			return By.className(term);
+		}
+		return (By) webelment;
 	}
 
-	
-	
-	
+
+
+
 }

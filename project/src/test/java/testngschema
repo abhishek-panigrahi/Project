@@ -6,6 +6,7 @@ dependencies
 data provider
 
 
+group test
 email
 extent report
 retry mechanism for failed tests
@@ -14,9 +15,13 @@ Write status to google spread sheet
 Use the above as a test data sheet
 CI
 cross browser
-paralled testing
+parallel testing
 docket container
 auto it
+
+
+
+
 
 
 

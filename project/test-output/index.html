@@ -24,7 +24,7 @@
     <div class="top-banner-root">
       <span class="top-banner-title-font">Test results</span>
       <br/>
-      <span class="top-banner-font-1">1 suite</span>
+      <span class="top-banner-font-1">1 suite, 1 failed test</span>
     </div> <!-- top-banner-root -->
     <div class="navigator-root">
       <div class="navigator-suite-header">
@@ -38,7 +38,7 @@
         <div class="rounded-window">
           <div class="suite-header light-rounded-window-top">
             <a href="#" class="navigator-link" panel-name="suite-Smoke">
-              <span class="suite-name border-passed">Smoke</span>
+              <span class="suite-name border-failed">Smoke</span>
             </a> <!-- navigator-link -->
           </div> <!-- suite-header light-rounded-window-top -->
           <div class="navigator-suite-content">
@@ -91,7 +91,21 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">3 methods,   3 passed</span>
+                    <span class="method-stats">3 methods, 1 failed,   2 passed</span>
+                  </li>
+                  <li>
+                    <span class="method-list-title failed">Failed methods</span>
+                    <span class="show-or-hide-methods failed">
+                      <a href="#" panel-name="suite-Smoke" class="hide-methods failed suite-Smoke"> (hide)</a> <!-- hide-methods failed suite-Smoke -->
+                      <a href="#" panel-name="suite-Smoke" class="show-methods failed suite-Smoke"> (show)</a> <!-- show-methods failed suite-Smoke -->
+                    </span>
+                    <div class="method-list-content failed suite-Smoke">
+                      <span>
+                        <img width="3%" src="failed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Smoke" title="com.project.Testcases.LogOutOfSauceDemo" hash-for-method="logoutOfSauceDemo">logoutOfSauceDemo</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                    </div> <!-- method-list-content failed suite-Smoke -->
                   </li>
                   <li>
                     <span class="method-list-title passed">Passed methods</span>
@@ -102,17 +116,12 @@
                     <div class="method-list-content passed suite-Smoke">
                       <span>
                         <img width="3%" src="passed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-Smoke" title="com.project.Testcases.BaseClass" hash-for-method="loginToSauceDemo(standard_user, secret_sauce)">loginToSauceDemo(standard_user, secret_sauce)</a> <!-- method navigator-link -->
+                        <a href="#" class="method navigator-link" panel-name="suite-Smoke" title="com.project.Testcases.LoginToSauceDemo" hash-for-method="loginToSauceDemo(standard_user, secret_sauce)">loginToSauceDemo(standard_user, secret_sauce)</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img width="3%" src="passed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-Smoke" title="com.project.Testcases.BaseClass" hash-for-method="logoutOfSauceDemo">logoutOfSauceDemo</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                      <span>
-                        <img width="3%" src="passed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-Smoke" title="com.project.Testcases.BaseClass" hash-for-method="navigateToSauceDemo(https://www.saucedemo.com/, SauceDemo.com, chrome)">navigateToSauceDemo(https://www.saucedemo.com/, SauceDemo.com, chrome)</a> <!-- method navigator-link -->
+                        <a href="#" class="method navigator-link" panel-name="suite-Smoke" title="com.project.Testcases.NavigateToSauceDemo" hash-for-method="navigateToSauceDemo(https://www.saucedemo.com/, SauceDemo.com, chrome)">navigateToSauceDemo(https://www.saucedemo.com/, SauceDemo.com, chrome)</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                     </div> <!-- method-list-content passed suite-Smoke -->
@@ -127,10 +136,56 @@
     <div class="wrapper">
       <div class="main-panel-root">
         <div panel-name="suite-Smoke" class="panel Smoke">
+          <div class="suite-Smoke-class-failed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="failed.png"/>
+              <span class="class-name">com.project.Testcases.LogOutOfSauceDemo</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="logoutOfSauceDemo">
+                  </a> <!-- logoutOfSauceDemo -->
+                  <span class="method-name">logoutOfSauceDemo</span>
+                  <div class="stack-trace">java.lang.AssertionError: Error while clicking on: logout button : element not visible
+  (Session info: chrome=80.0.3987.132)
+  (Driver info: chromedriver=2.35.528161 (5b82f2d2aae0ca24b877009200ced9065a772e73),platform=Windows NT 10.0.18363 x86_64) (WARNING: The server did not provide any stacktrace information)
+Command duration or timeout: 31 milliseconds
+Build info: version: &apos;2.53.1&apos;, revision: &apos;a36b8b1cd5757287168e54b817830adce9b0158d&apos;, time: &apos;2016-06-30 19:26:09&apos;
+System info: host: &apos;apanigrahi-pc&apos;, ip: &apos;192.168.43.206&apos;, os.name: &apos;Windows 10&apos;, os.arch: &apos;amd64&apos;, os.version: &apos;10.0&apos;, java.version: &apos;1.8.0_241&apos;
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, networkConnectionEnabled=false, chrome={chromedriverVersion=2.35.528161 (5b82f2d2aae0ca24b877009200ced9065a772e73), userDataDir=C:\Users\abhishek\AppData\Local\Temp\scoped_dir136944_19447}, takesHeapSnapshot=true, pageLoadStrategy=normal, databaseEnabled=false, handlesAlerts=true, hasTouchScreen=false, version=80.0.3987.132, platform=XP, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=false, acceptInsecureCerts=false, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true, setWindowRect=true, unexpectedAlertBehaviour=}]
+Session ID: aa7ea99a5352f5e4f6b17780d17b29a9
+	at com.project.Utility.MethodLibrary.clickLink(MethodLibrary.java:229)
+	at com.project.Page.MainMenuPage.logoutOfSauceDemo(MainMenuPage.java:32)
+	at com.project.Testcases.LogOutOfSauceDemo.logoutOfSauceDemo(LogOutOfSauceDemo.java:19)
+	at java.util.ArrayList.forEach(Unknown Source)
+... Removed 28 stack frames
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Smoke-class-failed -->
           <div class="suite-Smoke-class-passed">
             <div class="main-panel-header rounded-window-top">
               <img src="passed.png"/>
-              <span class="class-name">com.project.Testcases.BaseClass</span>
+              <span class="class-name">com.project.Testcases.NavigateToSauceDemo</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="navigateToSauceDemo(https://www.saucedemo.com/, SauceDemo.com, chrome)">
+                  </a> <!-- navigateToSauceDemo(https://www.saucedemo.com/, SauceDemo.com, chrome) -->
+                  <span class="method-name">navigateToSauceDemo</span>
+                  <span class="parameters">(https://www.saucedemo.com/, SauceDemo.com, chrome)</span>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Smoke-class-passed -->
+          <div class="suite-Smoke-class-passed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="passed.png"/>
+              <span class="class-name">com.project.Testcases.LoginToSauceDemo</span>
             </div> <!-- main-panel-header rounded-window-top -->
             <div class="main-panel-content rounded-window-bottom">
               <div class="method">
@@ -139,21 +194,6 @@
                   </a> <!-- loginToSauceDemo(standard_user, secret_sauce) -->
                   <span class="method-name">loginToSauceDemo</span>
                   <span class="parameters">(standard_user, secret_sauce)</span>
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-              <div class="method">
-                <div class="method-content">
-                  <a name="logoutOfSauceDemo">
-                  </a> <!-- logoutOfSauceDemo -->
-                  <span class="method-name">logoutOfSauceDemo</span>
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-              <div class="method">
-                <div class="method-content">
-                  <a name="navigateToSauceDemo(https://www.saucedemo.com/, SauceDemo.com, chrome)">
-                  </a> <!-- navigateToSauceDemo(https://www.saucedemo.com/, SauceDemo.com, chrome) -->
-                  <span class="method-name">navigateToSauceDemo</span>
-                  <span class="parameters">(https://www.saucedemo.com/, SauceDemo.com, chrome)</span>
                 </div> <!-- method-content -->
               </div> <!-- method -->
             </div> <!-- main-panel-content rounded-window-bottom -->
@@ -168,6 +208,9 @@
 &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
 &lt;!DOCTYPE suite SYSTEM &quot;https://testng.org/testng-1.0.dtd&quot;&gt;
 &lt;suite guice-stage=&quot;DEVELOPMENT&quot; name=&quot;Smoke&quot;&gt;
+  &lt;listeners&gt;
+    &lt;listener class-name=&quot;com.project.Utility.Listener&quot;/&gt;
+  &lt;/listeners&gt;
   &lt;test thread-count=&quot;5&quot; name=&quot;Smoke&quot;&gt;
     &lt;parameter name=&quot;password&quot; value=&quot;secret_sauce&quot;/&gt;
     &lt;parameter name=&quot;test site URL&quot; value=&quot;https://www.saucedemo.com/&quot;/&gt;
@@ -175,7 +218,9 @@
     &lt;parameter name=&quot;Browser&quot; value=&quot;chrome&quot;/&gt;
     &lt;parameter name=&quot;username&quot; value=&quot;standard_user&quot;/&gt;
     &lt;classes&gt;
-      &lt;class name=&quot;com.project.Testcases.BaseClass&quot;/&gt;
+      &lt;class name=&quot;com.project.Testcases.NavigateToSauceDemo&quot;/&gt;
+      &lt;class name=&quot;com.project.Testcases.LoginToSauceDemo&quot;/&gt;
+      &lt;class name=&quot;com.project.Testcases.LogOutOfSauceDemo&quot;/&gt;
     &lt;/classes&gt;
   &lt;/test&gt; &lt;!-- Smoke --&gt;
 &lt;/suite&gt; &lt;!-- Smoke --&gt;
@@ -189,7 +234,7 @@
           <div class="main-panel-content rounded-window-bottom">
             <ul>
               <li>
-                <span class="test-name">Smoke (1 class)</span>
+                <span class="test-name">Smoke (3 classes)</span>
               </li>
             </ul>
           </div> <!-- main-panel-content rounded-window-bottom -->
@@ -218,16 +263,16 @@ data.addColumn('number', 'Time (ms)');
 data.addRows(3);
 data.setCell(0, 0, 0)
 data.setCell(0, 1, 'navigateToSauceDemo')
-data.setCell(0, 2, 'com.project.Testcases.BaseClass')
-data.setCell(0, 3, 9100);
+data.setCell(0, 2, 'com.project.Testcases.NavigateToSauceDemo')
+data.setCell(0, 3, 9234);
 data.setCell(1, 0, 1)
 data.setCell(1, 1, 'loginToSauceDemo')
-data.setCell(1, 2, 'com.project.Testcases.BaseClass')
-data.setCell(1, 3, 3923);
+data.setCell(1, 2, 'com.project.Testcases.LoginToSauceDemo')
+data.setCell(1, 3, 4770);
 data.setCell(2, 0, 2)
 data.setCell(2, 1, 'logoutOfSauceDemo')
-data.setCell(2, 2, 'com.project.Testcases.BaseClass')
-data.setCell(2, 3, 1934);
+data.setCell(2, 2, 'com.project.Testcases.LogOutOfSauceDemo')
+data.setCell(2, 3, 277);
 window.suiteTableData['Smoke']= { tableData: data, tableDiv: 'times-div-Smoke'}
 return data;
 }
@@ -258,43 +303,27 @@ return data;
           </div> <!-- main-panel-header rounded-window-top -->
           <div class="main-panel-content rounded-window-bottom">
             <div class="chronological-class">
-              <div class="chronological-class-name">com.project.Testcases.BaseClass</div> <!-- chronological-class-name -->
-              <div class="configuration-suite before">
-                <span class="method-name">beforeSuite</span>
-                <span class="method-start">0 ms</span>
-              </div> <!-- configuration-suite before -->
-              <div class="configuration-test before">
-                <span class="method-name">beforeTest</span>
-                <span class="method-start">162 ms</span>
-              </div> <!-- configuration-test before -->
+              <div class="chronological-class-name">com.project.Testcases.NavigateToSauceDemo</div> <!-- chronological-class-name -->
               <div class="test-method">
                 <span class="method-name">navigateToSauceDemo(https://www.saucedemo.com/, SauceDemo.com, chrome)</span>
-                <span class="method-start">198 ms</span>
+                <span class="method-start">0 ms</span>
               </div> <!-- test-method -->
-              <div class="configuration-method after">
-                <span class="method-name">getResult([TestResult name=navigateToSauceDemo status=SUCCESS method=BaseClass.navigateToSauceDemo(java.lang.S...)</span>
-                <span class="method-start">9304 ms</span>
-              </div> <!-- configuration-method after -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">com.project.Testcases.LoginToSauceDemo</div> <!-- chronological-class-name -->
               <div class="test-method">
                 <span class="method-name">loginToSauceDemo(standard_user, secret_sauce)</span>
-                <span class="method-start">9913 ms</span>
+                <span class="method-start">9793 ms</span>
               </div> <!-- test-method -->
-              <div class="configuration-method after">
-                <span class="method-name">getResult([TestResult name=loginToSauceDemo status=SUCCESS method=BaseClass.loginToSauceDemo(java.lang.String,...)</span>
-                <span class="method-start">13839 ms</span>
-              </div> <!-- configuration-method after -->
+            </div> <!-- chronological-class -->
+            <div class="chronological-class">
+              <div class="chronological-class-name">com.project.Testcases.LogOutOfSauceDemo</div> <!-- chronological-class-name -->
               <div class="test-method">
+                <img src="failed.png">
+                </img>
                 <span class="method-name">logoutOfSauceDemo</span>
-                <span class="method-start">13922 ms</span>
+                <span class="method-start">14642 ms</span>
               </div> <!-- test-method -->
-              <div class="configuration-method after">
-                <span class="method-name">getResult([TestResult name=logoutOfSauceDemo status=SUCCESS method=BaseClass.logoutOfSauceDemo()[pri:3, instan...)</span>
-                <span class="method-start">15859 ms</span>
-              </div> <!-- configuration-method after -->
-              <div class="configuration-suite after">
-                <span class="method-name">afterSuite</span>
-                <span class="method-start">16003 ms</span>
-              </div> <!-- configuration-suite after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
       </div> <!-- main-panel-root -->

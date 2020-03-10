@@ -8,9 +8,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.testng.Assert;
 
-import com.project.Testcases.BaseClass;
-
-public class BrowserFactory extends BaseClass{
+public class BrowserFactory extends Listener{
 
 	public static	WebDriver driver;
 
