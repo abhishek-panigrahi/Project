@@ -1,22 +1,19 @@
 package com.project.Testcases;
 
-import org.openqa.selenium.support.PageFactory;
 import org.testng.annotations.Test;
 
-import com.project.Page.MainMenuPage;
-import com.project.Utility.Listener;
+import com.project.Page.BaseClass;
+import com.project.Utility.Logs;
 import com.project.Utility.MethodLibrary;
 
-public class LogOutOfSauceDemo extends Listener{
+public class LogOutOfSauceDemo extends BaseClass{
 
 	@Test
 	public void logoutOfSauceDemo() throws InterruptedException {
 		
-		MethodLibrary.logSetter("Logout", "Abhishek\tPanigrahi", "Smoke\tfor\tsaucedemo.com");
+		Logs.logSetter("Logout", author, category);
 		logger.info("Logging out of saucedemo.com");
-		
-		MainMenuPage mainMenuPage = PageFactory.initElements(driver, MainMenuPage.class);
-		mainMenuPage.logoutOfSauceDemo();
+		mainMenuPageObject.logoutOfSauceDemo();
 		MethodLibrary.waitForPageToLoad();
 		MethodLibrary.assertText(driver.getTitle(), "Swag Labs","Page title");
 	}

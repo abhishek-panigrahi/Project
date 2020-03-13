@@ -8,26 +8,25 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.testng.Assert;
 
-public class BrowserFactory extends Listener{
+import com.project.Page.BaseClass;
 
-	public static	WebDriver driver;
+public class BrowserFactory extends BaseClass{
 
 	public static WebDriver navigateToTestSite(String url, String testSiteName, String browserName)
 	{
-
+		
 		logger.info("Navigating to test site: "+testSiteName);
-
+		
 		try
 		{
 
 			if(browserName.equalsIgnoreCase("firefox"))
 			{
-				driver = new FirefoxDriver();
-				
+				driver = new FirefoxDriver();		
 			}
 			else if(browserName.equalsIgnoreCase("chrome"))
 			{
-				driver = new ChromeDriver();	
+				driver = new ChromeDriver();
 			}
 			else if(browserName.equalsIgnoreCase("IE"))
 			{
@@ -51,5 +50,9 @@ public class BrowserFactory extends Listener{
 		return driver;
 	}
 
-
+public static void closeBrowser()
+{
+	driver.close();
+}
+	
 }

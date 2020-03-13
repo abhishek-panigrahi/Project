@@ -22,44 +22,13 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
 import com.aventstack.extentreports.ExtentReports;
+import com.aventstack.extentreports.ExtentTest;
 import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
 import com.aventstack.extentreports.reporter.configuration.Theme;
+import com.project.Page.BaseClass;
 
-public class MethodLibrary extends Listener{
-
-	public static void extentReportSetter(String testSiteURL, String testSiteName)
-	{
-		String reportFileName = null;
-		
-		reportFileName = testSiteName.replaceAll("\\s", "");
-		
-		ExtentHtmlReporter extent = new ExtentHtmlReporter(new File(System.getProperty("user.dir")+"/Reports/"+reportFileName+".html"));
-		extent.config().setTheme(Theme.DARK);
-		extent.config().setReportName("Automated tests for "+testSiteName);
-
-		report = new ExtentReports();
-		report.setSystemInfo("URL", "<a href='"+testSiteURL+"'>link</a>");
-		report.setSystemInfo("Browser", "Chrome");
-		report.attachReporter(extent);
-		
-		removeAllFiles(System.getProperty("user.dir") + File.separator+"Reports"+File.separator+reportFileName+".html");
-	}
-
+public class MethodLibrary extends BaseClass{
 	
-	public static void logSetter(String testName, String author, String category)
-	{
-		logger = report.createTest(testName);
-		logger.assignAuthor(author);
-		logger.assignCategory(category);
-
-	}
-	
-
-	public static void baseUtility()
-	{
-		System.setProperty("webdriver.chrome.driver", "E:\\chromedriver.exe");	
-	}
-
 
 
 	/**
