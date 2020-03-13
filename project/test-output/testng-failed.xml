@@ -6,19 +6,20 @@
   </listeners>
   <test thread-count="5" name="Smoke(failed)">
     <parameter name="password" value="secret_sauce"/>
-    <parameter name="test site URL" value="https://www.saucedemo.com/"/>
-    <parameter name="test site name" value="SauceDemo.com34"/>
+    <parameter name="Environment" value="saucedemo"/>
     <parameter name="Browser" value="chrome"/>
     <parameter name="username" value="standard_user"/>
     <classes>
-      <class name="com.project.Testcases.LogOutOfSauceDemo">
+      <class name="com.project.Testcases.NavigateToSauceDemo">
         <methods>
           <include name="logoutOfSauceDemo"/>
           <include name="pageObjects"/>
           <include name="onStart"/>
+          <include name="navigateToSauceDemo" invocation-numbers="0"/>
+          <include name="loginToSauceDemo"/>
           <include name="finishedTest"/>
         </methods>
-      </class> <!-- com.project.Testcases.LogOutOfSauceDemo -->
+      </class> <!-- com.project.Testcases.NavigateToSauceDemo -->
     </classes>
   </test> <!-- Smoke(failed) -->
 </suite> <!-- Failed suite [Smoke] -->

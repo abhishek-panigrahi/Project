@@ -8,15 +8,12 @@
 
   <test thread-count="5" name="Smoke">
   
-  <parameter name = "test site URL" value = "https://www.saucedemo.com/" />
-  <parameter name = "test site name" value = "SauceDemo.com" />
+  <parameter name = "Environment" value = "saucedemo" />
   <parameter name = "Browser" value = "chrome" />
   <parameter name = "username" value = "standard_user" />
   <parameter name = "password" value = "secret_sauce" />
     <classes>     
-      <class name="com.project.Testcases.NavigateToSauceDemo"/>
-      <class name="com.project.Testcases.LoginToSauceDemo"/>   
-      <class name="com.project.Testcases.LogOutOfSauceDemo"/>
+      <class name="com.project.Testcases.NavigateAndLoginToSauceDemo"/>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->
