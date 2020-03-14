@@ -106,7 +106,7 @@ public class MethodLibrary extends BaseClass{
 
 		catch (Throwable t) {
 			if(count==2)
-				logger.warning("Error came while highlighting element: " + 
+				reportLogger.warning("Error came while highlighting element: " + 
 						t.getMessage().substring(0, Math.min(t.getMessage().length(), indexForWarning))+"...");
 		}
 	}
@@ -129,7 +129,7 @@ public class MethodLibrary extends BaseClass{
 	public static
 	void waitForElementToLoad(final WebElement logoutButton, String elementName, int timePeriod) {
 
-		logger.info("Waiting for web element: "+elementName+" to load on the page");
+		reportLogger.info("Waiting for web element: "+elementName+" to load on the page");
 
 
 		try {
@@ -140,14 +140,14 @@ public class MethodLibrary extends BaseClass{
 			wait.until(ExpectedConditions.visibilityOfElementLocated(convertToBy(logoutButton)));
 
 			// Log result
-			logger.info("Waiting ends ... Web element loaded on the page");
+			reportLogger.info("Waiting ends ... Web element loaded on the page");
 
 		}
 
 		catch (Throwable waitForElementException) {
 
 			// Log error
-			logger.error("Error came while waiting for element: "+elementName+" to appear: " 
+			reportLogger.error("Error came while waiting for element: "+elementName+" to appear: " 
 					+ waitForElementException.getMessage().substring(0, Math.min(waitForElementException.getMessage().length(), indexForWarning))
 					+"...");
 
@@ -170,7 +170,7 @@ public class MethodLibrary extends BaseClass{
 
 	public static void clickLink(WebElement loginButton, String elemName) {
 
-		logger.info("Clicking on : " + elemName);
+		reportLogger.info("Clicking on : " + elemName);
 
 		try {
 
@@ -184,7 +184,7 @@ public class MethodLibrary extends BaseClass{
 			loginButton.click();
 
 			// Log result
-			logger.pass("Clicked on : " + elemName);
+			reportLogger.pass("Clicked on : " + elemName);
 
 		}
 
@@ -214,7 +214,7 @@ public class MethodLibrary extends BaseClass{
 
 	public static void clearField(WebElement locator, String elemName) {
 
-		logger.info("Clearing field : " + elemName);
+		reportLogger.info("Clearing field : " + elemName);
 
 		try {
 
@@ -232,14 +232,14 @@ public class MethodLibrary extends BaseClass{
 				driver.findElement(convertToBy(locator)).clear();
 
 			// Log result
-			logger.info("Cleared : " + elemName);
+			reportLogger.info("Cleared : " + elemName);
 
 		}
 
 		catch (Throwable clearFieldException) {
 
 			// Log error
-			logger.error("Error while clearing field: " + elemName + " : " + clearFieldException.getMessage()
+			reportLogger.error("Error while clearing field: " + elemName + " : " + clearFieldException.getMessage()
 			.substring(0, Math.min(clearFieldException.getMessage().length(), indexForWarning))+"...");
 		}
 
@@ -279,12 +279,12 @@ public class MethodLibrary extends BaseClass{
 			MethodLibrary.clearField(username, elemName);
 
 			// Send values to the input box
-			logger.info("Sending values to : " + elemName);
+			reportLogger.info("Sending values to : " + elemName);
 
 			driver.findElement(convertToBy(username)).sendKeys(Value);
 
 			// Log result
-			logger.pass("Inputted '" + Value + "' text into : '" + elemName + "'");
+			reportLogger.pass("Inputted '" + Value + "' text into : '" + elemName + "'");
 
 		}
 
@@ -347,7 +347,7 @@ public class MethodLibrary extends BaseClass{
 
 		catch (Exception waitForPageToLoadException) {
 
-			logger.warning("Error came while waiting for page to load : " + waitForPageToLoadException.getMessage()
+			reportLogger.warning("Error came while waiting for page to load : " + waitForPageToLoadException.getMessage()
 			.substring(0, Math.min(waitForPageToLoadException.getMessage().length(), indexForWarning))+"...");
 		}
 
@@ -366,21 +366,21 @@ public class MethodLibrary extends BaseClass{
 	 */
 	public static boolean isElementPresent(By locator, String elemName) {
 
-		logger.info("Checking whether " + elemName + " is present on the page or not ...");
+		reportLogger.info("Checking whether " + elemName + " is present on the page or not ...");
 
 		try {
 
 			// Check whether web element is displayed or not
 			driver.findElement(locator);
 
-			logger.info(elemName + " is present on the page");
+			reportLogger.info(elemName + " is present on the page");
 			return true;
 
 		}
 
 		catch (NoSuchElementException elementPresentError) {
 
-			logger.info(elemName + " not present on the page");
+			reportLogger.info(elemName + " not present on the page");
 			return false;
 
 		}
@@ -397,7 +397,7 @@ public class MethodLibrary extends BaseClass{
 
 	public static void navigateToSite(String url, String testSiteName)
 	{
-		logger.info("Navigating to test site: "+testSiteName);
+		reportLogger.info("Navigating to test site: "+testSiteName);
 
 		try
 		{
@@ -433,9 +433,9 @@ public class MethodLibrary extends BaseClass{
 	 */
 	public static void assertText(String actualText, String expectedText, String element)
 	{
-		logger.info("Asserting text for: "+element);
+		reportLogger.info("Asserting text for: "+element);
 		Assert.assertEquals(actualText, expectedText);
-		logger.pass("Pass: Succesfully asserted "+element);
+		reportLogger.pass("Pass: Succesfully asserted "+element);
 	}
 
 

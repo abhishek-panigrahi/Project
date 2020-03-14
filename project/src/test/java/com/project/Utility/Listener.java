@@ -5,13 +5,10 @@ import java.io.IOException;
 import org.testng.ITestContext;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
-import com.project.Page.BaseClass;
+import org.testng.util.Strings;
 
-
-public class Listener extends BaseClass implements ITestListener {
-
-	Logs logger = new Logs();
-
+public class Listener implements ITestListener {
+	
 	@Override
 	public void onStart(ITestContext result) {   
 	}
@@ -22,30 +19,28 @@ public class Listener extends BaseClass implements ITestListener {
 
 	@Override
 	public void onTestStart(ITestResult result) {
+		if(!Strings.isNullOrEmpty(result.getMethod().getDescription())){
+			Logs.info("Executing test case: "+result.getMethod().getDescription());
+		}	
 	}
 	
 	@Override
 	public void onTestFailure(ITestResult result) {
-		
 		try {
-			logger.logFailMessage(result);
+			Logs.logFailMessage(result);
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
 	}
 
 	@Override
 	public void onTestSkipped(ITestResult result) {
-		//logger.skip("Test Case Skipped: " + result.getName());
-		//report.flush();
+		Logs.logSkipMessage(result);
 	}
 
 	@Override
 	public void onTestSuccess(ITestResult result) {
-		
-		logger.logPassMessage(result);
+		Logs.logPassMessage(result);
 	}
 	
 }

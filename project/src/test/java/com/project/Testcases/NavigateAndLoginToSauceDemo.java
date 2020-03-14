@@ -11,10 +11,10 @@ import com.project.Utility.MethodLibrary;
 public class NavigateAndLoginToSauceDemo extends BaseClass{
 
 	@Parameters({"Browser","Environment"})
-	@Test
+	@Test(description = "Navigate to the given test site and asserting it's title")
 	public void navigateToSauceDemo(String browser, String environment) throws InterruptedException
 	{	
-	    Logs.logSetter("Navigate to "+testSiteName, author, category);
+	    Logs.reportLogSetter("Navigate to "+testSiteName, author, category);
 	    TestConstants.environmentSetter(environment);
 		BrowserFactory.navigateToTestSite(testSiteURL, testSiteName, browser);
 		MethodLibrary.waitForPageToLoad();
@@ -22,22 +22,21 @@ public class NavigateAndLoginToSauceDemo extends BaseClass{
 	} 
 	
 	@Parameters({"username", "password"})
-	@Test(dependsOnMethods = { "navigateToSauceDemo" })
+	@Test(enabled = true, dependsOnMethods = {"navigateToSauceDemo"}, description = "Logging in to given test site and asserting it's title")
 	public void loginToSauceDemo(String username, String password) throws InterruptedException {
    	
-    	Logs.logSetter("Login", author, category);
-		logger.info("Logging in to saucedemo.com");
+    	Logs.reportLogSetter("Login", author, category);
+		reportLogger.info("Logging in to saucedemo.com");
 		loginPageObject.loginToSauceDemo(username, password);
 		MethodLibrary.waitForPageToLoad();
-		
 		MethodLibrary.assertText(driver.getTitle(), "Swag Labs","Page title");
 	}
 	
-	@Test(dependsOnMethods = { "loginToSauceDemo" })
+	@Test(enabled = true, dependsOnMethods = {"loginToSauceDemo"}, description = "Logging out of given test site and asserting it's title")
 	public void logoutOfSauceDemo() throws InterruptedException {
 		
-		Logs.logSetter("Logout", author, category);
-		logger.info("Logging out of saucedemo.com");
+		Logs.reportLogSetter("Logout", author, category);
+		reportLogger.info("Logging out of saucedemo.com");
 		mainMenuPageObject.logoutOfSauceDemo();
 		MethodLibrary.waitForPageToLoad();
 		MethodLibrary.assertText(driver.getTitle(), "Swag Labs","Page title");

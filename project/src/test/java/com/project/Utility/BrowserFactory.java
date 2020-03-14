@@ -15,7 +15,7 @@ public class BrowserFactory extends BaseClass{
 	public static WebDriver navigateToTestSite(String url, String testSiteName, String browserName)
 	{
 		
-		logger.info("Navigating to test site: "+testSiteName);
+		reportLogger.info("Navigating to test site: "+testSiteName);
 		
 		try
 		{

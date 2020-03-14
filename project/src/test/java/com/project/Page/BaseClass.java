@@ -5,6 +5,7 @@ import org.openqa.selenium.support.PageFactory;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.BeforeTest;
 
 import com.aventstack.extentreports.ExtentTest;
 import com.project.Utility.BrowserFactory;
@@ -14,7 +15,7 @@ public class BaseClass extends TestConstants{
 
 	public static WebDriver driver;
 	public static int indexForWarning = 200;
-	public static ExtentTest logger;
+	public static ExtentTest reportLogger;
 
 	protected LoginPage loginPageObject;
 	protected MainMenuPage mainMenuPageObject;
@@ -29,8 +30,12 @@ public class BaseClass extends TestConstants{
 	public void pageObjects()
 	{
 		loginPageObject = PageFactory.initElements(driver, LoginPage.class);
-		mainMenuPageObject = PageFactory.initElements(driver, MainMenuPage.class);
-		
+		mainMenuPageObject = PageFactory.initElements(driver, MainMenuPage.class);		
+	}
+	
+	@BeforeTest
+	public void beforeTest()
+	{
 	}
 	
 	@AfterSuite

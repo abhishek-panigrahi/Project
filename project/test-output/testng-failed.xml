@@ -10,16 +10,17 @@
     <parameter name="Browser" value="chrome"/>
     <parameter name="username" value="standard_user"/>
     <classes>
-      <class name="com.project.Testcases.NavigateToSauceDemo">
+      <class name="com.project.Testcases.NavigateAndLoginToSauceDemo">
         <methods>
-          <include name="logoutOfSauceDemo"/>
+          <include name="beforeTest"/>
+          <include name="navigateToSauceDemo"/>
+          <include name="loginToSauceDemo"/>
           <include name="pageObjects"/>
           <include name="onStart"/>
-          <include name="navigateToSauceDemo" invocation-numbers="0"/>
-          <include name="loginToSauceDemo"/>
+          <include name="logoutOfSauceDemo"/>
           <include name="finishedTest"/>
         </methods>
-      </class> <!-- com.project.Testcases.NavigateToSauceDemo -->
+      </class> <!-- com.project.Testcases.NavigateAndLoginToSauceDemo -->
     </classes>
   </test> <!-- Smoke(failed) -->
 </suite> <!-- Failed suite [Smoke] -->
