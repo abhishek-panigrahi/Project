@@ -1,4 +1,20 @@
 ==============================================================================================================================
 Package information:
 ==============================================================================================================================
-This package contains generic methods that are not project specific i.e. they can be used for any project.
+This package contains generic methods that are not project specific i.e. they can be used in any project.
+
+The following is the description of each of the classes under this package:
+
+- BrowserFactory.java:
+This class contains methods specific to controlling the browser instance.
+
+- Listener.java
+This class listens to the events defined in the script and logs/reports those events.
+
+- Logs.java
+This class contains methods used for reporting and logging purposes.
+
+- MethodLibrary.java
+This class contains generic methods that can used to the create test steps.  
+
+

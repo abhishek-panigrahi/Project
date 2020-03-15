@@ -14,9 +14,10 @@ public class BrowserFactory extends BaseClass{
 
 	public static WebDriver navigateToTestSite(String url, String testSiteName, String browserName)
 	{
-		
-		reportLogger.info("Navigating to test site: "+testSiteName);
-		
+		logMessage = "Navigating to test site: "+testSiteName;
+		reportLogger.info(logMessage);
+		Logs.info(logMessage);
+
 		try
 		{
 
@@ -44,15 +45,26 @@ public class BrowserFactory extends BaseClass{
 		}
 		catch(Exception exception)
 		{
-			Assert.fail("Unable to visit website due to exception: "+exception.getMessage());
+			logMessage = "Unable to visit website due to exception: "+exception;
+			reportLogger.fatal(logMessage);
+			Logs.fatal(logMessage);
+			Assert.fail(logMessage);
 		}
 
 		return driver;
 	}
 
-public static void closeBrowser()
-{
-	driver.close();
-}
+	public static void closeBrowser(WebDriver driver)
+	{
+		if(null != driver){		
+			logMessage = "Closing browser instance";
+			Logs.info(logMessage);
+
+			// Close the browser instance
+			driver.close();
+			driver=null;
+		}
+
+	}
 	
 }

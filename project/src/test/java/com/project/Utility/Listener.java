@@ -19,17 +19,18 @@ public class Listener implements ITestListener {
 
 	@Override
 	public void onTestStart(ITestResult result) {
+		
 		if(!Strings.isNullOrEmpty(result.getMethod().getDescription())){
 			Logs.info("Executing test case: "+result.getMethod().getDescription());
-		}	
+		}
 	}
 	
 	@Override
 	public void onTestFailure(ITestResult result) {
 		try {
 			Logs.logFailMessage(result);
-		} catch (IOException e) {
-			e.printStackTrace();
+		} catch (IOException exception) {
+			exception.printStackTrace();
 		}
 	}
 

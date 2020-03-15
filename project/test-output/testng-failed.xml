@@ -13,7 +13,7 @@
       <class name="com.project.Testcases.NavigateAndLoginToSauceDemo">
         <methods>
           <include name="beforeTest"/>
-          <include name="navigateToSauceDemo"/>
+          <include name="navigateToSauceDemo" invocation-numbers="0"/>
           <include name="loginToSauceDemo"/>
           <include name="pageObjects"/>
           <include name="onStart"/>

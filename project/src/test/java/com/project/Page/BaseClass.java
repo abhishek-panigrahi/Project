@@ -16,6 +16,7 @@ public class BaseClass extends TestConstants{
 	public static WebDriver driver;
 	public static int indexForWarning = 200;
 	public static ExtentTest reportLogger;
+	public static String logMessage = null;
 
 	protected LoginPage loginPageObject;
 	protected MainMenuPage mainMenuPageObject;
@@ -25,7 +26,7 @@ public class BaseClass extends TestConstants{
 		System.setProperty("webdriver.chrome.driver", "E:\\chromedriver.exe");
 		Logs.extentReportSetter(testSiteURL, testSiteName);
 	}
-
+	
 	@BeforeMethod
 	public void pageObjects()
 	{
@@ -41,7 +42,7 @@ public class BaseClass extends TestConstants{
 	@AfterSuite
 	public void finishedTest()
 	{
-	BrowserFactory.closeBrowser();	
+	BrowserFactory.closeBrowser(driver);	
 	}
 	
 
