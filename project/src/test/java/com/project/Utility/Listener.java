@@ -7,6 +7,16 @@ import org.testng.ITestListener;
 import org.testng.ITestResult;
 import org.testng.util.Strings;
 
+/**
+ * This is a listener class
+ * 
+ * It listens to the events of the scripts
+ * and logs those events
+ * 
+ * 
+ * @author abhishek
+ *
+ */
 public class Listener implements ITestListener {
 	
 	@Override
