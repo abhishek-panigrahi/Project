@@ -8,7 +8,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.testng.Assert;
 
-import com.project.Page.BaseClass;
+import com.project.Configure.BaseClass;
 
 /**
  * 

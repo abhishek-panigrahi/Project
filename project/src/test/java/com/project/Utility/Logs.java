@@ -11,7 +11,7 @@ import com.aventstack.extentreports.ExtentReports;
 import com.aventstack.extentreports.MediaEntityBuilder;
 import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
 import com.aventstack.extentreports.reporter.configuration.Theme;
-import com.project.Page.BaseClass;
+import com.project.Configure.BaseClass;
 
 public class Logs extends BaseClass{
 
@@ -46,7 +46,7 @@ public class Logs extends BaseClass{
 		report.setSystemInfo("URL", "<a href='"+testSiteURL+"'>link</a>");
 		
 		// Provide browser type in the report
-		report.setSystemInfo("Browser", "Chrome");
+		report.setSystemInfo("Browser", browser);
 		
 		// Attach the extent report to the script
 		report.attachReporter(extent);

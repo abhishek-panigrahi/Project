@@ -8,8 +8,6 @@
 
   <test thread-count="5" name="Smoke">
   
-  <parameter name = "Environment" value = "saucedemo" />
-  <parameter name = "Browser" value = "chrome" />
   <parameter name = "username" value = "standard_user" />
   <parameter name = "password" value = "secret_sauce" />
     <classes>     

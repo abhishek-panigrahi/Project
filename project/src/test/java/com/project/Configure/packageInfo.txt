@@ -1,4 +1,4 @@
 ==============================================================================================================================
 Package information:
 ==============================================================================================================================
-This package contains class files for code corresponding to each page of the project. 
+This package contains class files related to the configuration of the project. 

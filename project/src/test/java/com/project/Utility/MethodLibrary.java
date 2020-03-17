@@ -21,7 +21,7 @@ import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
-import com.project.Page.BaseClass;
+import com.project.Configure.BaseClass;
 
 public class MethodLibrary extends BaseClass{
 	
