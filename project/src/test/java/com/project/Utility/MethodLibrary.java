@@ -25,8 +25,7 @@ import com.project.Configure.BaseClass;
 
 public class MethodLibrary extends BaseClass{
 	
-
-
+	
 	/**
 	 * 
 	 * This method is used to remove all files
@@ -34,25 +33,37 @@ public class MethodLibrary extends BaseClass{
 	 * 
 	 * 
 	 * @param indexResultFilename
+	 * 
 	 */ 
 	public static void removeAllFiles(String indexResultFilename)
 	{
+		Logs.info("Removing all files from 'Reports' folder");
+		
 		try
 		{
+			// Store current directory
 			String currentDir = indexResultFilename.substring(0, indexResultFilename.lastIndexOf(File.separator));
 
 			// Clear Test Report folder
 			File directory = new File(currentDir);
+			
+			// Store all files names in given directory
 			File[] allFiles = directory.listFiles();
+			
+			// Remove all files
 			for (int count = 0; count < allFiles.length; count++) {
 				allFiles[count].delete();
 			}
 		}
 		catch(Exception exception)
 		{
-			System.out.println("Error came: "+exception);
+			// Log error message
+			logMessage = "Error came: "+exception;
+			System.out.println(logMessage);
+			Logs.error(logMessage);
 		}
 	}
+	
 
 	/**
 	 * This method is used to take screenshot
@@ -65,7 +76,9 @@ public class MethodLibrary extends BaseClass{
 	 * @throws IOException
 	 */
 	public  static String captureScreenshot(WebDriver driver, String screenShotName) throws IOException {
+		
 		String dest = null;
+		
 		try {
 			SimpleDateFormat dateFormat = new SimpleDateFormat("dd-mm-yyyy h-m-s");
 			Date date = new Date();
@@ -91,6 +104,8 @@ public class MethodLibrary extends BaseClass{
 	 */
 	public static void highlightElement(WebDriver driver, WebElement loginButton) {
 
+		Logs.info("Highlighting element: "+loginButton);
+		
 		int count = 0;
 
 		try {
@@ -99,7 +114,6 @@ public class MethodLibrary extends BaseClass{
 				JavascriptExecutor js = (JavascriptExecutor) driver;
 				js.executeScript("arguments[0].setAttribute('style', arguments[1]);", loginButton,
 						"color: red; border: 2px solid red;");
-
 			}
 
 		}
@@ -129,28 +143,36 @@ public class MethodLibrary extends BaseClass{
 	public static
 	void waitForElementToLoad(final WebElement logoutButton, String elementName, int timePeriod) {
 
-		reportLogger.info("Waiting for web element: "+elementName+" to load on the page");
-
-
+		logMessage = "Waiting for web element: "+elementName+" to load on the page";
+		reportLogger.info(logMessage);
+		Logs.info(logMessage);
+				
 		try {
 
 			// Waits for 60 seconds
 			Wait<WebDriver> wait = new WebDriverWait(driver, timePeriod);
 
+			// Wait for element to load
 			wait.until(ExpectedConditions.visibilityOfElementLocated(convertToBy(logoutButton)));
 
+			// log message
+			logMessage = "Waiting ends ... Web element loaded on the page";
+			
 			// Log result
-			reportLogger.info("Waiting ends ... Web element loaded on the page");
-
+			reportLogger.info(logMessage);
+			Logs.info(logMessage);
 		}
 
 		catch (Throwable waitForElementException) {
 
-			// Log error
-			reportLogger.error("Error came while waiting for element: "+elementName+" to appear: " 
+			// Log message
+			logMessage = "Error came while waiting for element: "+elementName+" to appear: " 
 					+ waitForElementException.getMessage().substring(0, Math.min(waitForElementException.getMessage().length(), indexForWarning))
-					+"...");
-
+					+"...";
+			
+			// Log error
+			reportLogger.error(logMessage);
+			Logs.error(logMessage);
 		}
 
 	}
@@ -170,7 +192,14 @@ public class MethodLibrary extends BaseClass{
 
 	public static void clickLink(WebElement loginButton, String elemName) {
 
-		reportLogger.info("Clicking on : " + elemName);
+		// Log Message
+		logMessage = "Clicking on : " + elemName;
+		
+		// Log in report
+		reportLogger.info(logMessage);
+		
+		// Log in application.log
+		Logs.info(logMessage);
 
 		try {
 

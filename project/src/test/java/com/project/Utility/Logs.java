@@ -24,6 +24,7 @@ public class Logs extends BaseClass{
 	 * 
 	 * @param url
 	 * @param testSiteName
+	 * 
 	 */
 	public static void extentReportSetter(String url, String testSiteName)
 	{
@@ -65,6 +66,7 @@ public class Logs extends BaseClass{
 	 * @param testName
 	 * @param author
 	 * @param category
+	 * 
 	 */
 	public static void reportLogSetter(String testName, String author, String category)
 	{
@@ -77,33 +79,76 @@ public class Logs extends BaseClass{
 		// Assign the category for tests
 		reportLogger.assignCategory(category);
 	}
-
-
-
+	
+	
+	/**
+	 * 
+	 * Method to log failed message in report and application log
+	 * 
+	 * @param result
+	 * @throws IOException
+	 * 
+	 */
 	public static void logFailMessage(ITestResult result) throws IOException
 	{
+		// Failure log message
 		logMessage = "Test failed. Detailed error: ";
+		
+		// Log failure message in report 
 		reportLogger.fail(logMessage+result.getThrowable().getMessage(), MediaEntityBuilder.
 				createScreenCaptureFromPath(MethodLibrary.captureScreenshot(driver, result.getName())).build());
+		
+		// Log failure message in application.log 
 		Logs.error(logMessage+result.getThrowable().getMessage());
+		
+		// Flush report
 		report.flush();
 	}
 
-
+	
+	/**
+	 * 
+	 * Method to log success message in report and application log
+	 * 
+	 * 
+	 * @param result
+	 * 
+	 */
 	public static void logPassMessage(ITestResult result)
 	{
+		// Success log message
 		logMessage = "Test Case Passed: " + result.getName();
+		
+		// Log success message in report
 		reportLogger.pass(logMessage);
+		
+		// Log info in application.log
 		Logs.info(logMessage);
+		
+		// Flush report
 		report.flush();
 	}
 
-
+	
+	/**
+	 * 
+	 * Method to log skip message in report and application.log
+	 * 
+	 * @param result
+	 * 
+	 */
 	public static void logSkipMessage(ITestResult result)
 	{
+		// Log message for skipped test case
 		logMessage = "Test Case Skipped: " + result.getName();
+		
+		// Log skipped message in report
 		reportLogger.skip("Test Case Skipped: " + result.getName());
+		
+		// Log debug message in application.log
 		Logs.debug(logMessage);
+		
+		// Flush report
 		report.flush();
 	}
 
