@@ -102,9 +102,9 @@ public class MethodLibrary extends BaseClass{
 	 * @param driver
 	 * @param loginButton
 	 */
-	public static void highlightElement(WebDriver driver, WebElement loginButton) {
+	public static void highlightElement(WebDriver driver, WebElement element, String elementName) {
 
-		Logs.info("Highlighting element: "+loginButton);
+		Logs.info("Highlighting element: "+elementName);
 		
 		int count = 0;
 
@@ -112,7 +112,7 @@ public class MethodLibrary extends BaseClass{
 
 			for (count = 0; count < 3; count++) {
 				JavascriptExecutor js = (JavascriptExecutor) driver;
-				js.executeScript("arguments[0].setAttribute('style', arguments[1]);", loginButton,
+				js.executeScript("arguments[0].setAttribute('style', arguments[1]);", element,
 						"color: red; border: 2px solid red;");
 			}
 
@@ -190,7 +190,7 @@ public class MethodLibrary extends BaseClass{
 	 * @return Pass/Fail
 	 */
 
-	public static void clickLink(WebElement loginButton, String elemName) {
+	public static void clickLink(WebElement element, String elemName) {
 
 		// Log Message
 		logMessage = "Clicking on : " + elemName;
@@ -207,10 +207,10 @@ public class MethodLibrary extends BaseClass{
 			//waitForElementToLoad(locator,elemName, 10);
 
 			// Highlight link
-			MethodLibrary.highlightElement(driver, loginButton);
+			MethodLibrary.highlightElement(driver, element, elemName);
 
 			// Click on the link
-			loginButton.click();
+			element.click();
 
 			// Log result
 			reportLogger.pass("Clicked on : " + elemName);
@@ -251,7 +251,7 @@ public class MethodLibrary extends BaseClass{
 			waitForElementToLoad(locator,elemName, 10);
 
 			// Highlight the input-box
-			MethodLibrary.highlightElement(driver, driver.findElement(convertToBy(locator)));
+			MethodLibrary.highlightElement(driver, driver.findElement(convertToBy(locator)), elemName);
 
 			// Clear the input-box
 			driver.findElement(convertToBy(locator)).clear(); 
@@ -294,23 +294,23 @@ public class MethodLibrary extends BaseClass{
 	 * @param elemName
 	 * @param Value
 	 */
-	public static void clearAndInput(WebElement username, String elemName, String Value) {
+	public static void clearAndInput(WebElement element, String elemName, String Value) {
 
 		try {
 
 			// Wait for the input box to appear on the page
-			waitForElementToLoad(username,elemName, 10);
+			waitForElementToLoad(element,elemName, 10);
 
 			// Highlight the input box
-			MethodLibrary.highlightElement(driver, driver.findElement(convertToBy(username)));
+			MethodLibrary.highlightElement(driver, driver.findElement(convertToBy(element)), elemName);
 
 			// Clear the input field before sending values
-			MethodLibrary.clearField(username, elemName);
+			MethodLibrary.clearField(element, elemName);
 
 			// Send values to the input box
 			reportLogger.info("Sending values to : " + elemName);
 
-			driver.findElement(convertToBy(username)).sendKeys(Value);
+			driver.findElement(convertToBy(element)).sendKeys(Value);
 
 			// Log result
 			reportLogger.pass("Inputted '" + Value + "' text into : '" + elemName + "'");
