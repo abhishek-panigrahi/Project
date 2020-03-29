@@ -113,7 +113,7 @@ public class MethodLibrary extends BaseClass{
 
 			for (count = 0; count < 3; count++) {
 				JavascriptExecutor js = (JavascriptExecutor) driver;
-				js.executeScript("arguments[0].setAttribute('style', arguments[1]);", element,
+				js.executeScript("arguments[0].setAttribute('style', arguments[1]);", driver.findElement(element),
 						"color: red; border: 2px solid red;");
 			}
 
@@ -123,6 +123,8 @@ public class MethodLibrary extends BaseClass{
 			if(count==2)
 				reportLogger.warning("Error came while highlighting element: " + 
 						t.getMessage().substring(0, Math.min(t.getMessage().length(), indexForWarning))+"...");
+			Logs.warning("Error came while highlighting element: " + 
+					t.getMessage());
 		}
 	}
 
@@ -163,354 +165,448 @@ public class MethodLibrary extends BaseClass{
 			Logs.info(logMessage);
 		}
 
-	catch (Throwable waitForElementException) {
+		catch (Throwable waitForElementException) {
 
-		// Log message
-		logMessage = "Error came while waiting for element: "+elementName+" to appear: " 
+			// Log message
+			logMessage = "Error came while waiting for element: "+elementName+" to appear: " 
 					+ waitForElementException.getMessage().substring(0, Math.min(waitForElementException.getMessage().length(), indexForWarning))
 					+"...";
-		
-		// Log error
-		reportLogger.error(logMessage);
+
+			// Log error
+			reportLogger.error(logMessage);
+
+			// Log message
+			logMessage = "Error came while waiting for element: "+elementName+" to appear: " 
+					+ waitForElementException.getMessage();
+
+			Logs.error(logMessage);
+		}
+	}
+
+
+
+	/**
+	 * Waits for element to appear on the page. Once appeared, highlight the
+	 * element and clicks on it. Returns Pass if able to click on the element.
+	 * Returns Fail if any exception occurs in between.
+	 * 
+	 * @param loginButton
+	 *            Element locator
+	 * @param elemName
+	 *            Element name
+	 * 
+	 * @return Pass/Fail
+	 */
+
+	public static void clickLink(By locator, String elemName) {
+
+		// Log Message
+		logMessage = "Clicking on : " + elemName;
+
+		// Log in report
+		reportLogger.info(logMessage);
+
+		// Log in application.log
+		Logs.info(logMessage);
+
+		try {
+
+			// Wait for link to appear on the page
+			//waitForElementToLoad(locator,elemName, 10);
+
+			// Highlight link
+			MethodLibrary.highlightElement(driver, locator, elemName);
+
+			// Click on the link
+			driver.findElement(locator).click();
+
+			// Log Message
+			logMessage = "Clicked on : " + elemName;
+
+			// Log in report
+			reportLogger.pass(logMessage);
+
+			// Log in application.log
+			Logs.info(logMessage);
+
+		}
+
+		catch (Throwable clickLinkException) {
+
+			// Log error
+			Assert.fail("Error while clicking on: " + elemName + " : " + clickLinkException.getMessage());
+
+		}
+
+	}
+
+
+	/**
+	 * Waits for input box to appear on the page. Once appeared, highlight and
+	 * clears the box. Returns Pass if Input box got cleared successfully.
+	 * Returns Fail if input box didn't clear or any exception occurs in
+	 * between.
+	 * 
+	 * @param locator
+	 *            Element locator
+	 * @param elemName
+	 *            Element name
+	 * 
+	 * @return Pass/Fail
+	 */
+
+	public static void clearField(By locator, String elemName) {
 
 		// Log message
-		logMessage = "Error came while waiting for element: "+elementName+" to appear: " 
-				+ waitForElementException.getMessage();
+		logMessage = "Clearing field : " + elemName;
 
-		Logs.error(logMessage);
-	}
-	}
+		// Log in report
+		reportLogger.info(logMessage);
 
+		// Log in application.log
+		Logs.info(logMessage);
 
+		try {
 
-/**
- * Waits for element to appear on the page. Once appeared, highlight the
- * element and clicks on it. Returns Pass if able to click on the element.
- * Returns Fail if any exception occurs in between.
- * 
- * @param loginButton
- *            Element locator
- * @param elemName
- *            Element name
- * 
- * @return Pass/Fail
- */
+			// Wait for the input-box to load on the page
+			waitForElementToLoad(locator,elemName, 5);
 
-public static void clickLink(By element, String elemName) {
+			// Highlight the input-box
+			MethodLibrary.highlightElement(driver, locator, elemName);
 
-	// Log Message
-	logMessage = "Clicking on : " + elemName;
+			// Clear the input-box
+			driver.findElement(locator).clear(); 
 
-	// Log in report
-	reportLogger.info(logMessage);
+			// Check whether input-box has been cleared or not
+			if (!driver.findElement(locator).getAttribute("value").isEmpty())
+				driver.findElement(locator).clear();
 
-	// Log in application.log
-	Logs.info(logMessage);
+			// Log result
+			reportLogger.info("Cleared : " + elemName);
 
-	try {
+		}
 
-		// Wait for link to appear on the page
-		//waitForElementToLoad(locator,elemName, 10);
+		catch (Throwable clearFieldException) {
 
-		// Highlight link
-		MethodLibrary.highlightElement(driver, element, elemName);
+			// Log error
 
-		// Click on the link
-		driver.findElement(element).click();
+			// Log in report
+			reportLogger.error("Error while clearing field: " + elemName + " : " + clearFieldException.getMessage()
+			.substring(0, Math.min(clearFieldException.getMessage().length(), indexForWarning))+"...");
 
-		// Log result
-		reportLogger.pass("Clicked on : " + elemName);
+			// Log in application.log
+			Logs.error("Error while clearing field: " + elemName + " : " + clearFieldException.getMessage());
+		}
 
 	}
 
-	catch (Throwable clickLinkException) {
 
-		// Log error
-		Assert.fail("Error while clicking on: " + elemName + " : " + clickLinkException.getMessage());
+	/**
+	 * 
+	 * public static String clearAndInput(By locator,String elemName,String
+	 * Value) method specification :-
+	 * 
+	 * 1) Clear and then Inputs/sends value 2) locator -> identify the web
+	 * element by id,x-path,name,etc. 3) elemName -> the name of the web element
+	 * where we intend to input/send values 4) Value -> the string value which
+	 * we intend to input/send 5) waitForElementToLoad(locator) -> waits for web
+	 * element to load 6) FunctionLibrary.clearField(locator, elemName); ->
+	 * clears the input field 7) driver.findElement(locator).sendKeys(Value) ->
+	 * inputs/sends the value to the intended web element
+	 * 
+	 * @param : Locator for the input-box, name of the web element, value to be
+	 * inputted
+	 * 
+	 * @param elemName
+	 * @param Value
+	 */
+	public static void clearAndInput(By element, String elemName, String Value) {
 
-	}
+		try {
 
-}
+			// Highlight the input box
+			MethodLibrary.highlightElement(driver, element, elemName);
 
-
-/**
- * Waits for input box to appear on the page. Once appeared, highlight and
- * clears the box. Returns Pass if Input box got cleared successfully.
- * Returns Fail if input box didn't clear or any exception occurs in
- * between.
- * 
- * @param locator
- *            Element locator
- * @param elemName
- *            Element name
- * 
- * @return Pass/Fail
- */
-
-public static void clearField(By locator, String elemName) {
-
-	reportLogger.info("Clearing field : " + elemName);
-
-	try {
-
-		// Wait for the input-box to load on the page
-		waitForElementToLoad(locator,elemName, 10);
-
-		// Highlight the input-box
-		MethodLibrary.highlightElement(driver, locator, elemName);
-
-		// Clear the input-box
-		driver.findElement(locator).clear(); 
-
-		// Check whether input-box has been cleared or not
-		if (!driver.findElement(locator).getAttribute("value").isEmpty())
-			driver.findElement(locator).clear();
-
-		// Log result
-		reportLogger.info("Cleared : " + elemName);
-
-	}
-
-	catch (Throwable clearFieldException) {
-
-		// Log error
-		reportLogger.error("Error while clearing field: " + elemName + " : " + clearFieldException.getMessage()
-		.substring(0, Math.min(clearFieldException.getMessage().length(), indexForWarning))+"...");
-	}
-
-}
+			// Clear the input field before sending values
+			MethodLibrary.clearField(element, elemName);
 
 
-/**
- * 
- * public static String clearAndInput(By locator,String elemName,String
- * Value) method specification :-
- * 
- * 1) Clear and then Inputs/sends value 2) locator -> identify the web
- * element by id,x-path,name,etc. 3) elemName -> the name of the web element
- * where we intend to input/send values 4) Value -> the string value which
- * we intend to input/send 5) waitForElementToLoad(locator) -> waits for web
- * element to load 6) FunctionLibrary.clearField(locator, elemName); ->
- * clears the input field 7) driver.findElement(locator).sendKeys(Value) ->
- * inputs/sends the value to the intended web element
- * 
- * @param : Locator for the input-box, name of the web element, value to be
- * inputted
- * 
- * @param elemName
- * @param Value
- */
-public static void clearAndInput(By element, String elemName, String Value) {
+			//Log message
+			logMessage = "Sending values to : " + elemName;
 
-	try {
+			// Log in report
+			reportLogger.info(logMessage);
 
-		// Wait for the input box to appear on the page
-		waitForElementToLoad(element, elemName, 10);
+			// Log in application.log
+			Logs.info(logMessage);
 
-		// Highlight the input box
-		MethodLibrary.highlightElement(driver, element, elemName);
+			// Send values to the input box
+			driver.findElement(element).sendKeys(Value);
 
-		// Clear the input field before sending values
-		MethodLibrary.clearField(element, elemName);
+			// Log result
+			reportLogger.pass("Inputted '" + Value + "' text into : '" + elemName + "'");
 
-		// Send values to the input box
-		reportLogger.info("Sending values to : " + elemName);
+		}
 
-		driver.findElement(element).sendKeys(Value);
+		catch (Throwable inputException) {
 
-		// Log result
-		reportLogger.pass("Inputted '" + Value + "' text into : '" + elemName + "'");
+			// Log error
+			Assert.fail("Error while inputting text into: '" + elemName + "' : " + inputException.getMessage());
+
+		}
 
 	}
 
-	catch (Throwable inputException) {
 
-		// Log error
-		Assert.fail("Error while inputting text into: '" + elemName + "' : " + inputException.getMessage()
-		.substring(0, Math.min(inputException.getMessage().length(), indexForWarning))+"...");
+	/**
+	 * 
+	 * public static void waitForPageToLoad() method specification :-
+	 * 
+	 * 1) Waits for a new page to load completely 2) new WebDriverWait(driver,
+	 * 60) -> Waits for 60 seconds 3) wait.until((ExpectedCondition<Boolean>) ->
+	 * Wait until expected condition (All documents present on the page get
+	 * ready) met
+	 * 
+	 * @param : no parameters passed
+	 * 
+	 * @return : void
+	 * 
+	 * @throws InterruptedException
+	 */
 
-	}
+	public static void waitForPageToLoad() throws InterruptedException {
 
-}
+		try {
 
+			// Log message
+			logMessage = "Waiting for page to load";
 
-/**
- * 
- * public static void waitForPageToLoad() method specification :-
- * 
- * 1) Waits for a new page to load completely 2) new WebDriverWait(driver,
- * 60) -> Waits for 60 seconds 3) wait.until((ExpectedCondition<Boolean>) ->
- * Wait until expected condition (All documents present on the page get
- * ready) met
- * 
- * @param : no parameters passed
- * 
- * @return : void
- * 
- * @throws InterruptedException
- */
+			// Log in report
+			reportLogger.info(logMessage);
 
-public static void waitForPageToLoad() throws InterruptedException {
+			// Log in application.log
+			Logs.info(logMessage);
 
-	try {
+			// Waits for 60 seconds
+			WebDriverWait wait = new WebDriverWait(driver, 60);
 
-		// Waits for 60 seconds
-		WebDriverWait wait = new WebDriverWait(driver, 60);
+			// Wait until expected condition (All documents present on the page
+			// get ready) met
+			wait.until((ExpectedCondition<Boolean>) new ExpectedCondition<Boolean>() {
 
-		// Wait until expected condition (All documents present on the page
-		// get ready) met
-		wait.until((ExpectedCondition<Boolean>) new ExpectedCondition<Boolean>() {
+				public Boolean apply(WebDriver d) {
 
-			public Boolean apply(WebDriver d) {
+					if (!(d instanceof JavascriptExecutor))
+						return true;
 
-				if (!(d instanceof JavascriptExecutor))
-					return true;
+					Object result = ((JavascriptExecutor) d)
+							.executeScript("return document['readyState'] ? 'complete' == document.readyState : true");
 
-				Object result = ((JavascriptExecutor) d)
-						.executeScript("return document['readyState'] ? 'complete' == document.readyState : true");
+					if (result != null && result instanceof Boolean && (Boolean) result)
+						return true;
 
-				if (result != null && result instanceof Boolean && (Boolean) result)
-					return true;
+					return false;
 
-				return false;
+				}
 
-			}
+			});
 
-		});
+			// Log message
+			logMessage = "Waiting ends, web page loaded";
 
-	}
+			// Log in report
+			reportLogger.info(logMessage);
 
-	catch (Exception waitForPageToLoadException) {
+			// Log in application.log
+			Logs.info(logMessage);
 
-		reportLogger.warning("Error came while waiting for page to load : " + waitForPageToLoadException.getMessage()
-		.substring(0, Math.min(waitForPageToLoadException.getMessage().length(), indexForWarning))+"...");
-	}
+		}
 
-}
+		catch (Exception waitForPageToLoadException) {
 
-/**
- * 
- * public static Boolean isElementPresent(By locator, String elemName)
- * method specification
- * 
- * driver.findElement(locator) : Checking whether element present or not
- * 
- * @param locator
- * @param elemName
- * @return true / false
- */
-public static boolean isElementPresent(By locator, String elemName) {
+			// Log error message
+			reportLogger.warning("Error came while waiting for page to load : " + waitForPageToLoadException.getMessage()
+			.substring(0, Math.min(waitForPageToLoadException.getMessage().length(), indexForWarning))+"...");
 
-	reportLogger.info("Checking whether " + elemName + " is present on the page or not ...");
-
-	try {
-
-		// Check whether web element is displayed or not
-		driver.findElement(locator);
-
-		reportLogger.info(elemName + " is present on the page");
-		return true;
+			// Log in application.log
+			Logs.warning("Error came while waiting for page to load : " + waitForPageToLoadException.getMessage());
+		}
 
 	}
 
-	catch (NoSuchElementException elementPresentError) {
+	/**
+	 * 
+	 * public static Boolean isElementPresent(By locator, String elemName)
+	 * method specification
+	 * 
+	 * driver.findElement(locator) : Checking whether element present or not
+	 * 
+	 * @param locator
+	 * @param elemName
+	 * @return true / false
+	 */
+	public static boolean isElementPresent(By locator, String elemName) {
 
-		reportLogger.info(elemName + " not present on the page");
-		return false;
+		// Log message
+		logMessage = "Checking whether " + elemName + " is present on the page or not ...";
+
+		// Log in report
+		reportLogger.info(logMessage);
+
+		// Log in application.log
+		Logs.info(logMessage);
+
+		try {
+
+			// Check whether web element is displayed or not
+			driver.findElement(locator);
+
+			// Log message
+			logMessage = elemName + " is present on the page";
+
+			// Log in report
+			reportLogger.info(logMessage);
+			
+			// Log in application.log
+			Logs.info(logMessage);
+			
+			return true;
+
+		}
+
+		catch (NoSuchElementException elementPresentError) {
+
+			// Log message
+			logMessage = elemName + " not present on the page";
+
+			// Log in report
+			reportLogger.info(logMessage);
+			
+			// Log in application.log
+			Logs.info(logMessage);
+			
+			return false;
+
+		}
 
 	}
 
-}
+	/**
+	 * This method is used to navigate to the application
+	 * 
+	 * 
+	 * @param url
+	 * @param testSiteName
+	 */
 
-/**
- * This method is used to navigate to the application
- * 
- * 
- * @param url
- * @param testSiteName
- */
-
-public static void navigateToSite(String url, String testSiteName)
-{
-	reportLogger.info("Navigating to test site: "+testSiteName);
-
-	try
+	public static void navigateToSite(String url, String testSiteName)
 	{
+		
+		// Log message
+		logMessage = "Navigating to test site: "+testSiteName;
 
-		driver = new ChromeDriver();	
+		// Log in report
+		reportLogger.info(logMessage);
 
-		// Implicitly wait for 30 seconds for browser to open
-		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+		// Log in application.log
+		Logs.info(logMessage);
+		
+		try
+		{
 
-		// Delete all browser cookies
-		driver.manage().deleteAllCookies();
+			// Create a new instance of chrome browser window
+			driver = new ChromeDriver();	
 
-		driver.navigate().to(url);
+			// Implicitly wait for 30 seconds for browser to open
+			driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 
-		driver.manage().window().maximize();
+			// Delete all browser cookies
+			driver.manage().deleteAllCookies();
+
+			// Navigate to the given URL
+			driver.navigate().to(url);
+
+			// Maximize window
+			driver.manage().window().maximize();
+		}
+		catch(Exception exception)
+		{
+			// Assert failure
+			Assert.fail("Unable to visit website due to exception: "+exception.getMessage());
+		}
 	}
-	catch(Exception exception)
+
+
+
+	/**
+	 * 
+	 * This method is used to make assertions
+	 * for text and log them
+	 * 
+	 * @param actualText
+	 * @param expectedText
+	 * @param element
+	 */
+	public static void assertText(String actualText, String expectedText, String element)
 	{
-		Assert.fail("Unable to visit website due to exception: "+exception.getMessage());
-	}
-}
+		// Log message
+		logMessage = "Asserting text for: "+element;
 
+		// Log in report
+		reportLogger.info(logMessage);
 
-
-/**
- * 
- * This method is used to make assertions
- * for text and log them
- * 
- * @param actualText
- * @param expectedText
- * @param element
- */
-public static void assertText(String actualText, String expectedText, String element)
-{
-	reportLogger.info("Asserting text for: "+element);
-	Assert.assertEquals(actualText, expectedText);
-	reportLogger.pass("Pass: Succesfully asserted "+element);
-}
-
-
-/**
- * This method is used to convert web element
- * to type By
- * 
- * 
- * @param webelment
- * @return by
- */
-
-public static By convertToBy(WebElement webelment) {
-	
-	String[] data = webelment.toString().split(" -> ")[1].replace("]", "").split(": ");
-	
-	String locator = data[0];
-	String term = data[1];
-
-	switch (locator) {
-	case "xpath":
-		return By.xpath(term);
-	case "css selector":
-		return By.cssSelector(term);
-	case "id":
-		return By.id(term);
-	case "tag name":
-		return By.tagName(term);
-	case "name":
-		return By.name(term);
-	case "link text":
-		return By.linkText(term);
-	case "class name":
-		return By.className(term);
+		// Log in application.log
+		Logs.info(logMessage);
+		
+		// Perform assertion
+		Assert.assertEquals(actualText, expectedText);
+		
+		// Log message
+		logMessage = "Pass: Succesfully asserted "+element;
+		
+		// Log in report
+		reportLogger.pass(logMessage);
+		
+		// Log in application.log
+		Logs.info(logMessage);
 	}
 
-	return (By) webelment;
-}
 
+	/**
+	 * This method is used to convert web element
+	 * to type By
+	 * 
+	 * 
+	 * @param webelment
+	 * @return by
+	 */
 
+	public static By convertToBy(WebElement webelment) {
+
+		String[] data = webelment.toString().split(" -> ")[1].replace("]", "").split(": ");
+
+		String locator = data[0];
+		String term = data[1];
+
+		switch (locator) {
+		case "xpath":
+			return By.xpath(term);
+		case "css selector":
+			return By.cssSelector(term);
+		case "id":
+			return By.id(term);
+		case "tag name":
+			return By.tagName(term);
+		case "name":
+			return By.name(term);
+		case "link text":
+			return By.linkText(term);
+		case "class name":
+			return By.className(term);
+		}
+
+		return (By) webelment;
+	}
 
 
 }

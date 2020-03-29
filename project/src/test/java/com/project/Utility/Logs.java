@@ -36,19 +36,19 @@ public class Logs extends BaseClass{
 
 		// Create an instance of the report
 		ExtentHtmlReporter extent = new ExtentHtmlReporter(new File(System.getProperty("user.dir")+"/Reports/"+reportFileName+".html"));
-		
+
 		// Assign dark theme to report
 		extent.config().setTheme(Theme.DARK);
-		
+
 		// Assign title of the report
 		extent.config().setReportName("Automated tests for "+testSiteName);
 
 		// Provide URL in the report
 		report.setSystemInfo("URL", "<a href='"+testSiteURL+"'>link</a>");
-		
+
 		// Provide browser type in the report
 		report.setSystemInfo("Browser", browser);
-		
+
 		// Attach the extent report to the script
 		report.attachReporter(extent);
 
@@ -72,15 +72,15 @@ public class Logs extends BaseClass{
 	{
 		// Create a new section of test in the the report
 		reportLogger = report.createTest(testName);
-		
+
 		// Assign the author in the report
 		reportLogger.assignAuthor(author);
-		
+
 		// Assign the category for tests
 		reportLogger.assignCategory(category);
 	}
-	
-	
+
+
 	/**
 	 * 
 	 * Method to log failed message in report and application log
@@ -93,19 +93,19 @@ public class Logs extends BaseClass{
 	{
 		// Failure log message
 		logMessage = "Test failed. Detailed error: ";
-		
+
 		// Log failure message in report 
 		reportLogger.fail(logMessage+result.getThrowable().getMessage(), MediaEntityBuilder.
 				createScreenCaptureFromPath(MethodLibrary.captureScreenshot(driver, result.getName())).build());
-		
+
 		// Log failure message in application.log 
 		Logs.error(logMessage+result.getThrowable().getMessage());
-		
+
 		// Flush report
 		report.flush();
 	}
 
-	
+
 	/**
 	 * 
 	 * Method to log success message in report and application log
@@ -118,18 +118,18 @@ public class Logs extends BaseClass{
 	{
 		// Success log message
 		logMessage = "Test Case Passed: " + result.getName();
-		
+
 		// Log success message in report
 		reportLogger.pass(logMessage);
-		
+
 		// Log info in application.log
 		Logs.info(logMessage);
-		
+
 		// Flush report
 		report.flush();
 	}
 
-	
+
 	/**
 	 * 
 	 * Method to log skip message in report and application.log
@@ -141,16 +141,18 @@ public class Logs extends BaseClass{
 	{
 		// Log message for skipped test case
 		logMessage = "Test Case Skipped: " + result.getName();
-		
+
 		// Log skipped message in report
 		reportLogger.skip("Test Case Skipped: " + result.getName());
-		
+
 		// Log debug message in application.log
 		Logs.debug(logMessage);
-		
+
 		// Flush report
 		report.flush();
 	}
+
+	// Following methods are used for application.log
 
 	// Method for info log 
 	public static void info(String msg) {
@@ -173,8 +175,12 @@ public class Logs extends BaseClass{
 	}
 
 	// Method for fatal log
+	public static void warning(String msg) {
+		logger.warn(msg);
+	}
+
+	// Method for fatal log
 	public static void fatal(String msg) {
 		logger.fatal(msg);
 	}
-
 }
