@@ -1,9 +1,6 @@
 package com.project.Page;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.CacheLookup;
-import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.How;
 import com.project.Utility.MethodLibrary;
 
 public class LoginPage  {
@@ -14,19 +11,11 @@ public class LoginPage  {
 	{
 		this.driver = driver;
 	}
-
-	@FindBy(id="user-name")
-	@CacheLookup
-	WebElement username;
 	
-	@FindBy(how = How.ID,using = "password")
-	@CacheLookup
-	WebElement password;
+	By username = By.id("user-name");
+    By password = By.id("passwor");
+    By loginButton = By.className("btn_action");
 	
-	@FindBy(how = How.CLASS_NAME,using = "btn_action")
-	@CacheLookup
-	WebElement loginButton;
-
 	public void loginToSauceDemo(String userName, String passWord)
 	{
 		MethodLibrary.clearAndInput(username, "Username field", userName);

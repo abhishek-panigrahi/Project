@@ -1,10 +1,7 @@
 package com.project.Page;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.CacheLookup;
-import org.openqa.selenium.support.FindBy;
-import org.openqa.selenium.support.How;
 
 import com.project.Utility.MethodLibrary;
 
@@ -17,13 +14,8 @@ public class MainMenuPage {
 		this.driver = driver;
 	}
 	
-	@FindBy(how = How.XPATH ,using = "//div[@class='bm-burger-button']//button")
-	@CacheLookup
-	WebElement sideMenuButton;
-	
-	@FindBy(how = How.ID ,using = "logout_sidebar_link")
-	@CacheLookup
-	WebElement logoutButton;
+	By sideMenuButton = By.xpath("//div[@class='bm-burger-button']//button");
+	By logoutButton = By.id("logout_sidebar_link");
 	
 	public void logoutOfSauceDemo() throws InterruptedException
 	{

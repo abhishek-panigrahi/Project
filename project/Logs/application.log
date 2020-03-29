@@ -1,8 +1,33 @@
-[2020-03-18T01:37:46,526 INFO ] LOG - Executing test case: Navigate to the given test site and asserting it's title
-[2020-03-18T01:37:46,550 INFO ] LOG - Navigating to test site: SauceDemo.com
-[2020-03-18T01:37:56,658 INFO ] LOG - Test Case Passed: navigateToSauceDemo
-[2020-03-18T01:37:57,261 INFO ] LOG - Executing test case: Logging in to given test site and asserting it's title
-[2020-03-18T01:38:01,662 INFO ] LOG - Test Case Passed: loginToSauceDemo
-[2020-03-18T01:38:01,744 INFO ] LOG - Executing test case: Logging out of given test site and asserting it's title
-[2020-03-18T01:38:02,918 INFO ] LOG - Test Case Passed: logoutOfSauceDemo
-[2020-03-18T01:38:03,011 INFO ] LOG - Closing browser instance
+[2020-03-28T23:07:43,825 INFO ] LOG - Removing all files from 'Reports' folder
+[2020-03-28T23:07:43,893 INFO ] LOG - Executing test case: Navigate to the given test site and asserting it's title
+[2020-03-28T23:07:43,914 INFO ] LOG - Navigating to test site: SauceDemo.com
+[2020-03-28T23:08:11,798 INFO ] LOG - Test Case Passed: navigateToSauceDemo
+[2020-03-28T23:08:12,365 INFO ] LOG - Executing test case: Logging in to given test site and asserting it's title
+[2020-03-28T23:08:12,367 INFO ] LOG - Waiting for web element: Username field to load on the page
+[2020-03-28T23:08:12,458 INFO ] LOG - Waiting ends ... Web element loaded on the page
+[2020-03-28T23:08:12,458 INFO ] LOG - Highlighting element: Username field
+[2020-03-28T23:08:12,460 INFO ] LOG - Waiting for web element: Username field to load on the page
+[2020-03-28T23:08:12,530 INFO ] LOG - Waiting ends ... Web element loaded on the page
+[2020-03-28T23:08:12,531 INFO ] LOG - Highlighting element: Username field
+[2020-03-28T23:08:12,793 INFO ] LOG - Waiting for web element: Password field to load on the page
+[2020-03-28T23:08:42,844 ERROR] LOG - Error came while waiting for element: Password field to appear: Timed out after 10 seconds waiting for visibility of element located by By.id: passwor
+Build info: version: '2.53.1', revision: 'a36b8b1cd5757287168e54b817830adce9b0158d', time: '2016-06-30 19:26:09'
+System info: host: 'apanigrahi-pc', ip: '192.168.43.107', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_241'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, networkConnectionEnabled=false, chrome={chromedriverVersion=2.35.528161 (5b82f2d2aae0ca24b877009200ced9065a772e73), userDataDir=C:\Users\abhishek\AppData\Local\Temp\scoped_dir10780_22999}, takesHeapSnapshot=true, pageLoadStrategy=normal, databaseEnabled=false, handlesAlerts=true, hasTouchScreen=false, version=80.0.3987.149, platform=XP, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=false, acceptInsecureCerts=false, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true, setWindowRect=true, unexpectedAlertBehaviour=}]
+Session ID: 881873e9ef248286156ae56915d6fd00
+[2020-03-28T23:08:42,845 INFO ] LOG - Highlighting element: Password field
+[2020-03-28T23:08:42,847 INFO ] LOG - Waiting for web element: Password field to load on the page
+[2020-03-28T23:09:12,921 ERROR] LOG - Error came while waiting for element: Password field to appear: Timed out after 10 seconds waiting for visibility of element located by By.id: passwor
+Build info: version: '2.53.1', revision: 'a36b8b1cd5757287168e54b817830adce9b0158d', time: '2016-06-30 19:26:09'
+System info: host: 'apanigrahi-pc', ip: '192.168.43.107', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_241'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, networkConnectionEnabled=false, chrome={chromedriverVersion=2.35.528161 (5b82f2d2aae0ca24b877009200ced9065a772e73), userDataDir=C:\Users\abhishek\AppData\Local\Temp\scoped_dir10780_22999}, takesHeapSnapshot=true, pageLoadStrategy=normal, databaseEnabled=false, handlesAlerts=true, hasTouchScreen=false, version=80.0.3987.149, platform=XP, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=false, acceptInsecureCerts=false, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true, setWindowRect=true, unexpectedAlertBehaviour=}]
+Session ID: 881873e9ef248286156ae56915d6fd00
+[2020-03-28T23:09:12,923 INFO ] LOG - Highlighting element: Password field
+[2020-03-28T23:10:13,521 ERROR] LOG - Test failed. Detailed error: Error while inputting text into: 'Password field' : no such element: Unable to locate element: {"method":"id","selector":"passwor"}
+  (Session info: chrome=80.0.3987.149)
+  (Driver info: chromedriver=2.35.528161 (5b82f2d2aae0ca24b877009200ced9065a772e73),platform=Windows NT 10.0.18363 x86_64) (WARNING...
+[2020-03-28T23:10:13,597 INFO ] LOG - Executing test case: Logging out of given test site and asserting it's title
+[2020-03-28T23:10:13,602 DEBUG] LOG - Test Case Skipped: logoutOfSauceDemo
+[2020-03-28T23:10:13,693 INFO ] LOG - Closing browser instance

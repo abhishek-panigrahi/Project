@@ -21,7 +21,7 @@ import com.project.Utility.Logs;
 public class BaseClass {
 
 	public static WebDriver driver;
-	public static int indexForWarning = 200;
+	public static int indexForWarning = 250;
 	public static ExtentTest reportLogger;
 	public static String logMessage = null;
 	public static Properties config;

@@ -6,19 +6,16 @@
   </listeners>
   <test thread-count="5" name="Smoke(failed)">
     <parameter name="password" value="secret_sauce"/>
-    <parameter name="Environment" value="saucedemo"/>
-    <parameter name="Browser" value="chrome"/>
     <parameter name="username" value="standard_user"/>
     <classes>
       <class name="com.project.Testcases.NavigateAndLoginToSauceDemo">
         <methods>
-          <include name="beforeTest"/>
-          <include name="navigateToSauceDemo" invocation-numbers="0"/>
-          <include name="loginToSauceDemo"/>
           <include name="pageObjects"/>
+          <include name="navigateToSauceDemo"/>
+          <include name="loginToSauceDemo" invocation-numbers="0"/>
+          <include name="finishedTest"/>
           <include name="onStart"/>
           <include name="logoutOfSauceDemo"/>
-          <include name="finishedTest"/>
         </methods>
       </class> <!-- com.project.Testcases.NavigateAndLoginToSauceDemo -->
     </classes>

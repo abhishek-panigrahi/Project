@@ -48,7 +48,7 @@
 		<ul id='nav-mobile' class='right hide-on-med-and-down nav-right'>
 			<li>
                 <a href='#!'>
-                    <span class='label suite-start-time blue darken-3'>Mar 18, 2020 01:37:45 AM</span>
+                    <span class='label suite-start-time blue darken-3'>Mar 28, 2020 11:07:43 PM</span>
 				</a>
 			</li>
 			<li>
@@ -74,6 +74,9 @@
 				</a>
 				<ul id='tests-toggle' class='dropdown-content'>
 											<li status='pass'><a href='#!'>Pass <i class='material-icons green-text'>check_circle</i></a></li>
+						<li status='fail'><a href='#!'>Fail <i class='material-icons red-text'>cancel</i></a></li>
+						<li status='error'><a href='#!'>Error <i class='material-icons red-text lighten-2'>error</i></a></li>
+						<li status='skip'><a href='#!'>Skip <i class='material-icons cyan-text'>redo</i></a></li>
 					<li class='divider'></li>
 					<li status='clear' clear='true'><a href='#!'>Clear Filters <i class='material-icons'>clear</i></a></li>
 				</ul>
@@ -134,10 +137,10 @@
 					<canvas id='parent-analysis' width='100' height='80'></canvas>
 				</div>
 				<div class='block text-small'>
-					<span class='tooltipped' data-position='top' data-tooltip='100%'><span class='strong'>3</span> test(s) passed</span>
+					<span class='tooltipped' data-position='top' data-tooltip='50%'><span class='strong'>1</span> test(s) passed</span>
 				</div>
 				<div class='block text-small'>
-					<span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> test(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> others
+					<span class='strong tooltipped' data-position='top' data-tooltip='50%'>1</span> test(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> others
 				</div>
 			</div>
 		</div>
@@ -149,10 +152,10 @@
 					<canvas id='child-analysis' width='100' height='80'></canvas>
 				</div>
 				<div class='block text-small'>
-					<span class='tooltipped' data-position='top' data-tooltip='30.556%'><span class='strong'>11</span> step(s) passed</span>
+					<span class='tooltipped' data-position='top' data-tooltip='13.636%'><span class='strong'>3</span> step(s) passed</span>
 				</div>
 				<div class='block text-small'>
-					<span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> step(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='69.444%'>25</span> others
+					<span class='strong tooltipped' data-position='top' data-tooltip='4.545%'>1</span> step(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='81.818%'>18</span> others
 				</div>
 			</div>
 		</div>
@@ -170,14 +173,14 @@
 				<li class='test displayed active  pass' status='pass' bdd='false' test-id='1'>
 					<div class='test-heading'>
 						<span class='test-name'>Navigate to SauceDemo.com</span>
-						<span class='test-time'>Mar 18, 2020 01:37:46 AM</span>
+						<span class='test-time'>Mar 28, 2020 11:07:43 PM</span>
 						<span class='test-status right pass'>pass</span>
 					</div>
 					<div class='test-content hide'>
 <div class='test-time-info'>
-	<span class='label start-time'>Mar 18, 2020 01:37:46 AM</span>
-	<span class='label end-time'>Mar 18, 2020 01:37:56 AM</span>
-	<span class='label time-taken grey lighten-1 white-text'>0h 0m 10s+122ms</span>
+	<span class='label start-time'>Mar 28, 2020 11:07:43 PM</span>
+	<span class='label end-time'>Mar 28, 2020 11:08:11 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 27s+900ms</span>
 </div>
 	<div class='test-attributes'>
 			<div class='category-list'>
@@ -199,22 +202,22 @@
 			<tbody>
 				<tr class='log' status='info'>
 					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
-					<td class='timestamp'>1:37:46 AM</td>
+					<td class='timestamp'>11:07:43 PM</td>
 					<td class='step-details'>Navigating to test site: SauceDemo.com</td>
 				</tr>
 				<tr class='log' status='info'>
 					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
-					<td class='timestamp'>1:37:56 AM</td>
+					<td class='timestamp'>11:08:11 PM</td>
 					<td class='step-details'>Asserting text for: Page title</td>
 				</tr>
 				<tr class='log' status='pass'>
 					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-					<td class='timestamp'>1:37:56 AM</td>
+					<td class='timestamp'>11:08:11 PM</td>
 					<td class='step-details'>Pass: Succesfully asserted Page title</td>
 				</tr>
 				<tr class='log' status='pass'>
 					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-					<td class='timestamp'>1:37:56 AM</td>
+					<td class='timestamp'>11:08:11 PM</td>
 					<td class='step-details'>Test Case Passed: navigateToSauceDemo</td>
 				</tr>
 			</tbody>
@@ -224,17 +227,17 @@
 				</li>
 				
 				
-				<li class='test displayed active  pass' status='pass' bdd='false' test-id='2'>
+				<li class='test displayed active  fail' status='fail' bdd='false' test-id='2'>
 					<div class='test-heading'>
 						<span class='test-name'>Login</span>
-						<span class='test-time'>Mar 18, 2020 01:37:57 AM</span>
-						<span class='test-status right pass'>pass</span>
+						<span class='test-time'>Mar 28, 2020 11:08:12 PM</span>
+						<span class='test-status right fail'>fail</span>
 					</div>
 					<div class='test-content hide'>
 <div class='test-time-info'>
-	<span class='label start-time'>Mar 18, 2020 01:37:57 AM</span>
-	<span class='label end-time'>Mar 18, 2020 01:38:01 AM</span>
-	<span class='label time-taken grey lighten-1 white-text'>0h 0m 4s+399ms</span>
+	<span class='label start-time'>Mar 28, 2020 11:08:12 PM</span>
+	<span class='label end-time'>Mar 28, 2020 11:10:13 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 2m 1s+235ms</span>
 </div>
 	<div class='test-attributes'>
 			<div class='category-list'>
@@ -256,200 +259,101 @@
 			<tbody>
 				<tr class='log' status='info'>
 					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
-					<td class='timestamp'>1:37:57 AM</td>
+					<td class='timestamp'>11:08:12 PM</td>
 					<td class='step-details'>Logging in to saucedemo.com</td>
 				</tr>
 				<tr class='log' status='info'>
 					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
-					<td class='timestamp'>1:37:57 AM</td>
+					<td class='timestamp'>11:08:12 PM</td>
 					<td class='step-details'>Waiting for web element: Username field to load on the page</td>
 				</tr>
 				<tr class='log' status='info'>
 					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
-					<td class='timestamp'>1:37:57 AM</td>
+					<td class='timestamp'>11:08:12 PM</td>
 					<td class='step-details'>Waiting ends ... Web element loaded on the page</td>
 				</tr>
 				<tr class='log' status='info'>
 					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
-					<td class='timestamp'>1:37:57 AM</td>
+					<td class='timestamp'>11:08:12 PM</td>
 					<td class='step-details'>Clearing field : Username field</td>
 				</tr>
 				<tr class='log' status='info'>
 					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
-					<td class='timestamp'>1:37:57 AM</td>
+					<td class='timestamp'>11:08:12 PM</td>
 					<td class='step-details'>Waiting for web element: Username field to load on the page</td>
 				</tr>
 				<tr class='log' status='info'>
 					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
-					<td class='timestamp'>1:37:57 AM</td>
+					<td class='timestamp'>11:08:12 PM</td>
 					<td class='step-details'>Waiting ends ... Web element loaded on the page</td>
 				</tr>
 				<tr class='log' status='info'>
 					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
-					<td class='timestamp'>1:37:57 AM</td>
+					<td class='timestamp'>11:08:12 PM</td>
 					<td class='step-details'>Cleared : Username field</td>
 				</tr>
 				<tr class='log' status='info'>
 					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
-					<td class='timestamp'>1:37:57 AM</td>
+					<td class='timestamp'>11:08:12 PM</td>
 					<td class='step-details'>Sending values to : Username field</td>
 				</tr>
 				<tr class='log' status='pass'>
 					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-					<td class='timestamp'>1:37:57 AM</td>
+					<td class='timestamp'>11:08:12 PM</td>
 					<td class='step-details'>Inputted 'standard_user' text into : 'Username field'</td>
 				</tr>
 				<tr class='log' status='info'>
 					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
-					<td class='timestamp'>1:37:57 AM</td>
+					<td class='timestamp'>11:08:12 PM</td>
 					<td class='step-details'>Waiting for web element: Password field to load on the page</td>
 				</tr>
-				<tr class='log' status='info'>
-					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
-					<td class='timestamp'>1:37:57 AM</td>
-					<td class='step-details'>Waiting ends ... Web element loaded on the page</td>
+				<tr class='log' status='error'>
+					<td class='status error' title='error' alt='error'><i class='material-icons'>error</i></td>
+					<td class='timestamp'>11:08:42 PM</td>
+					<td class='step-details'>Error came while waiting for element: Password field to appear: Timed out after 10 seconds waiting for visibility of element located by By.id: passwor
+Build info: version: '2.53.1', revision: 'a36b8b1cd5757287168e54b817830adce9b0158d', time: '2016-06-30 19:26:09'
+System info: host: 'apanigrahi-pc', ip: '192.168.4...</td>
 				</tr>
 				<tr class='log' status='info'>
 					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
-					<td class='timestamp'>1:37:57 AM</td>
+					<td class='timestamp'>11:08:42 PM</td>
 					<td class='step-details'>Clearing field : Password field</td>
 				</tr>
 				<tr class='log' status='info'>
 					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
-					<td class='timestamp'>1:37:57 AM</td>
+					<td class='timestamp'>11:08:42 PM</td>
 					<td class='step-details'>Waiting for web element: Password field to load on the page</td>
 				</tr>
-				<tr class='log' status='info'>
-					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
-					<td class='timestamp'>1:37:57 AM</td>
-					<td class='step-details'>Waiting ends ... Web element loaded on the page</td>
+				<tr class='log' status='error'>
+					<td class='status error' title='error' alt='error'><i class='material-icons'>error</i></td>
+					<td class='timestamp'>11:09:12 PM</td>
+					<td class='step-details'>Error came while waiting for element: Password field to appear: Timed out after 10 seconds waiting for visibility of element located by By.id: passwor
+Build info: version: '2.53.1', revision: 'a36b8b1cd5757287168e54b817830adce9b0158d', time: '2016-06-30 19:26:09'
+System info: host: 'apanigrahi-pc', ip: '192.168.4...</td>
+				</tr>
+				<tr class='log' status='error'>
+					<td class='status error' title='error' alt='error'><i class='material-icons'>error</i></td>
+					<td class='timestamp'>11:09:42 PM</td>
+					<td class='step-details'>Error while clearing field: Password field : no such element: Unable to locate element: {"method":"id","selector":"passwor"}
+  (Session info: chrome=80.0.3987.149)
+  (Driver info: chromedriver=2.35.528161 (5b82f2d2aae0ca24b877009200ced9065a772e73),platform=Windows NT 10.0.18363 x86_64) (WARNING...</td>
 				</tr>
 				<tr class='log' status='info'>
 					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
-					<td class='timestamp'>1:37:58 AM</td>
-					<td class='step-details'>Cleared : Password field</td>
-				</tr>
-				<tr class='log' status='info'>
-					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
-					<td class='timestamp'>1:37:58 AM</td>
+					<td class='timestamp'>11:09:43 PM</td>
 					<td class='step-details'>Sending values to : Password field</td>
 				</tr>
-				<tr class='log' status='pass'>
-					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-					<td class='timestamp'>1:37:58 AM</td>
-					<td class='step-details'>Inputted 'secret_sauce' text into : 'Password field'</td>
+				<tr class='log' status='fail'>
+					<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+					<td class='timestamp'>11:10:13 PM</td>
+					<td class='step-details'>Test failed. Detailed error: Error while inputting text into: 'Password field' : no such element: Unable to locate element: {"method":"id","selector":"passwor"}
+  (Session info: chrome=80.0.3987.149)
+  (Driver info: chromedriver=2.35.528161 (5b82f2d2aae0ca24b877009200ced9065a772e73),platform=Windows NT 10.0.18363 x86_64) (WARNING...<img data-featherlight='E:\Project\project\Reports\loginToSauceDemo28-10-2020 11-10-13.png' width='10%' src='E:\Project\project\Reports\loginToSauceDemo28-10-2020 11-10-13.png' data-src='E:\Project\project\Reports\loginToSauceDemo28-10-2020 11-10-13.png'></td>
 				</tr>
-				<tr class='log' status='info'>
-					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
-					<td class='timestamp'>1:37:58 AM</td>
-					<td class='step-details'>Clicking on : Login button</td>
-				</tr>
-				<tr class='log' status='pass'>
-					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-					<td class='timestamp'>1:38:01 AM</td>
-					<td class='step-details'>Clicked on : Login button</td>
-				</tr>
-				<tr class='log' status='info'>
-					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
-					<td class='timestamp'>1:38:01 AM</td>
-					<td class='step-details'>Asserting text for: Page title</td>
-				</tr>
-				<tr class='log' status='pass'>
-					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-					<td class='timestamp'>1:38:01 AM</td>
-					<td class='step-details'>Pass: Succesfully asserted Page title</td>
-				</tr>
-				<tr class='log' status='pass'>
-					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-					<td class='timestamp'>1:38:01 AM</td>
-					<td class='step-details'>Test Case Passed: loginToSauceDemo</td>
-				</tr>
-			</tbody>
-		</table>
-	</div>
-					</div>
-				</li>
-				
-				
-				<li class='test displayed active  pass' status='pass' bdd='false' test-id='3'>
-					<div class='test-heading'>
-						<span class='test-name'>Logout</span>
-						<span class='test-time'>Mar 18, 2020 01:38:01 AM</span>
-						<span class='test-status right pass'>pass</span>
-					</div>
-					<div class='test-content hide'>
-<div class='test-time-info'>
-	<span class='label start-time'>Mar 18, 2020 01:38:01 AM</span>
-	<span class='label end-time'>Mar 18, 2020 01:38:02 AM</span>
-	<span class='label time-taken grey lighten-1 white-text'>0h 0m 1s+173ms</span>
-</div>
-	<div class='test-attributes'>
-			<div class='category-list'>
-				<span class='category label white-text'>Smoke</span>
-			</div>
-			<div class='author-list'>
-				<span class='author label white-text'>Abhishek	Panigrahi</span>
-			</div>
-	</div>
-	<div class='test-steps'>
-		<table class='bordered table-results'>
-			<thead>
-				<tr>
-					<th>Status</th>
-					<th>Timestamp</th>
-					<th>Details</th>
-				</tr>
-			</thead>
-			<tbody>
-				<tr class='log' status='info'>
-					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
-					<td class='timestamp'>1:38:01 AM</td>
-					<td class='step-details'>Logging out of saucedemo.com</td>
-				</tr>
-				<tr class='log' status='info'>
-					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
-					<td class='timestamp'>1:38:01 AM</td>
-					<td class='step-details'>Clicking on : side menu button</td>
-				</tr>
-				<tr class='log' status='pass'>
-					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-					<td class='timestamp'>1:38:01 AM</td>
-					<td class='step-details'>Clicked on : side menu button</td>
-				</tr>
-				<tr class='log' status='info'>
-					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
-					<td class='timestamp'>1:38:01 AM</td>
-					<td class='step-details'>Waiting for web element: logout button to load on the page</td>
-				</tr>
-				<tr class='log' status='info'>
-					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
-					<td class='timestamp'>1:38:02 AM</td>
-					<td class='step-details'>Waiting ends ... Web element loaded on the page</td>
-				</tr>
-				<tr class='log' status='info'>
-					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
-					<td class='timestamp'>1:38:02 AM</td>
-					<td class='step-details'>Clicking on : logout button</td>
-				</tr>
-				<tr class='log' status='pass'>
-					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-					<td class='timestamp'>1:38:02 AM</td>
-					<td class='step-details'>Clicked on : logout button</td>
-				</tr>
-				<tr class='log' status='info'>
-					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
-					<td class='timestamp'>1:38:02 AM</td>
-					<td class='step-details'>Asserting text for: Page title</td>
-				</tr>
-				<tr class='log' status='pass'>
-					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-					<td class='timestamp'>1:38:02 AM</td>
-					<td class='step-details'>Pass: Succesfully asserted Page title</td>
-				</tr>
-				<tr class='log' status='pass'>
-					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
-					<td class='timestamp'>1:38:02 AM</td>
-					<td class='step-details'>Test Case Passed: logoutOfSauceDemo</td>
+				<tr class='log' status='skip'>
+					<td class='status skip' title='skip' alt='skip'><i class='material-icons'>redo</i></td>
+					<td class='timestamp'>11:10:13 PM</td>
+					<td class='step-details'>Test Case Skipped: logoutOfSauceDemo</td>
 				</tr>
 			</tbody>
 		</table>
@@ -510,13 +414,14 @@
 					<div class='category-heading'>
 						<span class='category-name'>Smoke</span>
 						<span class='category-status right'>
-							<span class='label pass'>3</span>
+							<span class='label pass'>1</span>
+							<span class='label fail'>1</span>
 						</span>
 					</div>
 					<div class='category-content hide'>
 						<div class='category-status-counts'>
-							<span class='label green accent-4 white-text'>Passed: 3</span>
-							
+							<span class='label green accent-4 white-text'>Passed: 1</span>
+							<span class='label red lighten-1 white-text'>Failed: 1</span>
 							
 						</div>
 					
@@ -531,19 +436,14 @@
 								</thead>
 								<tbody>
 									<tr>
-										<td>Mar 18, 2020 01:37:46 AM</td>
+										<td>Mar 28, 2020 11:07:43 PM</td>
 										<td class='linked' test-id='1'>Navigate to SauceDemo.com</td>
 										<td><span class='test-status pass'>pass</span></td>
 									</tr>
 									<tr>
-										<td>Mar 18, 2020 01:37:57 AM</td>
+										<td>Mar 28, 2020 11:08:12 PM</td>
 										<td class='linked' test-id='2'>Login</td>
-										<td><span class='test-status pass'>pass</span></td>
-									</tr>
-									<tr>
-										<td>Mar 18, 2020 01:38:01 AM</td>
-										<td class='linked' test-id='3'>Logout</td>
-										<td><span class='test-status pass'>pass</span></td>
+										<td><span class='test-status fail'>fail</span></td>
 									</tr>
 								</tbody>
 							</table>
@@ -590,13 +490,14 @@
                             <div class='author-heading'>
                                 <span class='author-name'>Abhishek	Panigrahi</span>
                                 <span class='author-status right'>
-                                        <span class='label pass'>3</span>
+                                        <span class='label pass'>1</span>
+                                        <span class='label fail'>1</span>
 						        </span>
                             </div>
                             <div class='author-content hide'>
                                 <div class='author-status-counts'>
-                                    <span class='label green accent-4 white-text'>Passed: 3</span>
-                                    
+                                    <span class='label green accent-4 white-text'>Passed: 1</span>
+                                    <span class='label red lighten-1 white-text'>Failed: 1</span>
                                     
                                 </div>
 
@@ -611,19 +512,14 @@
                                         </thead>
                                         <tbody>
                                             <tr>
-                                                <td>Mar 18, 2020 01:37:46 AM</td>
+                                                <td>Mar 28, 2020 11:07:43 PM</td>
                                                 <td class='linked' test-id='1'>Navigate to SauceDemo.com</td>
                                                 <td><span class='test-status pass'>pass</span></td>
                                             </tr>
                                             <tr>
-                                                <td>Mar 18, 2020 01:37:57 AM</td>
+                                                <td>Mar 28, 2020 11:08:12 PM</td>
                                                 <td class='linked' test-id='2'>Login</td>
-                                                <td><span class='test-status pass'>pass</span></td>
-                                            </tr>
-                                            <tr>
-                                                <td>Mar 18, 2020 01:38:01 AM</td>
-                                                <td class='linked' test-id='3'>Logout</td>
-                                                <td><span class='test-status pass'>pass</span></td>
+                                                <td><span class='test-status fail'>fail</span></td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -650,31 +546,31 @@
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Tests
-					<div class='panel-lead'>3</div>
+					<div class='panel-lead'>2</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Steps
-					<div class='panel-lead'>36</div>
+					<div class='panel-lead'>22</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Start
-					<div class='panel-lead'>Mar 18, 2020 01:37:45 AM</div>
+					<div class='panel-lead'>Mar 28, 2020 11:07:43 PM</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 			 		End
-			 		<div class='panel-lead'>Mar 18, 2020 01:38:02 AM</div>
+			 		<div class='panel-lead'>Mar 28, 2020 11:10:13 PM</div>
 				</div>
 			</div>
 			<div class='col s2'>
 				<div class='card-panel r'>
 					Time Taken
-					<div class='panel-lead'>0h 0m 17s+160ms</div>
+					<div class='panel-lead'>0h 2m 30s+419ms</div>
 				</div>
 			</div>
 			<div class='col s4'>
@@ -711,11 +607,11 @@
 						</tr>
 						<tr>
 							<td>Smoke</td>
-							<td>3</td>
-							<td>0</td>
+							<td>1</td>
+							<td>1</td>
 							<td>0</td>
 							<td>
-									100%
+									50%
 							</td>
 						</tr>
 					</table>
@@ -731,22 +627,22 @@
 
 		<script>
 			var statusGroup = {
-				passParent: 3,
-				failParent: 0,
+				passParent: 1,
+				failParent: 1,
 				fatalParent: 0,
 				errorParent: 0,
 				warningParent: 0,
 				skipParent: 0,
-				exceptionsParent: 0,
+				exceptionsParent: 1,
 				
-				passChild: 11,
-				failChild: 0,
+				passChild: 3,
+				failChild: 1,
 				fatalChild: 0,
-				errorChild: 0,
+				errorChild: 3,
 				warningChild: 0,
-				skipChild: 0,
-				infoChild: 25,
-				exceptionsChild: 0,
+				skipChild: 1,
+				infoChild: 14,
+				exceptionsChild: 5,
 				
 				passGrandChild: 0,
 				failGrandChild: 0,
