@@ -60,6 +60,13 @@ public class BrowserFactory extends BaseClass{
 			
 			// Navigate to the given URL
 			driver.navigate().to(url);
+			
+			// Log message
+			logMessage = "Successfully visited test site: "+testSiteName;
+			reportLogger.info(logMessage);
+			Logs.info(logMessage);
+
+			
 		}
 		catch(Exception exception)
 		{

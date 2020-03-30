@@ -12,7 +12,7 @@
         <methods>
           <include name="pageObjects"/>
           <include name="navigateToSauceDemo"/>
-          <include name="loginToSauceDemo" invocation-numbers="0"/>
+          <include name="loginToSauceDemo"/>
           <include name="finishedTest"/>
           <include name="onStart"/>
           <include name="logoutOfSauceDemo"/>
