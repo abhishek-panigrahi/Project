@@ -1,13 +1,48 @@
-[2020-03-29T23:20:48,983 INFO ] LOG - Removing all files from 'Reports' folder
-[2020-03-29T23:20:49,033 INFO ] LOG - Executing test case: Navigate to the given test site and asserting it's title
-[2020-03-29T23:20:49,049 INFO ] LOG - Navigating to test site: SauceDemo.com
-[2020-03-29T23:21:37,316 FATAL] LOG - Unable to visit website due to exception: org.openqa.selenium.WebDriverException: Failed to connect to binary FirefoxBinary(C:\Program Files\Mozilla Firefox\firefox.exe) on port 7055; process output follows: 
-
-Build info: version: '2.53.1', revision: 'a36b8b1cd5757287168e54b817830adce9b0158d', time: '2016-06-30 19:26:09'
-System info: host: 'apanigrahi-pc', ip: '172.18.238.214', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_241'
-Driver info: driver.version: FirefoxDriver
-[2020-03-29T23:21:37,333 ERROR] LOG - null
-[2020-03-29T23:21:37,341 INFO ] LOG - Executing test case: Logging in to given test site and asserting it's title
-[2020-03-29T23:21:37,344 DEBUG] LOG - Test Case Skipped: loginToSauceDemo
-[2020-03-29T23:21:37,667 INFO ] LOG - Executing test case: Logging out of given test site and asserting it's title
-[2020-03-29T23:21:37,670 DEBUG] LOG - Test Case Skipped: logoutOfSauceDemo
+[2020-04-06T02:37:52,301 INFO ] LOG - Removing all files from 'Reports' folder
+[2020-04-06T02:37:52,353 INFO ] LOG - Executing test case: Navigate to the given test site and asserting it's title
+[2020-04-06T02:37:52,371 INFO ] LOG - Navigating to test site: SauceDemo.com
+[2020-04-06T02:37:52,371 INFO ] LOG - Browser: firefox
+[2020-04-06T02:38:07,112 INFO ] LOG - Successfully visited test site: SauceDemo.com
+[2020-04-06T02:38:07,112 INFO ] LOG - Waiting for page to load
+[2020-04-06T02:38:07,136 INFO ] LOG - Waiting ends, web page loaded
+[2020-04-06T02:38:07,146 INFO ] LOG - Asserting text for: Page title
+[2020-04-06T02:38:07,151 INFO ] LOG - Pass: Successfully asserted Page title
+[2020-04-06T02:38:07,158 INFO ] LOG - Test Case Passed: navigateToSauceDemo
+[2020-04-06T02:38:07,687 INFO ] LOG - Executing test case: Logging in to given test site and asserting it's title
+[2020-04-06T02:38:07,689 INFO ] LOG - Logging in to SauceDemo.com
+[2020-04-06T02:38:07,689 INFO ] LOG - Highlighting element: Username field
+[2020-04-06T02:38:07,789 INFO ] LOG - Clearing field : Username field
+[2020-04-06T02:38:07,790 INFO ] LOG - Waiting for web element: Username field to load on the page
+[2020-04-06T02:38:07,888 INFO ] LOG - Waiting ends ... Web element loaded on the page
+[2020-04-06T02:38:07,889 INFO ] LOG - Highlighting element: Username field
+[2020-04-06T02:38:08,047 INFO ] LOG - Sending values to : Username field
+[2020-04-06T02:38:08,142 INFO ] LOG - Highlighting element: Password field
+[2020-04-06T02:38:08,221 INFO ] LOG - Clearing field : Password field
+[2020-04-06T02:38:08,222 INFO ] LOG - Waiting for web element: Password field to load on the page
+[2020-04-06T02:38:08,301 INFO ] LOG - Waiting ends ... Web element loaded on the page
+[2020-04-06T02:38:08,301 INFO ] LOG - Highlighting element: Password field
+[2020-04-06T02:38:08,441 INFO ] LOG - Sending values to : Password field
+[2020-04-06T02:38:08,522 INFO ] LOG - Clicking on : Login button
+[2020-04-06T02:38:08,522 INFO ] LOG - Highlighting element: Login button
+[2020-04-06T02:38:14,825 INFO ] LOG - Clicked on : Login button
+[2020-04-06T02:38:14,827 INFO ] LOG - Waiting for page to load
+[2020-04-06T02:38:14,854 INFO ] LOG - Waiting ends, web page loaded
+[2020-04-06T02:38:14,872 INFO ] LOG - Asserting text for: Page title
+[2020-04-06T02:38:14,872 INFO ] LOG - Pass: Successfully asserted Page title
+[2020-04-06T02:38:14,879 INFO ] LOG - Test Case Passed: loginToSauceDemo
+[2020-04-06T02:38:15,037 INFO ] LOG - Executing test case: Logging out of given test site and asserting it's title
+[2020-04-06T02:38:15,039 INFO ] LOG - Logging out of SauceDemo.com
+[2020-04-06T02:38:15,039 INFO ] LOG - Clicking on : side menu button
+[2020-04-06T02:38:15,040 INFO ] LOG - Highlighting element: side menu button
+[2020-04-06T02:38:15,405 INFO ] LOG - Clicked on : side menu button
+[2020-04-06T02:38:15,405 INFO ] LOG - Waiting for web element: logout button to load on the page
+[2020-04-06T02:38:15,503 INFO ] LOG - Waiting ends ... Web element loaded on the page
+[2020-04-06T02:38:15,504 INFO ] LOG - Clicking on : logout button
+[2020-04-06T02:38:15,504 INFO ] LOG - Highlighting element: logout button
+[2020-04-06T02:38:16,076 INFO ] LOG - Clicked on : logout button
+[2020-04-06T02:38:16,076 INFO ] LOG - Waiting for page to load
+[2020-04-06T02:38:16,095 INFO ] LOG - Waiting ends, web page loaded
+[2020-04-06T02:38:16,103 INFO ] LOG - Asserting text for: Page title
+[2020-04-06T02:38:16,103 INFO ] LOG - Pass: Successfully asserted Page title
+[2020-04-06T02:38:16,106 INFO ] LOG - Test Case Passed: logoutOfSauceDemo
+[2020-04-06T02:38:16,244 INFO ] LOG - Closing browser instance

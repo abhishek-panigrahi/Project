@@ -3,7 +3,7 @@
 <suite name="Smoke">
 
  <listeners>
-    <listener class-name="com.project.Utility.Listener" />
+    <listener class-name="com.project.utility.Listener" />
   </listeners>
 
   <test thread-count="5" name="Smoke">
@@ -11,7 +11,7 @@
   <parameter name = "username" value = "standard_user" />
   <parameter name = "password" value = "secret_sauce" />
     <classes>     
-      <class name="com.project.Testcases.NavigateAndLoginToSauceDemo"/>
+      <class name="com.project.testcases.NavigateAndLoginToSauceDemo"/>
     </classes>
   </test> <!-- Test -->
 </suite> <!-- Suite -->

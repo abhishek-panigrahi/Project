@@ -1,5 +1,9 @@
 package com.project.utility;
 
+import java.awt.Rectangle;
+import java.awt.Robot;
+import java.awt.Toolkit;
+import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
@@ -7,11 +11,10 @@ import java.util.Date;
 import java.util.NoSuchElementException;
 import java.util.concurrent.TimeUnit;
 
-import org.apache.commons.io.FileUtils;
+import javax.imageio.ImageIO;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -75,6 +78,8 @@ public class MethodLibrary extends BaseClass{
 	 * @return
 	 * @throws IOException
 	 */
+
+	
 	public  static String captureScreenshot(WebDriver driver, String screenShotName) throws IOException {
 
 		String dest = null;
@@ -82,12 +87,16 @@ public class MethodLibrary extends BaseClass{
 		try {
 			SimpleDateFormat dateFormat = new SimpleDateFormat("dd-mm-yyyy h-m-s");
 			Date date = new Date();
-			TakesScreenshot ts = (TakesScreenshot) driver;
-			File source = ts.getScreenshotAs(OutputType.FILE);
 			dest = System.getProperty("user.dir") + "\\Reports\\" + screenShotName + dateFormat.format(date)
 			+ ".png";
 			File destination = new File(dest);
-			FileUtils.copyFile(source, destination);
+		
+			 // This code will capture screenshot of current screen      
+	        BufferedImage image = new Robot().createScreenCapture(new Rectangle(Toolkit.getDefaultToolkit().getScreenSize()));
+
+	        // This will store screenshot on Specific location
+	        ImageIO.write(image, "png", destination);
+			
 		} catch (Exception exception) {
 			exception.getMessage();
 			System.out.println(exception.getMessage());
@@ -330,7 +339,6 @@ public class MethodLibrary extends BaseClass{
 			// Clear the input field before sending values
 			MethodLibrary.clearField(element, elemName);
 
-
 			//Log message
 			logMessage = "Sending values to : " + elemName;
 
@@ -562,7 +570,7 @@ public class MethodLibrary extends BaseClass{
 		Assert.assertEquals(actualText, expectedText);
 		
 		// Log message
-		logMessage = "Pass: Succesfully asserted "+element;
+		logMessage = "Pass: Successfully asserted "+element;
 		
 		// Log in report
 		reportLogger.pass(logMessage);

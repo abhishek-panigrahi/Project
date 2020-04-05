@@ -2,22 +2,22 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Smoke]">
   <listeners>
-    <listener class-name="com.project.Utility.Listener"/>
+    <listener class-name="com.project.utility.Listener"/>
   </listeners>
   <test thread-count="5" name="Smoke(failed)">
     <parameter name="password" value="secret_sauce"/>
     <parameter name="username" value="standard_user"/>
     <classes>
-      <class name="com.project.Testcases.NavigateAndLoginToSauceDemo">
+      <class name="com.project.testcases.NavigateAndLoginToSauceDemo">
         <methods>
-          <include name="pageObjects"/>
           <include name="navigateToSauceDemo"/>
           <include name="loginToSauceDemo"/>
           <include name="finishedTest"/>
           <include name="onStart"/>
           <include name="logoutOfSauceDemo"/>
+          <include name="pageObjects"/>
         </methods>
-      </class> <!-- com.project.Testcases.NavigateAndLoginToSauceDemo -->
+      </class> <!-- com.project.testcases.NavigateAndLoginToSauceDemo -->
     </classes>
   </test> <!-- Smoke(failed) -->
 </suite> <!-- Failed suite [Smoke] -->

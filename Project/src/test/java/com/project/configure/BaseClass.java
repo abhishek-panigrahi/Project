@@ -43,7 +43,7 @@ public class BaseClass {
 		System.getProperty("user.dir") + File.separator+"src"+File.separator+"test"+File.separator+"java"+File.separator+"com"
 				+File.separator+"project"+File.separator+"Configure"+File.separator+"config.properties");
 		config.load(configFile);
-		System.setProperty("webdriver.chrome.driver", "E:\\chromedriver.exe");
+		
 		TestConstants.environmentSetter();
 		Logs.extentReportSetter(testSiteURL, testSiteName);
 
