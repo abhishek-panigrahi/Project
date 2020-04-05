@@ -1,10 +1,10 @@
-package com.project.Page;
+package com.project.page;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-import com.project.Configure.BaseClass;
-import com.project.Utility.Logs;
-import com.project.Utility.MethodLibrary;
+import com.project.configure.BaseClass;
+import com.project.utility.Logs;
+import com.project.utility.MethodLibrary;
 
 public class LoginPage extends BaseClass {
 	

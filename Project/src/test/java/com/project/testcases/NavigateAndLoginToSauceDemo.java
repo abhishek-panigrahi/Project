@@ -1,11 +1,11 @@
-package com.project.Testcases;
+package com.project.testcases;
 import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
-import com.project.Configure.BaseClass;
-import com.project.Utility.BrowserFactory;
-import com.project.Utility.Logs;
-import com.project.Utility.MethodLibrary;
+import com.project.configure.BaseClass;
+import com.project.utility.BrowserFactory;
+import com.project.utility.Logs;
+import com.project.utility.MethodLibrary;
 
 public class NavigateAndLoginToSauceDemo extends BaseClass{
 	

@@ -1,4 +1,4 @@
-package com.project.Utility;
+package com.project.utility;
 
 import java.util.concurrent.TimeUnit;
 
@@ -8,7 +8,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.testng.Assert;
 
-import com.project.Configure.BaseClass;
+import com.project.configure.BaseClass;
 
 /**
  * 

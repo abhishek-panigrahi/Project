@@ -1,4 +1,4 @@
-package com.project.Utility;
+package com.project.utility;
 
 import java.io.File;
 import java.io.IOException;
@@ -21,7 +21,7 @@ import org.openqa.selenium.support.ui.Wait;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 
-import com.project.Configure.BaseClass;
+import com.project.configure.BaseClass;
 
 public class MethodLibrary extends BaseClass{
 

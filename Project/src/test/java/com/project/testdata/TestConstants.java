@@ -1,6 +1,6 @@
-package com.project.Testdata;
+package com.project.testdata;
 
-import com.project.Configure.BaseClass;
+import com.project.configure.BaseClass;
 
 public class TestConstants extends BaseClass{
 	

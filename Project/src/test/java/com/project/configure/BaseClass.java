@@ -1,4 +1,4 @@
-package com.project.Configure;
+package com.project.configure;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -12,11 +12,11 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
 
 import com.aventstack.extentreports.ExtentTest;
-import com.project.Page.LoginPage;
-import com.project.Page.MainMenuPage;
-import com.project.Testdata.TestConstants;
-import com.project.Utility.BrowserFactory;
-import com.project.Utility.Logs;
+import com.project.page.LoginPage;
+import com.project.page.MainMenuPage;
+import com.project.testdata.TestConstants;
+import com.project.utility.BrowserFactory;
+import com.project.utility.Logs;
 
 public class BaseClass {
 

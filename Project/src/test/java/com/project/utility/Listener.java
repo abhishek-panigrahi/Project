@@ -1,4 +1,4 @@
-package com.project.Utility;
+package com.project.utility;
 
 import java.io.IOException;
 
