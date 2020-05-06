@@ -79,7 +79,7 @@ public class MethodLibrary extends BaseClass{
 	 * @throws IOException
 	 */
 
-	
+
 	public  static String captureScreenshot(WebDriver driver, String screenShotName) throws IOException {
 
 		String dest = null;
@@ -90,13 +90,13 @@ public class MethodLibrary extends BaseClass{
 			dest = System.getProperty("user.dir") + "\\Reports\\" + screenShotName + dateFormat.format(date)
 			+ ".png";
 			File destination = new File(dest);
-		
-			 // This code will capture screenshot of current screen      
-	        BufferedImage image = new Robot().createScreenCapture(new Rectangle(Toolkit.getDefaultToolkit().getScreenSize()));
 
-	        // This will store screenshot on Specific location
-	        ImageIO.write(image, "png", destination);
-			
+			// This code will capture screenshot of current screen      
+			BufferedImage image = new Robot().createScreenCapture(new Rectangle(Toolkit.getDefaultToolkit().getScreenSize()));
+
+			// This will store screenshot on Specific location
+			ImageIO.write(image, "png", destination);
+
 		} catch (Exception exception) {
 			exception.getMessage();
 			System.out.println(exception.getMessage());
@@ -222,6 +222,10 @@ public class MethodLibrary extends BaseClass{
 
 			// Wait for link to appear on the page
 			//waitForElementToLoad(locator,elemName, 10);
+			
+			WebDriverWait wait=new WebDriverWait(driver, 10);
+			
+			wait.until(ExpectedConditions.elementToBeClickable(locator));
 
 			// Highlight link
 			MethodLibrary.highlightElement(driver, locator, elemName);
@@ -474,10 +478,10 @@ public class MethodLibrary extends BaseClass{
 
 			// Log in report
 			reportLogger.info(logMessage);
-			
+
 			// Log in application.log
 			Logs.info(logMessage);
-			
+
 			return true;
 
 		}
@@ -489,10 +493,10 @@ public class MethodLibrary extends BaseClass{
 
 			// Log in report
 			reportLogger.info(logMessage);
-			
+
 			// Log in application.log
 			Logs.info(logMessage);
-			
+
 			return false;
 
 		}
@@ -509,7 +513,7 @@ public class MethodLibrary extends BaseClass{
 
 	public static void navigateToSite(String url, String testSiteName)
 	{
-		
+
 		// Log message
 		logMessage = "Navigating to test site: "+testSiteName;
 
@@ -518,7 +522,7 @@ public class MethodLibrary extends BaseClass{
 
 		// Log in application.log
 		Logs.info(logMessage);
-		
+
 		try
 		{
 
@@ -565,18 +569,389 @@ public class MethodLibrary extends BaseClass{
 
 		// Log in application.log
 		Logs.info(logMessage);
-		
+
 		// Perform assertion
 		Assert.assertEquals(actualText, expectedText);
-		
+
 		// Log message
-		logMessage = "Pass: Successfully asserted "+element;
-		
+		logMessage = "Successfully asserted "+element;
+
 		// Log in report
 		reportLogger.pass(logMessage);
-		
+
 		// Log in application.log
 		Logs.info(logMessage);
+	}
+	
+	
+	/**
+	 *  
+	 * This method is used to make assertions
+	 * for boolean values and log them
+	 * 
+	 * 
+	 * @param value
+	 * @param elementName
+	 */
+	public static void assertIfTrue(boolean value, String elementName)
+	{
+		// Log message
+		logMessage = "Asserting if "+elementName;
+
+		// Log in report
+		reportLogger.info(logMessage);
+
+		// Log in application.log
+		Logs.info(logMessage);
+
+		// Perform assertion
+		Assert.assertTrue(value);
+
+		// Log message
+		logMessage = "Successfully asserted that "+elementName;
+
+		// Log in report
+		reportLogger.pass(logMessage);
+
+		// Log in application.log
+		Logs.info(logMessage);
+	}
+	
+
+	/**
+	 * 
+	 * Returns true if the element is displayed
+	 * Returns false if the element is not displayed
+	 * Returns false if any exception occurs
+	 * 
+	 * 
+	 * @param locator
+	 * @param elementName
+	 * @return true/false
+	 */
+	public static Boolean isElementDisplayed(By locator, String elementName) {
+
+		boolean isDisplayed;
+		
+		// Log message
+		logMessage = "Checking whether " + elementName + " is displayed on the page or not ...";
+
+		// Log in report
+		reportLogger.info(logMessage);
+
+		// Log in application.log
+		Logs.info(logMessage);
+
+		try {
+
+			// Check whether web element is displayed or not
+			driver.findElement(locator);
+			
+			isDisplayed = true;
+
+			logMessage = elementName + " is displayed on the page";
+
+			// Highlight link
+			MethodLibrary.highlightElement(driver, locator, elementName);
+
+			// Log in report
+			reportLogger.info(logMessage);
+
+			// Log in application.log
+			Logs.info(logMessage);
+
+		}
+
+		catch (Throwable exception) {
+			
+			isDisplayed = false;
+			
+			logMessage = elementName + " is not displayed on the page";
+			
+			// Log in report
+			reportLogger.info(logMessage);
+
+			// Log in application.log
+			Logs.info(logMessage);
+
+		}
+
+		return isDisplayed;
+
+	}
+
+	
+	
+	/**
+	 * Scrolls to the text mentioned as a parameter;
+	 * Logs an info message on successfully finding the text;
+	 * Logs a warning message on not finding the text;
+	 * Logs an error message on not finding the text;
+	 * 
+	 * 
+	 * @param text
+	 * @param verticalPixels
+	 * @param count
+	 * @throws InterruptedException
+	 */
+	public static void scrollToText(String text, int verticalPixels, int count) throws InterruptedException
+	{
+
+		// Log message
+		logMessage = "Scrolling to the text: "+text;
+
+		// Log in report
+		reportLogger.info(logMessage);
+
+		// Log in application.log
+		Logs.info(logMessage);
+
+		String locator = null;
+		int InScroll=0;
+		int ScrollTo=verticalPixels;
+		int flagForFailSafe = 0;
+
+		boolean status = true;
+
+		// Construct a locator
+		locator="//*[contains(text(),'"+text+"')]";
+
+		try
+		{
+
+			//scroll down
+			while(!(MethodLibrary.isElementDisplayed(By.xpath(locator), text)) && status){
+				
+				if(flagForFailSafe<count)
+				{
+
+					// Log message
+					logMessage = "Scrolling...";
+
+					// Log in report
+					reportLogger.info(logMessage);
+
+					// Log in application.log
+					Logs.info(logMessage);
+
+					((JavascriptExecutor)driver).executeScript("scroll("+InScroll+","+ScrollTo+")");
+					InScroll=ScrollTo;
+					
+					if(verticalPixels>0)
+					    ScrollTo=ScrollTo+verticalPixels;
+					else
+						ScrollTo=ScrollTo-verticalPixels;
+					
+					++flagForFailSafe;
+
+					status = true;
+				}
+				else
+					status = false;
+			}
+
+			if(!status)
+			{
+				// Log message
+				logMessage = "Element: "+text+" not found after scrolling "+count+" times";
+
+				// Log in report
+				reportLogger.warning(logMessage);
+
+				// Log in application.log
+				Logs.warning(logMessage);
+
+			}
+			else if(status)
+			{
+
+				// Log message
+				logMessage = "Scrolled to element: "+text;
+
+				// Log in report
+				reportLogger.pass(logMessage);
+
+				// Log in application.log
+				Logs.info(logMessage);
+			}
+
+		}
+		catch (Throwable exception)
+		{
+
+			// Log message
+			logMessage = "Error while scrolling to text: " + exception.getMessage();
+
+			// Log in report
+			reportLogger.error(logMessage);
+
+			// Log in application.log
+			Logs.error(logMessage);
+
+		}
+
+	}
+
+
+	
+	
+	/** 
+	 * Scrolls to the element mentioned as a parameter;
+	 * Logs an info message on successfully finding the element;
+	 * Logs a warning message on not finding the element;
+	 * Logs an error message on not finding the element;
+	 * 
+	 *
+	 * 
+	 * @param locator
+	 * @param elementName
+	 * @param verticalPixels
+	 * @param count
+	 * @throws InterruptedException
+	 */
+	public static void scrollToLocator(By locator, String elementName, int verticalPixels, int count) throws InterruptedException
+	{
+
+		// Log message
+		logMessage = "Scrolling to the element: "+elementName;
+
+		// Log in report
+		reportLogger.info(logMessage);
+
+		// Log in application.log
+		Logs.info(logMessage);
+		
+		int InScroll=0;
+		int ScrollTo=verticalPixels;
+		int flagForFailSafe = 0;
+
+		boolean status = true;
+
+		try
+		{
+
+			//scroll down
+			while(!(MethodLibrary.isElementDisplayed(locator, elementName)) && status){
+				
+				if(flagForFailSafe<count)
+				{
+
+					// Log message
+					logMessage = "Scrolling...";
+
+					// Log in report
+					reportLogger.info(logMessage);
+
+					// Log in application.log
+					Logs.info(logMessage);
+
+					((JavascriptExecutor)driver).executeScript("scroll("+InScroll+","+ScrollTo+")");
+					InScroll=ScrollTo;
+					
+					if(verticalPixels>0)
+					    ScrollTo=ScrollTo+verticalPixels;
+					else
+						ScrollTo=ScrollTo-verticalPixels;
+					
+					++flagForFailSafe;
+
+					status = true;
+				}
+				else
+					status = false;
+			}
+
+			if(!status)
+			{
+				// Log message
+				logMessage = "Element: "+elementName+" not found after scrolling "+count+" times";
+
+				// Log in report
+				reportLogger.warning(logMessage);
+
+				// Log in application.log
+				Logs.warning(logMessage);
+
+			}
+			else if(status)
+			{
+
+				// Log message
+				logMessage = "Scrolled to element: "+elementName;
+
+				// Log in report
+				reportLogger.pass(logMessage);
+
+				// Log in application.log
+				Logs.info(logMessage);
+			}
+
+		}
+		catch (Throwable exception)
+		{
+
+			// Log message
+			logMessage = "Error while scrolling to text: " + exception.getMessage();
+
+			// Log in report
+			reportLogger.error(logMessage);
+
+			// Log in application.log
+			Logs.error(logMessage);
+
+		}
+
+	}
+
+
+	/**
+	 * 
+	 * Retrieves text from given locator
+	 * Fails test on getting exception
+	 * 
+	 * 
+	 * @param locator
+	 * @param elementName
+	 * @return
+	 */
+	public static String retrieveText(By locator, String elementName) {
+
+		String retrievedText = null;
+		
+		// Log message
+		logMessage = "Retrieving Text from : " + elementName;
+
+		// Log in report
+		reportLogger.pass(logMessage);
+
+		// Log in application.log
+		Logs.info(logMessage);
+
+		try {
+
+			// Wait for web element to load on the page
+			waitForElementToLoad(locator, elementName, 10);
+
+			// Highlight the web element
+			highlightElement(driver, locator, elementName);
+
+			// Retrieve text from web element
+			retrievedText = driver.findElement(locator).getText().trim();
+
+			// Log result
+			logMessage = "Retrieved text : " + retrievedText;
+
+		}
+
+		catch (Throwable retrieveTextException) {
+
+			// Fail the test
+			Assert.fail("Error while retrieving text from '" + elementName + "' : " + retrieveTextException.getMessage());
+		
+		}
+
+		return retrievedText;
+
 	}
 
 

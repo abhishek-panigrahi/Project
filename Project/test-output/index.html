@@ -24,7 +24,7 @@
     <div class="top-banner-root">
       <span class="top-banner-title-font">Test results</span>
       <br/>
-      <span class="top-banner-font-1">1 suite</span>
+      <span class="top-banner-font-1">1 suite, 1 failed test</span>
     </div> <!-- top-banner-root -->
     <div class="navigator-root">
       <div class="navigator-suite-header">
@@ -38,7 +38,7 @@
         <div class="rounded-window">
           <div class="suite-header light-rounded-window-top">
             <a href="#" class="navigator-link" panel-name="suite-Smoke">
-              <span class="suite-name border-passed">Smoke</span>
+              <span class="suite-name border-failed">Smoke</span>
             </a> <!-- navigator-link -->
           </div> <!-- suite-header light-rounded-window-top -->
           <div class="navigator-suite-content">
@@ -91,7 +91,21 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">3 methods,   3 passed</span>
+                    <span class="method-stats">3 methods, 1 failed,   2 passed</span>
+                  </li>
+                  <li>
+                    <span class="method-list-title failed">Failed methods</span>
+                    <span class="show-or-hide-methods failed">
+                      <a href="#" panel-name="suite-Smoke" class="hide-methods failed suite-Smoke"> (hide)</a> <!-- hide-methods failed suite-Smoke -->
+                      <a href="#" panel-name="suite-Smoke" class="show-methods failed suite-Smoke"> (show)</a> <!-- show-methods failed suite-Smoke -->
+                    </span>
+                    <div class="method-list-content failed suite-Smoke">
+                      <span>
+                        <img width="3%" src="failed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Smoke" title="com.project.testcases.NavigateAndLoginToSauceDemo" hash-for-method="logoutOfSauceDemo">logoutOfSauceDemo</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                    </div> <!-- method-list-content failed suite-Smoke -->
                   </li>
                   <li>
                     <span class="method-list-title passed">Passed methods</span>
@@ -103,11 +117,6 @@
                       <span>
                         <img width="3%" src="passed.png"/>
                         <a href="#" class="method navigator-link" panel-name="suite-Smoke" title="com.project.testcases.NavigateAndLoginToSauceDemo" hash-for-method="loginToSauceDemo(standard_user, secret_sauce)">loginToSauceDemo(standard_user, secret_sauce)</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                      <span>
-                        <img width="3%" src="passed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-Smoke" title="com.project.testcases.NavigateAndLoginToSauceDemo" hash-for-method="logoutOfSauceDemo">logoutOfSauceDemo</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
@@ -127,6 +136,38 @@
     <div class="wrapper">
       <div class="main-panel-root">
         <div panel-name="suite-Smoke" class="panel Smoke">
+          <div class="suite-Smoke-class-failed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="failed.png"/>
+              <span class="class-name">com.project.testcases.NavigateAndLoginToSauceDemo</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="logoutOfSauceDemo">
+                  </a> <!-- logoutOfSauceDemo -->
+                  <span class="method-name">logoutOfSauceDemo</span>
+                  <div class="stack-trace">java.lang.IllegalArgumentException: Argument is of an illegal type: org.openqa.selenium.By$ByClassName
+	at org.openqa.selenium.remote.internal.WebElementToJsonConverter.apply(WebElementToJsonConverter.java:84)
+	at java.util.stream.ReferencePipeline$3$1.accept(Unknown Source)
+	at java.util.Spliterators$ArraySpliterator.forEachRemaining(Unknown Source)
+	at java.util.stream.AbstractPipeline.copyInto(Unknown Source)
+	at java.util.stream.AbstractPipeline.wrapAndCopyInto(Unknown Source)
+	at java.util.stream.ReduceOps$ReduceOp.evaluateSequential(Unknown Source)
+	at java.util.stream.AbstractPipeline.evaluate(Unknown Source)
+	at java.util.stream.ReferencePipeline.collect(Unknown Source)
+	at org.openqa.selenium.remote.RemoteWebDriver.executeScript(RemoteWebDriver.java:477)
+	at com.project.page.MainMenuPage.logoutOfSauceDemo(MainMenuPage.java:36)
+	at com.project.testcases.NavigateAndLoginToSauceDemo.logoutOfSauceDemo(NavigateAndLoginToSauceDemo.java:52)
+	at java.util.ArrayList.forEach(Unknown Source)
+... Removed 27 stack frames
+</div> <!-- stack-trace -->
+                  <em>
+(Logging out of given test site and asserting it's title)                  </em>
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Smoke-class-failed -->
           <div class="suite-Smoke-class-passed">
             <div class="main-panel-header rounded-window-top">
               <img src="passed.png"/>
@@ -141,15 +182,6 @@
                   <span class="parameters">(standard_user, secret_sauce)</span>
                   <em>
 (Logging in to given test site and asserting it's title)                  </em>
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-              <div class="method">
-                <div class="method-content">
-                  <a name="logoutOfSauceDemo">
-                  </a> <!-- logoutOfSauceDemo -->
-                  <span class="method-name">logoutOfSauceDemo</span>
-                  <em>
-(Logging out of given test site and asserting it's title)                  </em>
                 </div> <!-- method-content -->
               </div> <!-- method -->
               <div class="method">
@@ -172,7 +204,7 @@
             <pre>
 &lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
 &lt;!DOCTYPE suite SYSTEM &quot;https://testng.org/testng-1.0.dtd&quot;&gt;
-&lt;suite guice-stage=&quot;DEVELOPMENT&quot; name=&quot;Smoke&quot;&gt;
+&lt;suite thread-count=&quot;2&quot; guice-stage=&quot;DEVELOPMENT&quot; name=&quot;Smoke&quot;&gt;
   &lt;listeners&gt;
     &lt;listener class-name=&quot;com.project.utility.Listener&quot;/&gt;
   &lt;/listeners&gt;
@@ -224,20 +256,20 @@ data.addRows(3);
 data.setCell(0, 0, 0)
 data.setCell(0, 1, 'navigateToSauceDemo')
 data.setCell(0, 2, 'com.project.testcases.NavigateAndLoginToSauceDemo')
-data.setCell(0, 3, 14805);
+data.setCell(0, 3, 9606);
 data.setCell(1, 0, 1)
 data.setCell(1, 1, 'loginToSauceDemo')
 data.setCell(1, 2, 'com.project.testcases.NavigateAndLoginToSauceDemo')
-data.setCell(1, 3, 7188);
+data.setCell(1, 3, 4453);
 data.setCell(2, 0, 2)
 data.setCell(2, 1, 'logoutOfSauceDemo')
 data.setCell(2, 2, 'com.project.testcases.NavigateAndLoginToSauceDemo')
-data.setCell(2, 3, 1069);
+data.setCell(2, 3, 0);
 window.suiteTableData['Smoke']= { tableData: data, tableDiv: 'times-div-Smoke'}
 return data;
 }
               </script>
-              <span class="suite-total-time">Total running time: 23 seconds</span>
+              <span class="suite-total-time">Total running time: 14 seconds</span>
               <div id="times-div-Smoke">
               </div> <!-- times-div-Smoke -->
             </div> <!-- times-div -->
@@ -270,32 +302,34 @@ return data;
               </div> <!-- configuration-suite before -->
               <div class="configuration-method before">
                 <span class="method-name">pageObjects</span>
-                <span class="method-start">634 ms</span>
+                <span class="method-start">560 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">navigateToSauceDemo</span>
-                <span class="method-start">646 ms</span>
+                <span class="method-start">580 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method before">
                 <span class="method-name">pageObjects</span>
-                <span class="method-start">15985 ms</span>
+                <span class="method-start">10734 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
                 <span class="method-name">loginToSauceDemo(standard_user, secret_sauce)</span>
-                <span class="method-start">15985 ms</span>
+                <span class="method-start">10734 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-method before">
                 <span class="method-name">pageObjects</span>
-                <span class="method-start">23334 ms</span>
+                <span class="method-start">15268 ms</span>
               </div> <!-- configuration-method before -->
               <div class="test-method">
+                <img src="failed.png">
+                </img>
                 <span class="method-name">logoutOfSauceDemo</span>
-                <span class="method-start">23334 ms</span>
+                <span class="method-start">15268 ms</span>
               </div> <!-- test-method -->
-              <div class="configuration-suite after">
+              <div class="configuration-class after">
                 <span class="method-name">finishedTest</span>
-                <span class="method-start">24544 ms</span>
-              </div> <!-- configuration-suite after -->
+                <span class="method-start">15771 ms</span>
+              </div> <!-- configuration-class after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
       </div> <!-- main-panel-root -->

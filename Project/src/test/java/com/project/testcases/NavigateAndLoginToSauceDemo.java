@@ -10,7 +10,7 @@ import com.project.utility.MethodLibrary;
 public class NavigateAndLoginToSauceDemo extends BaseClass{
 	
 	@Test(description = "Navigate to the given test site and asserting it's title")
-	public void navigateToSauceDemo() throws InterruptedException
+	public static void navigateToSauceDemo() throws InterruptedException
 	{
 		// Set up a new log entry in report
 	    Logs.reportLogSetter("Navigate to "+testSiteName, author, category);
@@ -27,7 +27,7 @@ public class NavigateAndLoginToSauceDemo extends BaseClass{
 	
 	@Parameters({"username", "password"})
 	@Test(enabled = true, dependsOnMethods = {"navigateToSauceDemo"}, description = "Logging in to given test site and asserting it's title")
-	public void loginToSauceDemo(String username, String password) throws InterruptedException {
+	public static void loginToSauceDemo(String username, String password) throws InterruptedException {
    	
 		// Set up a new log entry in report
     	Logs.reportLogSetter("Login", author, category);

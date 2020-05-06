@@ -45,10 +45,10 @@ public class BrowserFactory extends BaseClass{
 			Logger.getLogger("org.openqa.selenium.remote").setLevel(Level.OFF);
 			
 			// Assign browser
-			if(browserName.equalsIgnoreCase("firefox"))
+			if(browserName.equalsIgnoreCase("firefox") || browserName.equalsIgnoreCase("ff"))
 			{
 				
-				Logs.info("Browser: "+"firefox");
+				Logs.info("Browser: "+"Firefox");
 				
 				System.setProperty("webdriver.gecko.driver", System.getProperty("user.dir") + File.separator+"src"+
 	                     File.separator+"test"+File.separator+"resources"+File.separator+"\\geckodriver.exe");
@@ -64,7 +64,7 @@ public class BrowserFactory extends BaseClass{
 			else if(browserName.equalsIgnoreCase("chrome"))
 			{
 				
-				Logs.info("Browser: "+"chrome");
+				Logs.info("Browser: "+"Chrome");
 				
 				System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + File.separator+"src"+
 			                     File.separator+"test"+File.separator+"resources"+File.separator+"\\chromedriver.exe");
@@ -79,7 +79,7 @@ public class BrowserFactory extends BaseClass{
 			}
 			else if(browserName.equalsIgnoreCase("IE"))
 			{
-				Logs.info("Browser: "+"IE");
+				Logs.info("Browser: "+"Internet Explorer");
 				
 				/*
 				We are explicitly using a 32-bit IE driver to
@@ -109,7 +109,7 @@ public class BrowserFactory extends BaseClass{
 			
 			// Log message
 			logMessage = "Successfully visited test site: "+testSiteName;
-			reportLogger.info(logMessage);
+			reportLogger.pass(logMessage);
 			Logs.info(logMessage);
 
 			
@@ -118,8 +118,6 @@ public class BrowserFactory extends BaseClass{
 		{
 			// Log failure message
 			logMessage = "Unable to visit website due to exception: "+exception;
-			reportLogger.fatal(logMessage);
-			Logs.fatal(logMessage);
 			Assert.fail(logMessage);
 		}
 

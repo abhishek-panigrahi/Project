@@ -7,7 +7,7 @@ import java.util.Properties;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
-import org.testng.annotations.AfterSuite;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeSuite;
 
@@ -32,8 +32,8 @@ public class BaseClass {
 	public static String author = null;
 	public static String testSiteName = null;
 	
-	protected LoginPage loginPageObject;
-	protected MainMenuPage mainMenuPageObject;
+	protected static LoginPage loginPageObject;
+	protected static MainMenuPage mainMenuPageObject;
 	
 	@BeforeSuite
 	public void onStart() throws IOException {
@@ -56,11 +56,10 @@ public class BaseClass {
 		mainMenuPageObject = PageFactory.initElements(driver, MainMenuPage.class);
 	}
 	
-	@AfterSuite
+	@AfterClass
 	public void finishedTest()
 	{
 	BrowserFactory.closeBrowser(driver);	
 	}
-	
 
 }
